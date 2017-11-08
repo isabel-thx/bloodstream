@@ -31,7 +31,7 @@ class UsersController < Clearance::UsersController
 
 	def show
 		@user = User.find(params[:id])
-		@rewardcodes = RewardCode.new
+		
     # automatically renders template: "users/show" (controller/action)
     # if params[:user_id]
 
