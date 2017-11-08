@@ -19,7 +19,7 @@ class RewardCodesController < ApplicationController
 		if @rewardcodes != nil
 			current_user.points += 10
 			current_user.save
-			flash[:notice] = "Code applied."
+			flash[:notice] = "Code applied lah."
 			@rewardcodes.destroy
 		else
 			@message = "Code not found."
