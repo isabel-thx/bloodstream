@@ -11,7 +11,10 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require jquery3
 //= require turbolinks
 //= require underscore
 //= require gmaps/google
 //= require_tree .
+
+
