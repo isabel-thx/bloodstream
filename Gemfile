@@ -5,22 +5,19 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
-gem 'omniauth'
-
-gem 'omniauth-facebook'
-
+# Use Clearance for user authentication
+gem 'clearance'
+# Use Figaro to hide sensitive information
 gem 'figaro'
-
+#Use Omniauth for Facebook login
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 # Use Geocoder for longitude and latitude
 gem 'geocoder'
-
 # Use Gmaps4rails to attach Google Maps
 gem 'gmaps4rails'
 
-
-gem 'clearance'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use postgresql as the database for Active Record
