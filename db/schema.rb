@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171108093724) do
+ActiveRecord::Schema.define(version: 20171108110042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,14 @@ ActiveRecord::Schema.define(version: 20171108093724) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "reward_codes", force: :cascade do |t|
+    t.string "code"
+    t.integer "points"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+  end
+
   create_table "user_events", force: :cascade do |t|
     t.string "user_id"
     t.string "event_id"
@@ -52,7 +60,6 @@ ActiveRecord::Schema.define(version: 20171108093724) do
     t.string "email"
     t.integer "phone_number"
     t.string "address"
-    t.integer "points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "encrypted_password", limit: 128
@@ -60,6 +67,7 @@ ActiveRecord::Schema.define(version: 20171108093724) do
     t.string "remember_token", limit: 128
     t.boolean "verified", default: false
     t.integer "role", default: 0
+    t.integer "points", default: 0
     t.index ["email"], name: "index_users_on_email"
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end

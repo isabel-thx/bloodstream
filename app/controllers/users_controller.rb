@@ -31,11 +31,12 @@ class UsersController < Clearance::UsersController
 
 	def show
 		@user = User.find(params[:id])
+		@rewardcodes = RewardCode.new
     # automatically renders template: "users/show" (controller/action)
     # if params[:user_id]
 
 
-		@events = @user.events.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
+		#@events = @user.events.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
 
     # else
     #   @events = Event.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
