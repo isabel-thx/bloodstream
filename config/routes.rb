@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get 'admin/show'
 
   root 'hello#index'
+
   get "/homepage" => "hello#index", as: "home"
+  get "/tools" => "admin#show", as: "admin"
 
   resources :events
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
