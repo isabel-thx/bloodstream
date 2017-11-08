@@ -10,8 +10,6 @@
       <th>Date</th>
       <th>Start time</th>
       <th>End time</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -24,8 +22,6 @@
         <td><%= event.date %></td>
         <td><%= event.start_time %></td>
         <td><%= event.end_time %></td>
-        <td><%= event.latitude %></td>
-        <td><%= event.longitude %></td>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
