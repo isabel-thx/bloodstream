@@ -13,3 +13,47 @@
  *= require_tree .
  *= require_self
  */
+
+.navbar.navbar-inverse {
+	background: white;
+	border: none;
+	width: cover;
+	height: 100px;
+	hover: black;
+}
+
+.navbar.navbar-inverse.navbar-fixed-top {
+	padding: 30px;
+}
+
+.sign-in {
+	margin-top: 100px;
+}
+
+.sign-up {
+	margin-top: 100px;
+}
+
+.container {
+	margin: auto;
+}
+
+/* .container-fluid {
+	height: 100px;
+	margin: 20px;
+} */
+
+.slogan {
+	margin-top: 150px;
+	margin-left: 100px;
+}
+
+.input-group.search {
+	width: 300px;
+}
+
+body {
+	margin-left: 100px;
+	margin-right: 100px;
+	margin-top: 50px;
+}

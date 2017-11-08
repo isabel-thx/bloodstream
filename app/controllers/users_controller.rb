@@ -66,7 +66,7 @@ class UsersController < ApplicationController
 
 	def verify
 		if current_user.donor?
-			flash[:notice] = "Sorry. You do not have the permission to 			verify a donor."
+			flash[:notice] = "Sorry. You do not have the permission to verify a donor."
 			redirect_to "/"
 		else
 			@user.update(verified: true)
@@ -75,9 +75,6 @@ class UsersController < ApplicationController
 		end
 	end
 
-	def allowed?
-		return !current_user.donor?
-	end
 
 	private
   def user_params
@@ -87,4 +84,9 @@ class UsersController < ApplicationController
   def set_user
      @user = User.find(params[:id])
   end
+
+	def allowed?
+		return !current_user.donor?
+	end
+
 end
