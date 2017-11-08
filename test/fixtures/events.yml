@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  organizer: MyString
+  venue: MyString
+  date: 2017-11-08
+  start_time: 2017-11-08 14:26:10
+  end_time: 2017-11-08 14:26:10
+  latitude: 1.5
+  longitude: 1.5
+
+two:
+  organizer: MyString
+  venue: MyString
+  date: 2017-11-08
+  start_time: 2017-11-08 14:26:10
+  end_time: 2017-11-08 14:26:10
+  latitude: 1.5
+  longitude: 1.5
