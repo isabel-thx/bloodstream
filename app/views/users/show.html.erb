@@ -1,0 +1,22 @@
+<h1>Profile page</h1>
+
+<div id="profile_info">
+<p><strong>Name:</strong> <%= @user.first_name + ' ' + @user.last_name%> </p>
+<p><strong>Email:</strong> <%= @user.email %> </p>
+<p><strong>Mobile:</strong> <%= @user.phone_number %></p>
+<p><strong>Date of Birth:</strong> <%= @user.date_of_birth %></p>
+</div>
+
+<div id="blood-point">
+  <strong>Reward Points:</strong> <%= @user.points %>
+</div>
+<br><br>
+<div id="blood-type">
+  <p>Blood Type:</p>
+  <h1><%= @user.blood_type %></h1>
+</div>
+<br><br>
+
+<div id="events-attended">
+  
+</div>
