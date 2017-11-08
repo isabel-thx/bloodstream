@@ -1,0 +1,2 @@
+class RewardCodesController < ApplicationController
+end
