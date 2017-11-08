@@ -3,14 +3,29 @@ class RewardCodesController < ApplicationController
 
 	end
  
-	def new
-		@rewardcodes = RewardCode.new(user_id: current_user.id)
+	def create
+		@rewardcodes = RewardCode.new(user_id: params[:reward_code][:user_id])
 	    if @rewardcodes.save
-	    @rewardcodes.generate
+	    	@rewardcodes.generate
+	    	flash[:notice] = "Code generated."
+	    	redirect_to "/"
 	    end
 	end
-		
 	
+
+	
+	def check
+		@rewardcodes = RewardCode.find_by(user_id: current_user.id, code: params[:code])
+		if @rewardcodes != nil
+			current_user.points += 10
+			current_user.save
+			@rewardcodes.destroy
+			
+		else
+			@message = "Code not found."
+		end
+		redirect_to current_user
+	end
 	
 	
 

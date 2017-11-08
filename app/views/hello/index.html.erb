@@ -1,3 +1,9 @@
 <h1>Hello#index</h1>
 <p>Find me in app/views/hello/index.html.erb</p>
-<%= link_to "Generate code", new_reward_code_path %>
+<%= form_for @rewardcodes do |r| %>
+	
+	<%= r.label :user_id %>
+	<%= r.number_field :user_id %><br>
+	<%= submit_tag("Generate Code") %><br>
+	<% end %>
+

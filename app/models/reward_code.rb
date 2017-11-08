@@ -1,5 +1,5 @@
 class RewardCode < ApplicationRecord
-	belongs_to :user, dependent: :destroy
+	belongs_to :user
 
 	def generate
 		range = [*'0'..'9',*'A'..'Z',*'a'..'z']

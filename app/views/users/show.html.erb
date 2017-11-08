@@ -17,6 +17,14 @@
 </div>
 <br><br>
 
+<%= form_tag(check_path, :method => "get") do %>
+    
+    <%= text_field_tag :code , '', placeholder: "Your code here" %>
+
+    <%= submit_tag"Submit" %>
+    <% end %>
+<%= @message if @message %>
+
 <div id="events-attended">
   
 </div>
