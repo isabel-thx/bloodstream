@@ -6,11 +6,19 @@ git_source(:github) do |repo_name|
 end
 
 
+gem 'omniauth'
+
+gem 'omniauth-facebook'
+
+gem 'figaro'
+
+
 # Use Geocoder for longitude and latitude
 gem 'geocoder'
 
 # Use Gmaps4rails to attach Google Maps
 gem 'gmaps4rails'
+
 
 gem 'clearance'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

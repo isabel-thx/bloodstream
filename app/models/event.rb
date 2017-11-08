@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
-	has_many :users, dependent: :destroy
+	has_many :users, through: :user_events
+	has_many :user_events, dependent: :destroy
 
 	validates :organizer, presence: true
 	validates :venue, presence: true

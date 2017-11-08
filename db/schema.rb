@@ -10,11 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20171108064308) do
+=======
 ActiveRecord::Schema.define(version: 20171108062610) do
+>>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< HEAD
+  create_table "authentications", force: :cascade do |t|
+    t.string "uid"
+    t.string "token"
+    t.string "provider"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_authentications_on_user_id"
+=======
   create_table "events", force: :cascade do |t|
     t.string "organizer", null: false
     t.string "venue", null: false
@@ -25,6 +39,7 @@ ActiveRecord::Schema.define(version: 20171108062610) do
     t.float "longitude", default: 0.0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+>>>>>>> master
   end
 
   create_table "users", force: :cascade do |t|
@@ -35,15 +50,17 @@ ActiveRecord::Schema.define(version: 20171108062610) do
     t.string "email"
     t.integer "phone_number"
     t.string "address"
-    t.boolean "verified"
     t.integer "points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "encrypted_password", limit: 128
     t.string "confirmation_token", limit: 128
     t.string "remember_token", limit: 128
+    t.boolean "verified", default: false
+    t.integer "role", default: 0
     t.index ["email"], name: "index_users_on_email"
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
+  add_foreign_key "authentications", "users"
 end
