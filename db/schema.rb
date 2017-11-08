@@ -10,11 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20171108064308) do
+=======
+ActiveRecord::Schema.define(version: 20171108062610) do
+>>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< HEAD
   create_table "authentications", force: :cascade do |t|
     t.string "uid"
     t.string "token"
@@ -23,6 +28,18 @@ ActiveRecord::Schema.define(version: 20171108064308) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_authentications_on_user_id"
+=======
+  create_table "events", force: :cascade do |t|
+    t.string "organizer", null: false
+    t.string "venue", null: false
+    t.date "date", null: false
+    t.time "start_time", null: false
+    t.time "end_time", null: false
+    t.float "latitude", default: 0.0
+    t.float "longitude", default: 0.0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+>>>>>>> master
   end
 
   create_table "users", force: :cascade do |t|
