@@ -82,12 +82,9 @@ class UsersController < ApplicationController
 	private
   def user_params
     params[Clearance.configuration.user_parameter] || Hash.new
-
-    params.require(:user).permit(:first_name, :last_name, :email, :blood_type, :date_of_birth, :email, :phone_number, :address, :verified, :points)
   end
 
   def set_user
      @user = User.find(params[:id])
   end
-
 end
