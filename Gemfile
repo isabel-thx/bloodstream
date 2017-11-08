@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Use CarrierWave of ruploading images
+gem 'carrierwave'
 # Use Clearance for user authentication
 gem 'clearance'
 # Use Figaro to hide sensitive information
