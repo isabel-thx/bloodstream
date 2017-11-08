@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'admin/show'
+
   root 'hello#index'
   get "/homepage" => "hello#index", as: "home"
 
