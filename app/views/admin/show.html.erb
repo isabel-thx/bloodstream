@@ -1,0 +1,8 @@
+
+<% if current_user.admin? %>
+	<%= form_for @rewardcodes do |r| %>
+		<%= r.label :user_id %>
+		<%= r.number_field :user_id %><br>
+		<%= submit_tag("Generate Code") %><br>
+	<% end %>
+<% end %>
