@@ -1,12 +1,14 @@
 
 <h1>Hello#index</h1>
 <p>Find me in app/views/hello/index.html.erb</p>
-<%= form_for @rewardcodes do |r| %>
-	
-	<%= r.label :user_id %>
-	<%= r.number_field :user_id %><br>
-	<%= submit_tag("Generate Code") %><br>
+
+<% if current_user.admin? %>
+	<%= form_for @rewardcodes do |r| %>
+		<%= r.label :user_id %>
+		<%= r.number_field :user_id %><br>
+		<%= submit_tag("Generate Code") %><br>
 	<% end %>
+<% end %>
 
 <div id="header" style="text-align: center;">
 	<h1>BLOODSTREAM</h1>

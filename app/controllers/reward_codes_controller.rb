@@ -7,7 +7,7 @@ class RewardCodesController < ApplicationController
 		@rewardcodes = RewardCode.new(user_id: params[:reward_code][:user_id])
 	    if @rewardcodes.save
 	    	@rewardcodes.generate
-	    	flash[:notice] = "Code generated."
+	    	flash[:notice] = "Code generated: " + @rewardcodes.code.to_s
 	    	redirect_to "/"
 	    end
 	end
@@ -19,8 +19,8 @@ class RewardCodesController < ApplicationController
 		if @rewardcodes != nil
 			current_user.points += 10
 			current_user.save
+			flash[:notice] = "Code applied."
 			@rewardcodes.destroy
-			
 		else
 			@message = "Code not found."
 		end
