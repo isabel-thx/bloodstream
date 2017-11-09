@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   resource :session, controller: "clearance/sessions", only: [:create]
 
   resources :users, except: :index
-  resources :attendees
 
   resources :users, controller: "users", only: [:create] do
     resource :password,
