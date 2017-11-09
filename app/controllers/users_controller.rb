@@ -70,7 +70,7 @@ class UsersController < Clearance::UsersController
 	def verify
 		if current_user.donor?
 			flash[:notice] = "Sorry. You do not have the permission to verify a donor."
-			redirect_to "/"
+			redirect_to "/tools"
 		else
 			@user.update(verified: true)
 			flash[:notice] = "This donor has been verified."
