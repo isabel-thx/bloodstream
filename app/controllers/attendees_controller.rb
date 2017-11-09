@@ -8,7 +8,7 @@ class AttendeesController < ApplicationController
 	    if @attendee.save
 	    	@attendee.generate
 	    	flash[:notice] = "Code generated: " + @attendee.code.to_s
-	    	redirect_to "/tools"
+	    	redirect_to "/users"
 	    end
 	end
 
