@@ -1,5 +1,5 @@
 class HelloController < ApplicationController
   def index
-  	@rewardcodes = RewardCode.new
+  	@attendee = Attendee.new
   end
 end
