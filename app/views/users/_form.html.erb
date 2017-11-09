@@ -1,4 +1,4 @@
-<%= form.label "First Name" %><%= form.text_field :first_name, :required => 'required', :required => 'required' %><br>
+<%= form.label "First Name" %><%= form.text_field :first_name, :required => 'required' %><br>
 <%= form.label "Last Name" %><%= form.text_field :last_name, :required => 'required' %><br>
 <%= form.label "Blood Type" %><%= form.text_field :blood_type, :required => 'required' %><br>
 <%= form.label "Date Of Birth" %><%= form.date_field :date_of_birth, :required => 'required' %><br>
@@ -7,9 +7,4 @@
 <div class="text-field">
   <%= form.label :email %>
   <%= form.text_field :email, type: 'email' %>
-</div>
-
-<div class="password-field">
-  <%= form.label :password %>
-  <%= form.password_field :password %>
 </div>
