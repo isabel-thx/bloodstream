@@ -19,6 +19,9 @@ gem 'geocoder'
 # Use Gmaps4rails to attach Google Maps
 gem 'gmaps4rails'
 
+# use will_paginate for pagination
+gem 'will_paginate', '~> 3.1.0'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use postgresql as the database for Active Record

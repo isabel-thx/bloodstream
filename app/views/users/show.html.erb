@@ -1,4 +1,4 @@
-<h1>Profile page</h1>
+<h1>Profile page123</h1>
 
 <div id="profile_info">
 <p><strong>Name:</strong> <%= @user.first_name + ' ' + @user.last_name%> </p>
@@ -13,10 +13,23 @@
 <br><br>
 <div id="blood-type">
   <p>Blood Type:</p>
-  <h1><%= @user.blood_type %></h1>
+  <h1><%= @user.blood_type.upcase %></h1>
 </div>
 <br><br>
 
-<div id="events-attended">
-  
-</div>
+<table>
+  <thead>
+    <tr>
+      <th>Organizer</th>
+      <th>Venue</th>
+    </tr>
+  </thead>
+<!-- <div id="events-attended"> -->
+  <% @events.each do |e| %>
+    <%#= e. %>
+  <% end %>
+<!-- </div> -->
+
+
+
+</table>
