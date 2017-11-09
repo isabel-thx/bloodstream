@@ -1,5 +1,9 @@
-<h1>Profile page123</h1>
+<h1>Profile page</h1>
 
+<% if @user.id == current_user.id %>
+  <%= link_to "Edit profile", edit_user_path%>
+<% end %>
+<br><br>
 <div id="profile_info">
 <p><strong>Name:</strong> <%= @user.first_name + ' ' + @user.last_name%> </p>
 <p><strong>Email:</strong> <%= @user.email %> </p>
