@@ -97,9 +97,7 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
 
     <% @attendees.each do |a| %>
 
-    
       <tr>
-        <!-- <td><%#= listing.id %></td> -->
         <td><%= a.user.first_name %></td>
         <td><%= a.user.last_name %></td>
         <td><%= a.user.date_of_birth %></td>
@@ -115,7 +113,7 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
               <%= submit_tag("Generate Code") %><br><td> 
             <% end %>
         </td>
-
+    
     <% end %>
     </tr>
   </tbody>
