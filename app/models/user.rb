@@ -11,7 +11,7 @@ class User < ApplicationRecord
     validates :date_of_birth, presence: true
     validates :phone_number, presence: true
     validates :address, presence: true
-    validates :password, presence: true, length:{ 7..20 }
+    validates :password, presence: true, length: { :in => 7..20 }
     validates :email, uniqueness: {case_sensitive: false, message: "Error: An account with this email already exists."}
     validates :email, presence: true, format: { with: (/\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i),message: "Error: Invalid email format." }
 
