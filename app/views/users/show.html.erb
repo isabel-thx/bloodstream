@@ -37,3 +37,10 @@
 
 
 </table>
+
+<% if current_user.donor? %>
+  <%= form_tag(check_path, :method => "get") do %>
+      <%= text_field_tag :code , '', placeholder: "Your code here" %>
+      <%= submit_tag"Submit" %>
+  <% end %>
+<% end %>
