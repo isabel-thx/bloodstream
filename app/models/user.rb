@@ -2,9 +2,8 @@ class User < ApplicationRecord
   include Clearance::User
 
     has_many :authentications, dependent: :destroy
-    has_many :user_events, dependent: :destroy
-    has_many :events, through: :user_events
-	has_many :reward_codes, dependent: :destroy
+    has_many :events, through: :reward_codes
+    has_many :reward_codes
 
   # declare an enum attribute where the values map to integers in the database, but can be queried by name
   	enum role: [ :donor, :admin ]
