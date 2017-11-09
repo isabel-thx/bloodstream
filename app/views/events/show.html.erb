@@ -20,22 +20,25 @@
 
 <p>
   <strong>Date:</strong>
-  <%= @event.date %>
+  <% if @event.end_date.nil? %>
+    <%= @event.start_date.strftime('%A, %d %B %Y') %>
+  <% else %>
+    <%= @event.start_date.strftime('%A, %d %B %Y') %> - <%= @event.end_date.strftime('%A, %d %B %Y') %>
+  <% end %>
 </p>
 
 <p>
-  <strong>Start time:</strong>
-  <%= @event.start_time %>
+  <strong>Time:</strong>
+  <%= @event.start_time.strftime('%H:%M') %> - <%= @event.end_time.strftime('%H:%M') %>
 </p>
 
-<p>
-  <strong>End time:</strong>
-  <%= @event.end_time %>
-</p>
+<% if current_user.admin? %>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %> |
 <%= link_to 'Delete', events_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<% end %>
 
 <!-- Google Maps API -->
 <br><br>
