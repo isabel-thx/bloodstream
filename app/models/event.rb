@@ -1,8 +1,8 @@
 class Event < ApplicationRecord
 
 
-	has_many :users, through: :reward_codes
-	has_many :reward_codes
+	has_many :users, through: :attendees
+	has_many :attendees
 	mount_uploaders :photos, PhotoUploader
 
 	# has_many :user_events, dependent: :destroy
