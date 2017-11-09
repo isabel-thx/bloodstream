@@ -4,12 +4,12 @@ class RewardCodesController < ApplicationController
 	end
  
 	def create
-		@rewardcodes = RewardCode.new(user_id: params[:reward_code][:user_id])
+		@rewardcodes = RewardCode.new(user_id: params[:reward_code][:user_id], event_id: "1")
 	    if @rewardcodes.save
-	    	@rewardcodes.generate
-	    	flash[:notice] = "Code generated: " + @rewardcodes.code.to_s
-	    	redirect_to "/tools"
+	       @rewardcodes.generate
+	       flash[:notice] = "Code generated: " + @rewardcodes.code.to_s
 	    end
+	    	redirect_to "/"
 	end
 	
 
@@ -22,7 +22,7 @@ class RewardCodesController < ApplicationController
 			flash[:notice] = "Code applied lah."
 			@rewardcodes.destroy
 		else
-			@message = "Code not found."
+			flash[:notice] = "Code not found."
 		end
 		redirect_to current_user
 	end

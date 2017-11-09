@@ -43,12 +43,12 @@
           <% end %>
 
           <% if current_user.admin? %>
-						<td><%= form_for @rewardcodes do |r| %>
-							<%= r.label :user_id %>
-							<%= r.number_field :user_id %><br>
-							<%= submit_tag("Generate Code") %><br><td>
-						<% end %>
-					<% end %>
+				<td><%= form_for @rewardcodes do |r| %>
+					<%= r.label :user_id %>
+					<%= r.number_field :user_id %><br>
+					<%= submit_tag("Generate Code") %><br><td>
+				<% end %>
+		  <% end %>
 
           <%# if user.user == current_user && current_user.customer? %>
             <!-- <td><%#= link_to 'Edit', edit_user_path(user) %></td>
