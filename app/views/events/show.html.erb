@@ -13,6 +13,11 @@
 <% end %>
 
 <p>
+  <strong>Title:</strong>
+  <%= @event.title %>
+</p>
+
+<p>
   <strong>Organizer:</strong>
   <%= @event.organizer %>
 </p>
@@ -34,6 +39,11 @@
 <p>
   <strong>Time:</strong>
   <%= @event.start_time.strftime('%H:%M') %> - <%= @event.end_time.strftime('%H:%M') %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @event.description %>
 </p>
 
 <% if current_user.admin? %>
