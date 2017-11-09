@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  get 'admin/show'
+
 
   root 'hello#index'
 
@@ -25,9 +25,9 @@ Rails.application.routes.draw do
   get "/sign_up" => "clearance/users#new", as: "sign_up"
 
 
-root 'users#index'
-resources :users, except: :index
-resources :reward_codes
+
+  resources :users, except: :index
+  resources :attendees
 
 
 get "/auth/:provider/callback" => "sessions#create_from_omniauth"
