@@ -1,7 +1,7 @@
 class UsersController < Clearance::UsersController
 
 	before_action :allowed?, only: [:verify]
-	before_action :set_user, only: [:show, :edit, :update, :upgrade, :downgrade]
+	before_action :set_user, only: [:show, :edit, :update, :verify, :upgrade, :downgrade]
 
 	def user_from_params
   	first_name = user_params.delete(:first_name)
@@ -74,7 +74,7 @@ class UsersController < Clearance::UsersController
 		else
 			@user.update(verified: true)
 			flash[:notice] = "This donor has been verified."
-			redirect_to "/"
+			redirect_to "/tools"
 		end
 	end
 
