@@ -45,12 +45,17 @@ class UsersController < Clearance::UsersController
   end
 
   def edit
-    # @user = User.find(params[:id])
+		if User.find(params[:id]) == User.find(current_user.id)
+	    @user = User.find(params[:id])
+		else
+			flash[:notice] = "You are not allow to edit this user."
+			redirect_to "/"
+		end
   end
 
   def update
     # @user = User.find(params[:id])
-    if @user.update(user_params)
+    if @user.update(update_params)
       redirect_to @user
       #redirect_to the obejct means goes to the show path of the object
     else
@@ -81,6 +86,10 @@ class UsersController < Clearance::UsersController
 
 
 	private
+	def update_params
+		params.require(:user).permit(:first_name, :last_name, :blood_type, :date_of_birth, :phone_number, :address, :email, :password)
+	end
+
   def user_params
     params[Clearance.configuration.user_parameter] || Hash.new
   end
