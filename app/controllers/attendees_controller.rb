@@ -4,10 +4,10 @@ class AttendeesController < ApplicationController
 	end
 
 	def create
-		@attendees = Attendee.new(user_id: params[:reward_code][:user_id])
-	    if @attendees.save
-	    	@attendees.generate
-	    	flash[:notice] = "Code generated: " + @attendees.code.to_s
+		@attendee = Attendee.new(user_id: params[:reward_code][:user_id])
+	    if @attendee.save
+	    	@attendee.generate
+	    	flash[:notice] = "Code generated: " + @attendee.code.to_s
 	    	redirect_to "/tools"
 	    end
 	end
@@ -15,12 +15,12 @@ class AttendeesController < ApplicationController
 
 
 	def check
-		@attendees = Attendee.find_by(user_id: current_user.id, code: params[:code])
-		if @attendees != nil
+		@attendee = Attendee.find_by(user_id: current_user.id, code: params[:code])
+		if @attendee != nil
 			current_user.points += 10
 			current_user.save
 			flash[:notice] = "Code applied lah."
-			@attendees.destroy
+			@attendee.destroy
 		else
 			@message = "Code not found."
 		end
