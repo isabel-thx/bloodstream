@@ -1,7 +1,8 @@
 <h1>Profile page</h1>
 
 <% if @user.id == current_user.id %>
-  <%= link_to "Edit profile", edit_user_path%>
+  <%= link_to "Edit profile", edit_user_path %>
+  <%= link_to "Reset password", edit_user_password_path(current_user.id) %>
 <% end %>
 <br><br>
 <div id="profile_info">
