@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class UsersController < Clearance::UsersController
 
 	before_action :allowed?, only: [:verify]
 	before_action :set_user, only: [:show, :edit, :update, :upgrade, :downgrade]
@@ -28,12 +28,15 @@ class UsersController < ApplicationController
 	def index
 		@users = User.all
 	end
-	
+
 	def show
-    # @user = User.find(params[:id])
+		@user = User.find(params[:id])
+
     # automatically renders template: "users/show" (controller/action)
     # if params[:user_id]
-      @events = @user.events.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
+
+
+		# @events = @user.user_events.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
 
     # else
     #   @events = Event.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
