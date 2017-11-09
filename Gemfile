@@ -7,6 +7,7 @@ end
 
 # Use CarrierWave of ruploading images
 gem 'carrierwave'
+gem 'mini_magick'
 # Use Clearance for user authentication
 gem 'clearance'
 # Use Figaro to hide sensitive information

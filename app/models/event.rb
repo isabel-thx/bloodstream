@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
 	has_many :users, through: :user_events
+	mount_uploaders :photos, PhotoUploader
 	# has_many :user_events, dependent: :destroy
 
 	validates :organizer, presence: true
