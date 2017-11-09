@@ -8,22 +8,33 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Nunito" rel="stylesheet">
+
   <%= favicon_link_tag 'favicon.ico' %>
   
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> 
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
 
   <%= csrf_meta_tag %>
 </head>
 <body>
-<nav class="navbar navbar-inverse">
-  <div class="navbar-header">
-    <a class="navbar-brand" href="/"><%= image_tag 'blood.png', alt: 'Bloodstream logo', height: 40, width: 40 %>
-    </a>
-  </div>
+<div class="header">
+<nav class="navbar navbar-expand-lg navbar-light transparent">
+  <!-- logo -->
+  <nav class="navbar navbar-light">
+      <a class="navbar-brand pl-5" href="/">
+        <%= image_tag 'blood.png', alt: 'Bloodstream logo', height: 40, width: 40 %>
+      </a>
+    </nav>
+
   <% if signed_in? %>
     <% if current_user.admin? %>
       <ul class="nav navbar-nav">
@@ -36,9 +47,7 @@
           <%= link_to 'Create Event', new_event_path %>
         </li>
       </ul>
-    <% end %>
-
-    <% if current_user.donor? %>
+    <% elsif current_user.donor? %>
         <ul class="nav navbar-nav">
           <li>
             <%= link_to "About Us", "/" %>
@@ -55,62 +64,49 @@
               <li><%= link_to "FAQs", "/" %></li>
             </ul>
           </li>
-          <% end %>
-        </ul>
-
-      
+    <% end %>
         <ul class="nav navbar-nav navbar-right">
-      <!-- <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li> -->
           <li><%= link_to "Sign Out", sign_out_path, :method => :delete %></li>
         </ul>
   <% else %>
-      <div class="navbar-header">
-        <a class="navbar-brand"><a href="/"><%= image_tag 'blood.png', alt: 'Bloodstream logo', height: 40, width: 40 %></a>
-      </div>
-      <div>
-      <ul class="nav navbar-nav">
-          <li>
-            <%= link_to "About Us", "/" %>
-          </li>
-          <!-- <li>
-            <%#= link_to "FAQs", user_path(current_user) %>
-          </li> -->
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">DONATE NOW
-            <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "Blood Drives", events_path %></li>
-              <li><%= link_to "FAQs", "/" %></li>
-            </ul>
-          </li>
-        </div>
-
-      <!-- <div class="input-group search">
-        <input type="text" class="form-control" placeholder="Search">
-          <div class="input-group-btn">
-            <button class="btn btn-default" type="submit">
-              <i class="glyphicon glyphicon-search"></i>
-            </button>
+    <div class="collapse navbar-collapse col-md-4 ml-auto" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <!-- <li class="nav-item active" id="sign-up">
+          <a class="nav-link" href="/">About Us</a>
+        </li> -->
+        <li class="nav-item active" id="sign-up">
+          <a class="nav-link" href="<%= sign_up_path %>">&hearts; Become a Donor</a>
+        </li>
+        <li class="nav-item active" id="sign-in">
+          <a class="nav-link" href="<%= sign_in_path %>">Sign In</a>
+        </li>
+        <li class="nav-item active dropdown" id="sign-in">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            More
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "Blood Drives", events_path, class: 'dropdown-item' %>
+            <%= link_to "FAQs", "/", class: 'dropdown-item' %>
           </div>
-      </div> -->
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Sign In", sign_in_path %></li>
-          <% if Clearance.configuration.allow_sign_up? %>
-            <li><%= link_to "Sign Up", sign_up_path %></li>
-          <% end %>
+        </li>  
       </ul>
-    <% end %>     
-<!--     </div> -->
+    </div>
+<% end %>
 </nav>
 
-<!--   </div> -->
-<br><br><br>
-  <div id="flash">
+<div class="tagline">
+  <h1>Bloodstream</h1>
+  <h4>Live longer. Together.</h4>
+</div>
+
+</div>
+
+<div id="flash">
     <% flash.each do |key, value| -%>
       <div id="alert alert-<%= key %>"><%= value %></div>
     <% end %>
   </div>
-
   <%= yield %>
+</div>
 </body>
 </html>
