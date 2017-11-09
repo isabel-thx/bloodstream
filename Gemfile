@@ -12,7 +12,7 @@ gem 'mini_magick'
 
 gem 'twilio-ruby'
 
->>>>>>> master
+
 # Use Clearance for user authentication
 gem 'clearance'
 # Use Figaro to hide sensitive information
