@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get "/homepage" => "hello#index", as: "home"
   get "/tools" => "admin#show", as: "admin"
+  get "/users" => "users#index", as: "users"
   get "/info" => "info#show", as: "info"
   get '/users/:id/verify' => 'users#verify', as: :verify_user
 
