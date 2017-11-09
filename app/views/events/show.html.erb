@@ -17,7 +17,11 @@
 
 <p>
   <strong>Date:</strong>
-  <%= @event.date.strftime('%A, %d %B %Y') %>
+  <% if @event.end_date.nil? %>
+    <%= @event.start_date.strftime('%A, %d %B %Y') %>
+  <% else %>
+    <%= @event.start_date.strftime('%A, %d %B %Y') %> - <%= @event.end_date.strftime('%A, %d %B %Y') %>
+  <% end %>
 </p>
 
 <p>
