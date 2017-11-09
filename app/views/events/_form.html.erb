@@ -41,6 +41,11 @@
     <%= form.time_select :end_time, id: :event_end_time %>
   </div>
 
+  <div class="field">
+    <%= form.label :photos %>
+    <%= form.file_field :photos, multiple: true, id: :event_photos %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
