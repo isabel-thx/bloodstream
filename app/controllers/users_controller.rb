@@ -27,6 +27,7 @@ class UsersController < Clearance::UsersController
 
 	def index
 		@users = User.all
+  	@rewardcodes = RewardCode.new
 	end
 
 	def show
