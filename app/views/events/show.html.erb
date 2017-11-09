@@ -4,9 +4,11 @@
 <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
 <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script>
 
+<% if @event.photos.length > 0 %>
 <p>
   <%= image_tag @event.photos.first %>
 </p>
+<% end %>
 
 <p>
   <strong>Organizer:</strong>

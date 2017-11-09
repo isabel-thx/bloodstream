@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-
-  get 'admin/show'
-
   root 'hello#index'
 
   get "/homepage" => "hello#index", as: "home"
@@ -13,6 +10,9 @@ Rails.application.routes.draw do
   resources :events
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
+
+  resources :users, except: :index
+  resources :attendees
 
   resources :users, controller: "users", only: [:create] do
     resource :password,
@@ -25,12 +25,7 @@ Rails.application.routes.draw do
   get "/sign_up" => "clearance/users#new", as: "sign_up"
 
 
-root 'users#index'
-resources :users, except: :index
-resources :reward_codes
-
-
-get "/auth/:provider/callback" => "sessions#create_from_omniauth"
-get '/check', to: "reward_codes#check", as: "check"
+  get "/auth/:provider/callback" => "sessions#create_from_omniauth"
+  get '/check', to: "reward_codes#check", as: "check"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
