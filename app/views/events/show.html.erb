@@ -17,17 +17,12 @@
 
 <p>
   <strong>Date:</strong>
-  <%= @event.date %>
+  <%= @event.date.strftime('%A, %d %B %Y') %>
 </p>
 
 <p>
-  <strong>Start time:</strong>
-  <%= @event.start_time %>
-</p>
-
-<p>
-  <strong>End time:</strong>
-  <%= @event.end_time %>
+  <strong>Time:</strong>
+  <%= @event.start_time.strftime('%H:%M') %> - <%= @event.end_time.strftime('%H:%M') %>
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
