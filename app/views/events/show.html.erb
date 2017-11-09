@@ -29,9 +29,13 @@
   <%= @event.start_time.strftime('%H:%M') %> - <%= @event.end_time.strftime('%H:%M') %>
 </p>
 
+<% if current_user.admin? %>
+
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %> |
 <%= link_to 'Delete', events_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<% end %>
 
 <!-- Google Maps API -->
 <br><br>

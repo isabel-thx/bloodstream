@@ -5,6 +5,16 @@ class User < ApplicationRecord
     has_many :events, through: :reward_codes
     has_many :reward_codes
 
+    validates :first_name, presence: true
+    validates :last_name, presence: true
+    validates :blood_type, presence: true
+    validates :date_of_birth, presence: true
+    validates :phone_number, presence: true
+    validates :address, presence: true
+    validates :password, presence: true, length: { 7..20 }
+    validates :email, uniqueness: {case_sensitive: false, message: "Error: An account with this email already exists."}
+    validates :email, presence: true, format: { with: (/\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i),message: "Error: Invalid email format." }
+
   # declare an enum attribute where the values map to integers in the database, but can be queried by name
   	enum role: [ :donor, :admin ]
     def self.create_with_auth_and_hash(authentication, auth_hash)
