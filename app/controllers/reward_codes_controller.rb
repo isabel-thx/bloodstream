@@ -8,7 +8,7 @@ class RewardCodesController < ApplicationController
 	    if @rewardcodes.save
 	    	@rewardcodes.generate
 	    	flash[:notice] = "Code generated: " + @rewardcodes.code.to_s
-	    	redirect_to "/"
+	    	redirect_to "/tools"
 	    end
 	end
 	
