@@ -4,6 +4,8 @@
 <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
 <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script>
 
+<h2><%#= @event.title %></h2>
+
 <% if @event.photos.length > 0 %>
 <p>
   <%= image_tag @event.photos.first %>
@@ -75,6 +77,8 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
   handler.fitMapToBounds();
 });
 </script>
+<br>
+<h2>Attendees</h2><br>
 
 <% if current_user.admin? %>
 <table class= "table">
@@ -96,7 +100,6 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
   <tbody>
 
     <% @attendees.each do |a| %>
-
     
       <tr>
         <!-- <td><%#= listing.id %></td> -->
@@ -110,8 +113,8 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
         <td><%= a.user.points %></td>
         <td>
             <%= form_for @code do |c| %>
-              <%= c.hidden_field :user_id, value: a.user_id %><br>
-              <%= c.hidden_field :event_id, value: @event.id %><br>
+              <%= c.hidden_field :user_id, value: a.user_id %>
+              <%= c.hidden_field :event_id, value: @event.id %>
               <%= submit_tag("Generate Code") %><br><td> 
             <% end %>
         </td>
