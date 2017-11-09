@@ -75,3 +75,51 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
   handler.fitMapToBounds();
 });
 </script>
+
+<% if current_user.admin? %>
+<table class= "table">
+ <thead>
+    <tr>
+      <!-- <th>id</th> -->
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Date of birth</th>
+      <th>Blood type</th>
+      <th>Address</th>
+      <th>Phone number</th>
+      <th>Email</th>
+      <th>Points</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% @attendees.each do |a| %>
+
+    
+      <tr>
+        <!-- <td><%#= listing.id %></td> -->
+        <td><%= a.user.first_name %></td>
+        <td><%= a.user.last_name %></td>
+        <td><%= a.user.date_of_birth %></td>
+        <td><%= a.user.blood_type %></td>
+        <td><%= a.user.address %></td>
+        <td><%= a.user.phone_number %></td>
+        <td><%= a.user.email %></td>
+        <td><%= a.user.points %></td>
+        <td>
+            <%= form_for @code do |c| %>
+              <%= c.hidden_field :user_id, value: a.user_id %><br>
+              <%= c.hidden_field :event_id, value: @event.id %><br>
+              <%= submit_tag("Generate Code") %><br><td> 
+            <% end %>
+        </td>
+
+    <% end %>
+    </tr>
+  </tbody>
+</table>
+<% end %>
+        
+

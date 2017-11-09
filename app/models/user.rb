@@ -2,8 +2,8 @@ class User < ApplicationRecord
   include Clearance::User
 
     has_many :authentications, dependent: :destroy
-    has_many :events, through: :reward_codes
-    has_many :reward_codes
+    has_many :events, through: :attendees
+    has_many :attendees
 
     validates :first_name, presence: true
     validates :last_name, presence: true
@@ -11,7 +11,7 @@ class User < ApplicationRecord
     validates :date_of_birth, presence: true
     validates :phone_number, presence: true
     validates :address, presence: true
-    validates :password, presence: true, length: { :in => 7..20 }
+    validates :password, presence: true, length: { :in => 7..20 }, on: :create
     validates :email, uniqueness: {case_sensitive: false, message: "Error: An account with this email already exists."}
     validates :email, presence: true, format: { with: (/\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i),message: "Error: Invalid email format." }
 
