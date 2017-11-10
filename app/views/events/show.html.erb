@@ -42,11 +42,20 @@
 </p>
 
 <% if signed_in? %>
+<<<<<<< Updated upstream
   <% if current_user.admin? %>
     <%= link_to 'Edit', edit_event_path(@event) %> |
     <%= link_to 'Back', events_path %> |
     <%= link_to 'Delete', events_path, method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
+=======
+<% if current_user.admin? %>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %> |
+<%= link_to 'Delete', events_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+>>>>>>> Stashed changes
 <% end %>
 
 <!-- Google Maps API -->
@@ -106,7 +115,7 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
 
     <% @attendees.each do |a| %>
 
-    <% if @attendee.event_id != nil %>
+   
       <tr>
         <td><%= a.user.first_name %></td>
         <td><%= a.user.last_name %></td>
@@ -123,7 +132,7 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
               <%= submit_tag("Generate Code") %><br><td> 
             <% end %>
         </td>
-    <% end %>
+    
     <% end %>
     </tr>
   </tbody>

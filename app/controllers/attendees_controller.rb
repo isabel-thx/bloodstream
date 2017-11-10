@@ -39,7 +39,9 @@ class AttendeesController < ApplicationController
 		@client.api.account.messages.create(
 		  from: ENV['TWILIO_PHONE_NUMBER'],
 		  to: "+6" + user.phone_number,
-		  body: 'Hello from BloodStream! We are in urgent need of Blood Type X. Please notify your family and friends and contact us if you can help.BloodStream Team.Live Longer.Together.'
+		  body: 'Good day! Blood Type X needed urgently. Please contact us if you can help.
+BloodStream Team.
+Live Longer.Together.'
 		)
 		end
 		redirect_to root_path
