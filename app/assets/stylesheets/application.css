@@ -24,8 +24,13 @@ body {
 	background-image: url(/assets/front2.jpg);
 	height: 100%;
 	background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+	padding: 200px;
+	padding-top: 300px;
+	font-family: 'Montserrat', sans-serif;
+	color: #fff;
 }
 
 .tagline {
@@ -36,13 +41,13 @@ body {
 	color: #fff;
 }
 
-.tagline h4 {
+.header h4 {
 	text-transform: uppercase;
 	letter-spacing: 5px;
 	font-size: 1.4rem;
 }
 
-.tagline h1 {
+.header h1 {
 	padding-top: 50px;
 	font-size: 6rem;
 	font-weight: bold;
