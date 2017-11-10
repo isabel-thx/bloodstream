@@ -3,13 +3,6 @@
   <h4>Live longer. Together.</h4>
 </div>
 
-<% if signed_in? %>
-	<% if current_user.admin? %>
-		<%= link_to 'SOS', send_sms_path %>
-	<% end %>
-<% end %>
-
-
 <div class="our_mission mt-5 mb-5 ml-5 pl-4 mr-5 pr-4">
 	<h1>Our Mission</h1>
 	<p>Bloodstream is the lifeline of those who face life's cruel uncertainties. We aim to save the lives of the young and old by raising awareness on the importance of blood donation. We do this through increasing public understanding of the impact of blood donation and supporting programs that drive participation.</p>
