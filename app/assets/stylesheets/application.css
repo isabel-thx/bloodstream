@@ -72,7 +72,7 @@ body {
 	margin-top: 100px;
 }
 
-<<<<<<< HEAD
+
 .our_mission h1 {
 	font-family: 'Volkhov', serif;
 	padding-left: 20px;
@@ -108,4 +108,11 @@ body {
 
 .table {
 	margin-top: 100px;
+}
+
+#sos {
+	padding: 3px 20px;
+	border: 2px solid red;
+	border-radius: 50px;
+	margin-left: 5px;
 }
