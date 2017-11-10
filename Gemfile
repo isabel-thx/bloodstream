@@ -9,6 +9,7 @@ end
 # Use CarrierWave of ruploading images
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'fog-aws'
 
 gem 'twilio-ruby'
 
