@@ -107,7 +107,7 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
 
     <% @attendees.each do |a| %>
 
-    <% if @attendee.event_id != nil %>
+   
       <tr>
         <td><%= a.user.first_name %></td>
         <td><%= a.user.last_name %></td>
@@ -124,7 +124,7 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
               <%= submit_tag("Generate Code") %><br><td> 
             <% end %>
         </td>
-    <% end %>
+    
     <% end %>
     </tr>
   </tbody>
