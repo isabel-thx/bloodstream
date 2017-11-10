@@ -13,6 +13,8 @@ gem 'fog-aws'
 
 gem 'twilio-ruby'
 
+# Use for calender date picker
+gem 'flatpickr_rails'
 
 # Use Clearance for user authentication
 gem 'clearance'
