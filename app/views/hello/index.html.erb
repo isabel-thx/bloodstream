@@ -3,6 +3,17 @@
   <h4>Live longer. Together.</h4>
 </div>
 
+
+<% if current_user.admin? %>
+<%= link_to 'SOS', send_sms_path %>
+<% end %>
+
+<div>
+	<h1>Our Mission</h1>
+	<p>Bloodstream is the voice of victims and survivors. We are the catalyst for changing society to have zero tolerance for domestic violence. We do this by affecting public policy, increasing understanding of the impact of domestic violence, and providing programs and education that drive that change.</p>
+</div>
+
+
 <div class="our_mission mt-5 mb-5 ml-5 pl-4 mr-5 pr-4">
 	<h1>Our Mission</h1>
 	<p>Bloodstream is the lifeline of those who face  We aim to give people life through blood donation.
@@ -34,3 +45,4 @@
   </div>
 </div>
 </div>
+

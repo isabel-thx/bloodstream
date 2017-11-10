@@ -1,3 +1,8 @@
+ /*
+ /*= require flatpickr
+ /*= require flatpickr/material_red
+ */
+ 
 body {
   font-family: 'Nunito', sans-serif;
   font-size: 20px;
