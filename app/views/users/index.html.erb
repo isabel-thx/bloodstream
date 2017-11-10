@@ -1,3 +1,5 @@
+<% if signed_in? %>
+<% if current_user.admin? %>
 <table class = "table">
   <thead>
     <tr>
@@ -63,6 +65,8 @@
     <% end %>
   </tbody>
 </table>
+<% end %>
+<% end %>
 
 
 <!-- <h5 style="color: black"><%#= will_paginate @users%></h5> -->
