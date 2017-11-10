@@ -4,35 +4,36 @@ class AttendeesController < ApplicationController
 	end
 
 	def create
-		@attendee = Attendee.new(user_id: params[:reward_code][:user_id])
-	    if @attendee.save
-	    	@attendee.generate
-	    	flash[:notice] = "Code generated: " + @attendee.code.to_s
-	    	redirect_to "/tools"
-	    end
+		@code = Attendee.find_by(user_id: params[:attendee][:user_id], event_id: params[:attendee][:event_id])
+	    if @code.code == nil
+		   @code.generate
+		     flash[:notice] = "Code generated: " + @code.code.to_s
+		else
+			 flash[:notice] = "Code already exist."
+		end
+		 redirect_to event_path(@code.event_id)
 	end
 
 
-
 	def check
-		@attendee = Attendee.find_by(user_id: current_user.id, code: params[:code])
-		if @attendee != nil
+		@attendee = Attendee.find_by(user_id: current_user.id)
+		if @attendee.code != nil
 			current_user.points += 10
 			current_user.save
-			flash[:notice] = "Code applied lah."
-			@attendee.destroy
+			flash[:notice] = "Code applied."
+			@attendee.update(code: nil)
 		else
-			@message = "Code not found."
+			flash[:notice] = "Code not found."
 		end
-		redirect_to current_user
+			redirect_to current_user
 	end
 
 
 
 	private
 
-    def reward_code_params
-        params.require(:reward_code).permit(:code, :points, :user_id)
+    def attendee_params
+        params.require(:attendee).permit(:code, :points, :user_id, :event_id)
     end
 
 

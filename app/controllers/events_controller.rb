@@ -10,6 +10,8 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @attendees = Attendee.where(params[:event_id])
+    @code = Attendee.new
   end
 
   # GET /events/new
@@ -69,6 +71,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:organizer, :venue, :start_date, :end_date, :start_time, :end_time, :latitude, :longitude, photos: [])
+      params.require(:event).permit(:title, :description, :organizer, :venue, :start_date, :end_date, :start_time, :end_time, :latitude, :longitude, photos: [])
     end
 end
