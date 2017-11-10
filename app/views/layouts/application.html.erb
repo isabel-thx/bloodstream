@@ -83,9 +83,6 @@ drift.load('7yynvidxishw');
           <li class="nav-item active" id="sign-in">
             <a class="nav-link" href="<%= send_sms_path %>">SOS</a>
           </li>
-          <li class="nav-item active" id="sign-in">
-          <a class="nav-link"><%= link_to "Sign Out", sign_out_path, :method => :delete %></a>
-        </li>
         </ul>
       </div>
     <% elsif current_user.donor? %>
@@ -110,16 +107,12 @@ drift.load('7yynvidxishw');
             <%= link_to "FAQs", "/", class: 'dropdown-item' %>
           </div>
         </li>
-        <li class="nav-item active" id="sign-in">
-          <a class="nav-link" href="<%= user_path(current_user) %>">My Profile</a>
-        </li>
-        <li class="nav-item active" id="sign-in">
-          <a class="nav-link"><%= link_to "Sign Out", sign_out_path, :method => :delete %></a>
-        </li>
       </ul>
     </div>
     <% end %>
-        
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Sign Out", sign_out_path, :method => :delete %></li>
+        </ul>
   <% else %>
     <div class="collapse navbar-collapse col-md-4 ml-auto" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
@@ -141,9 +134,6 @@ drift.load('7yynvidxishw');
             <%= link_to "About Us", "/about", class: 'dropdown-item' %>
             <%= link_to "FAQs", "/", class: 'dropdown-item' %>
           </div>
-        </li>
-        <li class="nav-item active" id="sign-in">
-          <a class="nav-link"><%= link_to "Sign Out", sign_out_path, :method => :delete %></a>
         </li>
       </ul>
     </div>
