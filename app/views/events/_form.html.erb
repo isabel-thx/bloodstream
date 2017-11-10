@@ -28,13 +28,13 @@
 
   <div class="field">
     <%= form.label :start_date %>
-    <input type="text" id="flatpickr-start-input">
+    <%= form.text_field :start_date, id: "flatpickr-start-input" %>
     <script>$('#flatpickr-start-input').flatpickr();</script>
   </div> 
 
   <div class="field">
     <%= form.label :end_date %>
-    <input type="text" id="flatpickr-end-input">
+    <%= form.text_field :end_date, id: "flatpickr-end-input" %>
     <script>$('#flatpickr-end-input').flatpickr();</script>
   </div>
 
