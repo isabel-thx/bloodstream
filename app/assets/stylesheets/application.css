@@ -72,11 +72,11 @@ body {
 	margin-top: 100px;
 }
 
-<<<<<<< HEAD
 .our_mission h1 {
 	font-family: 'Volkhov', serif;
 	padding-left: 20px;
 	font-size: 220%;
+	font-weight: 900;
 }
 
 .our_mission p {
@@ -105,7 +105,33 @@ body {
 	text-transform: uppercase;
 	font-size: 15px;
 	font-family: 'Barlow', sans-serif;
+}
 
 .table {
 	margin-top: 100px;
+}
+
+#calendar {
+	background-image: url(/assets/calendar-small.jpeg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100%;
+	padding: 50px;
+	padding-top: 50px;
+	padding-bottom: 400px;
+}
+
+#calendar h1 {
+	font-family: 'Volkhov', serif;
+	font-weight: 900;
+	font-size: 220%;
+}
+
+.media-body {
+	font-size: 15px;
+}
+
+.media-body p {
+	font-size: 10px;
+	margin-top: 0;
 }
