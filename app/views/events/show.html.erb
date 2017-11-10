@@ -42,11 +42,20 @@
 </p>
 
 <% if signed_in? %>
+<<<<<<< Updated upstream
   <% if current_user.admin? %>
     <%= link_to 'Edit', edit_event_path(@event) %> |
     <%= link_to 'Back', events_path %> |
     <%= link_to 'Delete', events_path, method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
+=======
+<% if current_user.admin? %>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %> |
+<%= link_to 'Delete', events_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+>>>>>>> Stashed changes
 <% end %>
 
 <!-- Google Maps API -->
