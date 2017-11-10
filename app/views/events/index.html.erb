@@ -1,7 +1,33 @@
 <!-- <p id="notice"><%#= notice %></p> -->
 
 
-<table class="table">
+  <div class="row" style="margin-left: 100px; margin-top: 150px;">
+  <div class="col-sm-6 col-md-4">
+    <div class="card" style="width: 20rem; height: 32rem;">
+  <% @events.each do |event| %>
+
+    
+      <div class="card-img-top">
+        <img style="height: 15rem; width: 19.9rem;" src="<%= event.photos[0] %>" alt="...">
+      <div class="card-block" style="height: 200px; padding-top: 10px; padding-left: 10px;" >
+        <h3 class="card-title"><%= event.title.truncate_words(8) %></h3>
+        <p class="card-text"><%= event.venue %></p>
+        <p class="card-text"><%= event.start_date.strftime('%A, %d %B %Y') %> - <%= event.end_date.strftime('%A, %d %B %Y') %><br><%= event.start_time.strftime('%H:%M') %> - <%= event.end_time.strftime('%H:%M') %></p>
+      <a href="/events/<%= event.id %>" class="btn btn-primary" role="button">More Details</a>
+          <!-- <a href="#" class="btn btn-default" role="button">Button</a></p> -->
+      </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+</div>
+</div>
+
+
+
+<!-- <h5 style="color: black"><%#= will_paginate @events%></h5> -->
+
+<!-- <table class="table">
   <h1 style="margin-top: 100px">Blood Drives</h1>
   <thead>
     <tr>
@@ -14,27 +40,28 @@
   </thead>
 
   <tbody>
-    <% @events.each do |event| %>
+    <%# @events.each do |event| %>
       <tr>
-        <td><%= event.organizer %></td>
-        <td><%= event.venue %></td>
-        <% if event.end_date.nil? %>
-          <td><%= event.start_date.strftime('%A, %d %B %Y') %></td>
-        <% else %>
-          <td><%= event.start_date.strftime('%A, %d %B %Y') %> - <%= event.end_date.strftime('%A, %d %B %Y') %></td>
-        <% end %>
-        <td><%= event.start_time.strftime('%H:%M') %> - <%= event.end_time.strftime('%H:%M') %></td>
-        <% if signed_in? %>
-          <% if current_user.admin? %>
-            <td><%= link_to 'Show', event %></td>
-            <td><%= link_to 'Edit', edit_event_path(event) %></td>
-            <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% end %>
-        <% end %>
+        <td><%#= event.organizer %></td>
+        <td><%#= event.venue %></td>
+        <%# if event.end_date.nil? %>
+          <td><%#= event.start_date.strftime('%A, %d %B %Y') %></td>
+        <%# else %>
+          <td><%#= event.start_date.strftime('%A, %d %B %Y') %> - <%#= event.end_date.strftime('%A, %d %B %Y') %></td>
+        <%# end %>
+        <td><%#= event.start_time.strftime('%H:%M') %> - <%#= event.end_time.strftime('%H:%M') %></td>
+        <%# if signed_in? %>
+          <%# if current_user.admin? %>
+            <td><%#= link_to 'Show', event %></td>
+            <td><%#= link_to 'Edit', edit_event_path(event) %></td>
+            <td><%#= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <%# end %>
+        <%# end %>
       </tr>
-    <% end %>
+    <%# end %>
   </tbody>
 </table>
 
 <br>
 
+ -->
