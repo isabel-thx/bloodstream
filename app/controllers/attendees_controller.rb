@@ -1,4 +1,7 @@
+require 'twilio-ruby'
 class AttendeesController < ApplicationController
+	  skip_before_action :verify_authenticity_token
+
 	def index
 
 	end
@@ -26,6 +29,18 @@ class AttendeesController < ApplicationController
 			flash[:notice] = "Code not found."
 		end
 			redirect_to current_user
+	end
+
+	def send
+		@client = Twilio::REST::Client.new(
+		ENV['TWILIO_ACC_SID'], ENV['TWILIO_AUTH_TOKEN']
+		)
+
+		@client.api.account.messages.create(
+		  from: ENV['TWILIO_PHONE_NUMBER'],
+		  to: '+60174094095',
+		  body: 'Hello from BloodStream!'
+		)
 	end
 
 
