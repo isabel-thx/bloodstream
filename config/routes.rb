@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "/info" => "info#show", as: "info"
   get '/users/:id/verify' => 'users#verify', as: :verify_user
 
-  get 'about/show' => "about#show", as: "about"
+  get 'about' => "about#show", as: "about"
 
 
   resources :events
