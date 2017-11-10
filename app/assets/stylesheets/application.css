@@ -1,0 +1,49 @@
+body {
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+}
+
+.navbar {
+	font-size: 14px;
+}
+
+#sign-up {
+	padding: 3px 20px;
+	border: 2px solid black;
+	border-radius: 50px;
+}
+
+#sign-in {
+	padding: 3px 20px;
+	border: 2px solid black;
+	border-radius: 50px;
+	margin-left: 5px;
+}
+
+.header {
+	background-image: url(/assets/front2.jpg);
+	height: 100%;
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.tagline {
+	text-align: center;
+	padding: 200px;
+	padding-top: 300px;
+	font-family: 'Montserrat', sans-serif;
+	color: #fff;
+}
+
+.tagline h4 {
+	text-transform: uppercase;
+	letter-spacing: 5px;
+	font-size: 1.4rem;
+}
+
+.tagline h1 {
+	padding-top: 50px;
+	font-size: 6rem;
+	font-weight: bold;
+}

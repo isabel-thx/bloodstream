@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :event_title %>
+  </div>
+
+  <div class="field">
     <%= form.label :organizer %>
     <%= form.text_field :organizer, id: :event_organizer %>
   </div>
@@ -44,6 +49,11 @@
   <div class="field">
     <%= form.label :photos %>
     <%= form.file_field :photos, multiple: true, id: :event_photos %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :event_description %>
   </div>
 
   <div class="actions">
