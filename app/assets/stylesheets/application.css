@@ -136,9 +136,8 @@ body {
 	margin-top: 0;
 }
 
-#sos {
-	padding: 3px 20px;
-	border: 2px solid red;
-	border-radius: 50px;
-	margin-left: 5px;
+.card {
+    float: left;
+    margin-right: 10px;
+    display: inline;
 }

@@ -1,8 +1,8 @@
 <!-- <p id="notice"><%#= notice %></p> -->
 
-<% @events.each do |event| %>
-  <div class="row" style="margin-left: 100px; margin-top: 150px;">
-    <div class="col-sm-6 col-md-4">
+<div class="row" style="margin-left: 100px; margin-top: 150px;">
+  <div class="col-sm-6 col-md-4">
+    <% @events.each do |event| %>
       <div class="card" style="width: 20rem; height: 32rem;">
         <div class="card-img-top">
           <img style="height: 15rem; width: 19.9rem;" src="<%= event.photos[0] %>" alt="...">
