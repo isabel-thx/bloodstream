@@ -3,18 +3,11 @@
   <h4>Live longer. Together.</h4>
 </div>
 
-<% if signed_in? %>
-	<% if current_user.admin? %>
-		<%= link_to 'SOS', send_sms_path %>
-	<% end %>
-<% end %>
-
-
 <div class="our_mission mt-5 mb-5 ml-5 pl-4 mr-5 pr-4">
 	<h1>Our Mission</h1>
-	<p>Bloodstream is the lifeline of those who face  We aim to give people life through blood donation.
+	<p>Bloodstream is the lifeline of those who face life's cruel uncertainties. We aim to save the lives of the young and old by raising awareness on the importance of blood donation. We do this through increasing public understanding of the impact of blood donation and supporting programs that drive participation.</p>
 	<div class="learn-more-button">
-		<%= link_to "Learn More", events_path, id: 'sign-up' %>
+		<%= link_to "Learn More", about_path, id: 'sign-up' %>
 		</div>
 	</p>
 </div>
@@ -23,20 +16,20 @@
 <div class="container">
 	<div class="row">
     <div class="col-sm">
-      <h1>2,000</h1>
-			<p>Bags of blood are needed daily in Malaysia. This is excluding emergency cases.</p>
+    	<h1>1</h1>
+			<p>person's donation of blood can save three lives.</p>
     </div>
     <div class="col-sm">
-			<h1>1</h1>
-			<p>Person's donation of blood can save three lives.</p>
+    	<h1>2,000</h1>
+			<p>bags of blood are needed daily in Malaysia. This is excluding emergency cases.</p>
     </div>
     <div class="col-sm">
-      <h1>2.5%</h1>
+      <h1>2.2%</h1>
 			<p>of the Malaysian population are blood donors. This is low compared to 3.5% in developed countries.</p>
     </div>
     <div class="col-sm">
-			<h1>20%</h1>
-			<p>Bloodstream is the voice of victims and survivors. Lorem ipsum dolor sit amet</p>
+			<h1>30 to 45</h1>
+			<p>minutes is all it takes to donate. Each person can donate blood once in 3 months.</p>
     </div>
   </div>
 </div>

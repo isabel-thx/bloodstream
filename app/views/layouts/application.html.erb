@@ -80,6 +80,9 @@ drift.load('7yynvidxishw');
               <%= link_to "All Events", events_path, class: 'dropdown-item' %>
             </div>
           </li>
+          <li class="nav-item active" id="sign-in">
+            <a class="nav-link" href="<%= send_sms_path %>">SOS</a>
+          </li>
         </ul>
       </div>
     <% elsif current_user.donor? %>
