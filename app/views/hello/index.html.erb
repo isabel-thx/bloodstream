@@ -3,8 +3,9 @@
   <h4>Live longer. Together.</h4>
 </div>
 
-
+<% if current_user.admin? %>
 <%= link_to 'SOS', send_sms_path %>
+<% end %>
 
 <div>
 	<h1>Our Mission</h1>
