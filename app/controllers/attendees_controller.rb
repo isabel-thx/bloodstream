@@ -1,6 +1,5 @@
-require 'twilio-ruby'
 class AttendeesController < ApplicationController
-	  skip_before_action :verify_authenticity_token
+	
 
 	def index
 
@@ -31,16 +30,20 @@ class AttendeesController < ApplicationController
 			redirect_to current_user
 	end
 
-	def send
+	def send_sms
+		@user = User.all
 		@client = Twilio::REST::Client.new(
 		ENV['TWILIO_ACC_SID'], ENV['TWILIO_AUTH_TOKEN']
 		)
-
+		@user.each do |user|
 		@client.api.account.messages.create(
 		  from: ENV['TWILIO_PHONE_NUMBER'],
-		  to: '+60174094095',
+		  to: "+6" + user.phone_number,
 		  body: 'Hello from BloodStream!'
 		)
+		end
+		redirect_to root_path
+
 	end
 
 

@@ -8,4 +8,10 @@ class Attendee < ApplicationRecord
         self.save
 	end
 
+	def send_now
+		@user.each do |s|
+		"+6"+ s.phone_number
+		end
+	end
+
 end
