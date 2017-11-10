@@ -1,27 +1,24 @@
 <!-- <p id="notice"><%#= notice %></p> -->
 
-
+<% @events.each do |event| %>
   <div class="row" style="margin-left: 100px; margin-top: 150px;">
-  <div class="col-sm-6 col-md-4">
-    <div class="card" style="width: 20rem; height: 32rem;">
-  <% @events.each do |event| %>
-
-    
-      <div class="card-img-top">
-        <img style="height: 15rem; width: 19.9rem;" src="<%= event.photos[0] %>" alt="...">
-      <div class="card-block" style="height: 200px; padding-top: 10px; padding-left: 10px;" >
-        <h3 class="card-title"><%= event.title.truncate_words(8) %></h3>
-        <p class="card-text"><%= event.venue %></p>
-        <p class="card-text"><%= event.start_date.strftime('%A, %d %B %Y') %> - <%= event.end_date.strftime('%A, %d %B %Y') %><br><%= event.start_time.strftime('%H:%M') %> - <%= event.end_time.strftime('%H:%M') %></p>
-      <a href="/events/<%= event.id %>" class="btn btn-primary" role="button">More Details</a>
+    <div class="col-sm-6 col-md-4">
+      <div class="card" style="width: 20rem; height: 32rem;">
+        <div class="card-img-top">
+          <img style="height: 15rem; width: 19.9rem;" src="<%= event.photos[0] %>" alt="...">
+          <div class="card-block" style="height: 200px; padding-top: 10px; padding-left: 10px;" >
+          <h3 class="card-title"><%= event.title.truncate_words(8) %></h3>
+          <p class="card-text"><%= event.venue %></p>
+          <p class="card-text"><%= event.start_date.strftime('%A, %d %B %Y') %> - <%= event.end_date.strftime('%A, %d %B %Y') %><br><%= event.start_time.strftime('%H:%M') %>am - <%= event.end_time.strftime('%H:%M') %>pm</p>
+          <a href="/events/<%= event.id %>" class="btn btn-primary" role="button">More Details</a>
           <!-- <a href="#" class="btn btn-default" role="button">Button</a></p> -->
+          </div>
+        </div>
       </div>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
-</div>
-</div>
+
 
 
 
