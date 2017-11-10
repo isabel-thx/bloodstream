@@ -1,3 +1,8 @@
+ /*
+ /*= require flatpickr
+ /*= require flatpickr/material_red
+ */
+ 
 body {
   font-family: 'Nunito', sans-serif;
   font-size: 20px;
@@ -53,6 +58,12 @@ body {
 	font-weight: bold;
 }
 
+.learn-more-button {
+	margin-left: 90px;
+	margin-top: 30px;
+	/*text-transform: uppercase;*/
+}
+
 .sign-up {
 	margin-top: 100px;
 }
@@ -60,6 +71,40 @@ body {
 .sign-in {
 	margin-top: 100px;
 }
+
+<<<<<<< HEAD
+.our_mission h1 {
+	font-family: 'Volkhov', serif;
+	padding-left: 20px;
+	font-size: 220%;
+}
+
+.our_mission p {
+	padding-left: 90px;
+	padding-right: 90px;
+	padding-top: 20px;
+	/*padding-bottom: 20px;*/
+	margin-bottom: 20px;
+	text-align: justify;
+}
+
+#numbers {
+	background-image: url(/assets/red-roses2.jpg);
+	color: #fff;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	text-align: center;
+}
+
+#numbers .container .row .col-sm h1 {
+	font-family: 'Volkhov', serif;
+	font-size: 220%;
+}
+
+#numbers .container .row .col-sm p {
+	text-transform: uppercase;
+	font-size: 15px;
+	font-family: 'Barlow', sans-serif;
 
 .table {
 	margin-top: 100px;
