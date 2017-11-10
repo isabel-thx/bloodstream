@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'about/show'
 
   root 'hello#index'
 
@@ -8,6 +7,8 @@ Rails.application.routes.draw do
   get "/users" => "users#index", as: "users"
   get "/info" => "info#show", as: "info"
   get '/users/:id/verify' => 'users#verify', as: :verify_user
+
+  get 'about/show' => "about#show", as: "about"
 
 
   resources :events
