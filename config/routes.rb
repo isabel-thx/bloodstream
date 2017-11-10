@@ -26,6 +26,6 @@ Rails.application.routes.draw do
 
 
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
-  get '/check', to: "attendees#check", as: "check"
+  get '/check', to: "reward_codes#check", as: "check"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
