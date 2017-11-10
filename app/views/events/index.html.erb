@@ -24,10 +24,12 @@
           <td><%= event.start_date.strftime('%A, %d %B %Y') %> - <%= event.end_date.strftime('%A, %d %B %Y') %></td>
         <% end %>
         <td><%= event.start_time.strftime('%H:%M') %> - <%= event.end_time.strftime('%H:%M') %></td>
-        <% if current_user.admin? %>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if signed_in? %>
+          <% if current_user.admin? %>
+            <td><%= link_to 'Show', event %></td>
+            <td><%= link_to 'Edit', edit_event_path(event) %></td>
+            <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
         <% end %>
       </tr>
     <% end %>
