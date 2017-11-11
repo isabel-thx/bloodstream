@@ -91,7 +91,7 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
 <%= form_tag(event_path, :method => "get", id: "search-form") do %>
 <div class="col-lg-6">
     <div class="input-group">
-      <input type="text" class="form-control" placeholder="Find donor" name="first_name" <% params[:first_name] %>>
+      <input type="text" class="form-control" placeholder="Find donor" name="email" <% params[:email] %>>
       <span class="input-group-btn">
         <button class="btn btn-secondary" type="submit">Go!</button>
       </span>

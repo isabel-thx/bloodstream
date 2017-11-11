@@ -7,16 +7,15 @@ Rails.application.routes.draw do
   get "/users" => "users#index", as: "users"
   get "/info" => "info#show", as: "info"
   get '/users/:id/verify' => 'users#verify', as: :verify_user
-
   get '/about' => "about#show", as: "about"
-
+  post 'attendees/new' => "attendees/new", as: "new_attendee"
 
   resources :events
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
 
   resources :users, except: :index
-  resources :attendees
+  resources :attendees, except: :new
 
   resources :users, controller: "users", only: [:create] do
     resource :password,

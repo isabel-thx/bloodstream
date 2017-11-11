@@ -5,8 +5,8 @@ class AttendeesController < ApplicationController
 
 	end
 
-	def new
-		@attendee = Attendee.new
+	def make
+		@attendee = Attendee.new(attendee_params)
 	end
 
 	def create
@@ -48,13 +48,13 @@ class AttendeesController < ApplicationController
 		ENV['TWILIO_ACC_SID'], ENV['TWILIO_AUTH_TOKEN']
 		)
 		@user.each do |user|
-		@client.api.account.messages.create(
-		  from: ENV['TWILIO_PHONE_NUMBER'],
-		  to: "+6" + user.phone_number,
-		  body: 'Good day! Blood Type X needed urgently. Please contact us if you can help.
-BloodStream Team.
-Live Longer.Together.'
-		)
+			@client.api.account.messages.create(
+			  from: ENV['TWILIO_PHONE_NUMBER'],
+			  to: "+6" + user.phone_number,
+			  body: 'Good day! Blood Type X needed urgently. Please contact us if you can help.
+					BloodStream Team.
+					Live Longer.Together.'
+			)
 		end
 		redirect_to root_path
 		flash[:notice] = 'SOS message sent.'
