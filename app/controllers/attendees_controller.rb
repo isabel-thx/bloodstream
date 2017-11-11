@@ -5,6 +5,10 @@ class AttendeesController < ApplicationController
 
 	end
 
+	def new
+		@attendee = Attendee.new
+	end
+
 	def create
 		@code = Attendee.find_by(user_id: params[:attendee][:user_id], event_id: params[:attendee][:event_id])
 	    if @code.code == nil
@@ -14,10 +18,6 @@ class AttendeesController < ApplicationController
 			 flash[:notice] = "Code already exist."
 		end
 		 redirect_to event_path(@code.event_id)
-	end
-
-	def make
-
 	end
 	
 	def check
