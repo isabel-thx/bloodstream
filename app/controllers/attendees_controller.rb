@@ -5,18 +5,31 @@ class AttendeesController < ApplicationController
 
 	end
 
-	def create
-		@code = Attendee.find_by(user_id: params[:attendee][:user_id], event_id: params[:attendee][:event_id])
-	    if @code.code == nil
-		   @code.generate
-		     flash[:notice] = "Code generated: " + @code.code.to_s
-		else
-			 flash[:notice] = "Code already exist."
-		end
-		 redirect_to event_path(@code.event_id)
+	def new
+		@attendee = Attendee.create(attendee_params)
+		redirect_to "/"
 	end
 
-
+	def create
+		@attendee = Attendee.find_by(user_id: params[:attendee][:user_id], event_id: params[:attendee][:event_id])
+	    if @attendee.code == nil
+		   @attendee.generate
+		   @client = Twilio::REST::Client.new(
+			ENV['TWILIO_ACC_SID'], ENV['TWILIO_AUTH_TOKEN']
+			)
+			
+			@client.api.account.messages.create(
+			  from: ENV['TWILIO_PHONE_NUMBER'],
+			  to: "+6" + @attendee.user.phone_number,
+			  body: 'Thanks for being a kind soul. This is your reward code from Bloodstream: ' + @attendee.code
+			)
+			flash[:notice] = 'Code generated and sent.'
+		else
+			flash[:notice] = "Code already exist."
+		end
+		redirect_to event_path(@attendee.event_id)
+	end
+	
 	def check
 		@attendee = Attendee.find_by(user_id: current_user.id)
 		if @attendee.code != nil
@@ -36,19 +49,20 @@ class AttendeesController < ApplicationController
 		ENV['TWILIO_ACC_SID'], ENV['TWILIO_AUTH_TOKEN']
 		)
 		@user.each do |user|
-		@client.api.account.messages.create(
-		  from: ENV['TWILIO_PHONE_NUMBER'],
-		  to: "+6" + user.phone_number,
-		  body: 'Good day! Blood Type X needed urgently. Please contact us if you can help.
-BloodStream Team.
-Live Longer.Together.'
-		)
+			@client.api.account.messages.create(
+			  from: ENV['TWILIO_PHONE_NUMBER'],
+			  to: "+6" + user.phone_number,
+			  body: 'Good day! Blood Type X needed urgently. Please contact us if you can help.
+					BloodStream Team.
+					Live Longer.Together.'
+			)
 		end
 		redirect_to root_path
 		flash[:notice] = 'SOS message sent.'
 
 	end
 
+	
 
 
 	private

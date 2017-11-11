@@ -38,13 +38,15 @@
            <!--  <td><%#= link_to 'Reservations', user_reservations_path(user) %></td> -->
           <%# end %>
 
-          <% if current_user.admin? && user.verified == false %>
-            <td><%= link_to 'Verify Donor', verify_user_path(user) %></td>
-            <% elsif current_user.admin? && user.verified == true %>
+          <td><%= link_to 'Show Profile', user %></td>
+          <% if current_user.admin? && user.verified == true %>
             <td>Verified Donor<td>
+          <% elsif current_user.admin? && user.verified == false %>
+            <td><%= link_to 'Verify Donor', verify_user_path(user) %></td>
+            
           <% end %>
 
-          <td><%= link_to 'Show Profile', user %></td>
+          
 
           <%# if current_user.admin? %>
 						<!-- <td><%#= form_for @rewardcodes do |r| %>

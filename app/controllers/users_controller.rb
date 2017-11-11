@@ -12,6 +12,7 @@ class UsersController < Clearance::UsersController
     date_of_birth = user_params.delete(:date_of_birth)
     phone_number = user_params.delete(:phone_number)
     address = user_params.delete(:address)
+		state = user_params.delete(:state)
 
     Clearance.configuration.user_model.new(user_params).tap do |user|
       user.first_name = first_name
@@ -22,6 +23,7 @@ class UsersController < Clearance::UsersController
       user.date_of_birth = date_of_birth
       user.phone_number = phone_number
       user.address = address
+			user.state = state
     end
   end
 
@@ -36,7 +38,7 @@ class UsersController < Clearance::UsersController
     # automatically renders template: "users/show" (controller/action)
     # if params[:user_id]
 
-
+		@attended_list = Attendee.where(user_id: @user.id).order('created_at DESC').paginate(:page => params[:page], :per_page => 5)
 		# @events = @user.user_events.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
 
     # else
@@ -87,7 +89,7 @@ class UsersController < Clearance::UsersController
 
 	private
 	def update_params
-		params.require(:user).permit(:first_name, :last_name, :blood_type, :date_of_birth, :phone_number, :address, :email, :password)
+		params.require(:user).permit(:first_name, :last_name, :blood_type, :date_of_birth, :phone_number, :address, :email, :password, :state)
 	end
 
   def user_params

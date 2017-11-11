@@ -4,15 +4,22 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.all.order('start_date DESC').paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
-    @attendees = Attendee.where(event_id: params[:id])
-    @code = Attendee.new
-    
+    if params[:email]
+      @donors = User.search(email: params[:email])
+      @attendees = Attendee.find_by(event_id: params[:id])
+      @code = Attendee.new
+      # @event = Event.find(params[:id])
+    else
+      @attendees = Attendee.where(event_id: params[:id])
+      @code = Attendee.new
+      @event = Event.find(params[:id])
+    end
   end
 
   # GET /events/new
