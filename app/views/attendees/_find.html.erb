@@ -1,0 +1,40 @@
+
+<table class= "table">
+ <thead>
+    <tr>
+      <!-- <th>id</th> -->
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Date of birth</th>
+      <th>Blood type</th>
+      <th>Address</th>
+      <th>Phone number</th>
+      <th>Email</th>
+      <th>Points</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% @donors.each do |a| %>
+    	<% if a.id != @attendees.user_id %>
+   
+      <tr>
+        <td><%= a.first_name %></td>
+        <td><%= a.last_name %></td>
+        <td><%= a.date_of_birth %></td>
+        <td><%= a.blood_type %></td>
+        <td><%= a.address %></td>
+        <td><%= a.phone_number %></td>
+        <td><%= a.email %></td>
+        <td><%= a.points %></td>
+        <td>
+          <%= submit_tag("Add Donor as Attendee") %><br><td> 
+        </td>
+
+        <% end %>
+    <% end %>
+    </tr>
+  </tbody>
+</table>
