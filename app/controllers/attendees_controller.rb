@@ -5,8 +5,9 @@ class AttendeesController < ApplicationController
 
 	end
 
-	def make
+	def new
 		@attendee = Attendee.new(attendee_params)
+		redirect_to "/"
 	end
 
 	def create
