@@ -1,0 +1,57 @@
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $(this).nextUntil(".button").toggle(300);
+    });
+});
+</script>
+
+<style>
+	.button {
+		background-color: white;
+		border: none;
+		margin-left: 82px;
+		font-size: 25px
+	}
+
+	.content {
+		margin-left: 102px;
+		font-size: 18px;
+		list-style: circle;
+		display: none;
+	}
+</style>
+
+<body>
+
+<h3 style="margin-top: 150px;"><button class="button">Who is eligible for blood donation?</button>
+
+<li class="content">This is a paragraph with little content.</li>
+<li class="content">This is another small paragraph.</li>
+
+<h3><button class="button">Who is not eligible for blood donation?</button>
+
+<li class="content">This is a paragraph with little content.</li>
+<li class="content">This is another small paragraph.</li>
+
+<h3><button class="button">What is the most common blood type?</button>
+
+<li class="content">This is a paragraph with little content.</li>
+<li class="content">This is another small paragraph.</li>
+
+<h3><button class="button">Where and when can I donate blood?</button>
+
+<li class="content">This is a paragraph with little content.</li>
+<li class="content">This is another small paragraph.</li>
+
+<h3><button class="button">What documents are required when going to donate?</button>
+
+<li class="content">This is a paragraph with little content.</li>
+<li class="content">This is another small paragraph.</li>
+
+<h3><button class="button">Tips for a better experience</button>
+
+<li class="content">This is a paragraph with little content.</li>
+<li class="content">This is another small paragraph.</li>
+
+</body>
