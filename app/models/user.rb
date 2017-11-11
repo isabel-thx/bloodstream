@@ -49,9 +49,15 @@ class User < ApplicationRecord
       x = self.authentications.find_by(provider: 'facebook')
       return x.token unless x.nil?
     end
+<<<<<<< HEAD
 
     def self.search(first_name:)
       User.where("(first_name LIKE ?)", "%#{first_name}%")
+=======
+ 
+    def self.search(email:)
+      User.where("email LIKE ?", "%#{email}%")
+>>>>>>> master
     end
 
 end
