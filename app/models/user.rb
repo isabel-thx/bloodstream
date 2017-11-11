@@ -17,21 +17,7 @@ class User < ApplicationRecord
 
   # declare an enum attribute where the values map to integers in the database, but can be queried by name
   	enum role: [ :donor, :admin ]
-    # enum state: [:Kuala Lumpur, ]
-    # <option>Kuala Lumpur</option>
-    # <option>Selangor</option>
-    # <option>Johor</option>
-    # <option>Kedah</option>
-    # <option>Kelantan</option>
-    # <option>Malacca</option>
-    # <option>Negeri Sembilan</option>
-    # <option>Pahang</option>
-    # <option>Perak</option>
-    # <option>Perlis</option>
-    # <option>Penang</option>
-    # <option>Terengganu</option>
-    # <option>Sabah</option>
-    # <option>Sarawak</option>
+    # enum state: [:'Kuala Lumpur', :Selangor, :Johor, :Kedah, :Kelantan, :Malacca, :'Negeri Sembilan', :Pahang, :Perak, :Perlis, :Penang, :Terengganu, :Sabah, :Sarawak ]
     # enum blood_type: [ :'O+', :'O-', :'A+', :'A-', :'B+', :'B-', :'AB+', :'AB-']
     def self.create_with_auth_and_hash(authentication, auth_hash)
       user = self.create!(
