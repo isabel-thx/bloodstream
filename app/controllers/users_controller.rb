@@ -36,7 +36,7 @@ class UsersController < Clearance::UsersController
     # automatically renders template: "users/show" (controller/action)
     # if params[:user_id]
 
-
+		@attended_list = Attendee.where(user_id: @user.id).order('created_at DESC').paginate(:page => params[:page], :per_page => 5)
 		# @events = @user.user_events.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
 
     # else

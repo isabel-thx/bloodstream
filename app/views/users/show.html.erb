@@ -30,7 +30,8 @@
 </div>
 <br><br>
 
-<table>
+<h2>Donation History</h2>
+<table class="table">
   <thead>
     <tr>
       <th>Photo</th>
@@ -41,20 +42,22 @@
   </thead>
 
   <tbody>
-    <% #@events =  %>
-    <tr>
-      <td></td>
-    </tr>
+    <% @attended_list.each do |x| %>
+      <% @event = Event.where(id: x.event_id) %>
+      <% @event.each do |y| %>
+        <tr>
+          <td><img style="height: 4rem; width: 5rem;" src="<%= y.photos.first %>" alt="..."></td>
+          <td><%= y.organizer %></td>
+          <td><%= y.venue %></td>
+          <td><%= link_to "show", event_path(y.id) %> </td>
+        </tr>
+      <% end %>
+    <% end %>
   </tbody>
-<!-- <div id="events-attended"> -->
-  <%# @events.each do |e| %>
-    <%#= e. %>
-  <%# end %>
-<!-- </div> -->
-
-
 
 </table>
+  <br>
+  <%= will_paginate @attended_list %>
 
 <% if current_user.donor? %>
   <%= form_tag(check_path, :method => "post") do %>
