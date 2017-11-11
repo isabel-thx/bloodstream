@@ -88,9 +88,6 @@ drift.load('7yynvidxishw');
     <% elsif current_user.donor? %>
         <div class="collapse navbar-collapse col-md-4 ml-auto" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <!-- <li class="nav-item active" id="sign-up">
-          <a class="nav-link" href="/">About Us</a>
-        </li> -->
         <li class="nav-item active" id="sign-up">
           <a class="nav-link" href="<%= events_path %>">&hearts; Donate Now</a>
         </li>
@@ -102,7 +99,6 @@ drift.load('7yynvidxishw');
             More
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%#= link_to "Blood Drives", events_path, class: 'dropdown-item' %>
             <%= link_to "About Us", "/about", class: 'dropdown-item' %>
             <%= link_to "FAQs", "/FAQs", class: 'dropdown-item' %>
           </div>
@@ -139,12 +135,6 @@ drift.load('7yynvidxishw');
     </div>
 <% end %>
 </nav>
-
-<!-- <div class="tagline">
-  <h1>Bloodstream</h1>
-  <h4>Live longer. Together.</h4>
-</div> -->
-
 </div>
 
 <div id="flash">
