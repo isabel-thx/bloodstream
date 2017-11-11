@@ -20,9 +20,9 @@ class AttendeesController < ApplicationController
 			)
 			flash[:notice] = 'Code generated and sent.'
 		else
-			 flash[:notice] = "Code already exist."
+			flash[:notice] = "Code already exist."
 		end
-		 redirect_to event_path(@attendee.event_id)
+		redirect_to event_path(@attendee.event_id)
 	end
 
 
