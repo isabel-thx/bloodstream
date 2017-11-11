@@ -6,7 +6,7 @@ class AttendeesController < ApplicationController
 	end
 
 	def new
-		@attendee = Attendee.new(attendee_params)
+		@attendee = Attendee.create(attendee_params)
 		redirect_to "/"
 	end
 

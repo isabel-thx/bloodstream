@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "/info" => "info#show", as: "info"
   get '/users/:id/verify' => 'users#verify', as: :verify_user
   get '/about' => "about#show", as: "about"
-  post 'attendees/new' => "attendees/new", as: "new_attendee"
+  post '/attendees/new' => "attendees#new", as: "new_attendee"
 
   resources :events
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
