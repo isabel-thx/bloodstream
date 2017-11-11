@@ -1,10 +1,36 @@
 
 	<%= form.label "First Name" %><%= form.text_field :first_name, :required => 'required' %><br>
 	<%= form.label "Last Name" %><%= form.text_field :last_name, :required => 'required' %><br>
-	<%= form.label "Blood Type" %><%= form.text_field :blood_type, :required => 'required' %><br>
+	<%= form.label "Blood Type" %><select name='user[blood_type]' placeholder='Blood Type' style="width: 250px">
+			<option></option>
+			<option>O+</option>
+      <option>O-</option>
+      <option>A+</option>
+      <option>A-</option>
+      <option>B+</option>
+      <option>B-</option>
+      <option>AB+</option>
+      <option>AB-</option>
+    </select><br>
 	<%= form.label "Date Of Birth" %><%= form.date_field :date_of_birth, :required => 'required' %><br>
 	<%= form.label "Phone Number" %><%= form.number_field :phone_number, :required => 'required' %><br>
 	<%= form.label "Address" %><%= form.text_field :address, :required => 'required' %><br>
+	<%= form.label "State" %><select name='user[state]' placeholder='State' style="width: 250px">
+      <option>Kuala Lumpur</option>
+      <option>Selangor</option>
+      <option>Johor</option>
+      <option>Kedah</option>
+      <option>Kelantan</option>
+      <option>Malacca</option>
+      <option>Negeri Sembilan</option>
+      <option>Pahang</option>
+			<option>Perak</option>
+			<option>Perlis</option>
+			<option>Penang</option>
+			<option>Terengganu</option>
+			<option>Sabah</option>
+			<option>Sarawak</option>
+    </select><br>
 	<div class="text-field">
 	  <%= form.label :email %>
 	  <%= form.text_field :email, type: 'email' %>
