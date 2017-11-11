@@ -10,8 +10,17 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-    @attendees = Attendee.where(event_id: params[:id])
-    @code = Attendee.new
+    
+    if params[:first_name]
+        @donors = User.where(first_name: params[:first_name]).search(first_name: params[:first_name])
+        @attendees = Attendee.find_by(event_id: params[:id])
+        @code = Attendee.new
+        # @event = Event.find(params[:id])
+      else
+        @attendees = Attendee.where(event_id: params[:id])
+        @code = Attendee.new
+      end
+
     
   end
 
