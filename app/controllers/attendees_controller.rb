@@ -16,7 +16,10 @@ class AttendeesController < ApplicationController
 		 redirect_to event_path(@code.event_id)
 	end
 
+	def make
 
+	end
+	
 	def check
 		@attendee = Attendee.find_by(user_id: current_user.id)
 		if @attendee.code != nil

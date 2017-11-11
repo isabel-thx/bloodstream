@@ -34,4 +34,8 @@ class User < ApplicationRecord
       return x.token unless x.nil?
     end
  
+    def self.search(first_name:)
+      User.where("(first_name LIKE ?)", "%#{first_name}%")
+    end
+
 end
