@@ -24,6 +24,7 @@ gem 'figaro'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+gem 'social-share-button' 
 
 # Use Geocoder for longitude and latitude
 gem 'geocoder'

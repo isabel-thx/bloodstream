@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
     validates :first_name, presence: true, on: :update
     validates :last_name, presence: true, on: :update
-    validates :blood_type, :inclusion  => { :in => [ '','O+', 'O-', 'A+', 'A-', 'AB+', 'AB-', 'B+', 'B-' ] }
+    validates :blood_type, presence: true, :inclusion  => { :in => [ '','O+', 'O-', 'A+', 'A-', 'AB+', 'AB-', 'B+', 'B-' ] }, on: :update
     validates :state, presence: true, :inclusion  => { :in => ['Kuala Lumpur', 'Selangor', 'Johor', 'Kedah', 'Kelantan', 'Malacca', 'Negeri Sembilan', 'Pahang', 'Perak', 'Perlis', 'Penang', 'Terengganu', 'Sabah', 'Sarawak']}, on: :update
     validates :date_of_birth, presence: true, on: :update
     validates :phone_number, presence: true, on: :update
