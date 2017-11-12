@@ -83,6 +83,30 @@ drift.load('7yynvidxishw');
           <li class="nav-item active" id="sign-in">
             <a class="nav-link" href="<%= send_sms_path %>">SOS</a>
           </li>
+
+
+           <li><%= form_for @user do |form| %>
+            <%= form.label "State" %><select name='user[state]' placeholder='State' style="width: 250px">
+      <option>Kuala Lumpur</option>
+      <option>Selangor</option>
+      <option>Johor</option>
+      <option>Kedah</option>
+      <option>Kelantan</option>
+      <option>Malacca</option>
+      <option>Negeri Sembilan</option>
+      <option>Pahang</option>
+      <option>Perak</option>
+      <option>Perlis</option>
+      <option>Penang</option>
+      <option>Terengganu</option>
+      <option>Sabah</option>
+      <option>Sarawak</option>
+    </select>
+    <%= form.submit %>
+    <% end %>
+          </li>
+
+
         </ul>
       </div>
     <% elsif current_user.donor? %>
