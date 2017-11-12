@@ -6,8 +6,10 @@ class AttendeesController < ApplicationController
 	end
 
 	def new
-		@attendee = Attendee.create(attendee_params)
-		redirect_to "/"
+		# if @attendee.event_id
+			@attendee = Attendee.create(attendee_params)
+			redirect_to event_path(@event.id)
+		# end
 	end
 
 	def create
