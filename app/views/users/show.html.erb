@@ -12,6 +12,7 @@
   <%= link_to "Edit profile", edit_user_path %> |
   <%= link_to "Reset password", edit_user_password_path(current_user.id) %>
 <% end %>
+<%= social_share_button_tag("My Site") %>
 <br><br>
 <div id="profile_info">
 <p><strong>Name:</strong> <%= @user.first_name + ' ' + @user.last_name%> </p>
