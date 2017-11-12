@@ -13,6 +13,7 @@ class Event < ApplicationRecord
 	validates :start_time, presence: true
 	validates :end_time, presence: true
 	validate :start_date_should_be_after_today
+	validate :end_date_at_least_same_with_start_date
 
 	geocoded_by :venue
 	after_validation :geocode
@@ -21,6 +22,12 @@ class Event < ApplicationRecord
     if start_date <= Date.today
       errors.add(:start_date, "can't be in the past or today")
     end
+  end
+
+  def end_date_at_least_same_with_start_date
+  	if end_date < start_date
+    	errors.add :end_date, "can't be in the past"
+  	end
   end
 
 end

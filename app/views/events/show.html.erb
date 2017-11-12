@@ -24,16 +24,16 @@
 
 <p>
   <strong>Date:</strong>
-  <% if @event.end_date.nil? %>
-    <%= @event.start_date.strftime('%A, %d %B %Y') %>
+  <% if @event.start_date == @event.end_date %>
+    <%= @event.start_date.strftime('%A, %d %B %Y') %> (1 day)
   <% else %>
-    <%= @event.start_date.strftime('%A, %d %B %Y') %> - <%= @event.end_date.strftime('%A, %d %B %Y') %>
+    <%= @event.start_date.strftime('%A, %d %B %Y') %> - <%= @event.end_date.strftime('%A, %d %B %Y') %> (<%= (@event.start_date..@event.end_date).to_a.length %> days)
   <% end %>
 </p>
 
 <p>
   <strong>Time:</strong>
-  <%= @event.start_time.strftime('%H:%M') %>am - <%= @event.end_time.strftime('%H:%M') %>pm
+  <%= @event.start_time.strftime('%I:%M %p') %>am - <%= @event.end_time.strftime('%I:%M') %>pm
 </p>
 
 <p>
