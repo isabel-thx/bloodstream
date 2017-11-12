@@ -7,13 +7,15 @@ class User < ApplicationRecord
 
     validates :first_name, presence: true, on: :update
     validates :last_name, presence: true, on: :update
-    validates :blood_type, presence: true, on: :update
+    validates :blood_type, :inclusion  => { :in => [ '','O+', 'O-', 'A+', 'A-', 'AB+', 'AB-', 'B+', 'B-' ] }
+    validates :state, presence: true, :inclusion  => { :in => ['Kuala Lumpur', 'Selangor', 'Johor', 'Kedah', 'Kelantan', 'Malacca', 'Negeri Sembilan', 'Pahang', 'Perak', 'Perlis', 'Penang', 'Terengganu', 'Sabah', 'Sarawak']}, on: :update
     validates :date_of_birth, presence: true, on: :update
     validates :phone_number, presence: true, on: :update
     validates :address, presence: true, on: :update
     validates :password, presence: true, length: { :in => 7..20 }, on: :create
     validates :email, uniqueness: {case_sensitive: false, message: "Error: An account with this email already exists."}
     validates :email, presence: true, format: { with: (/\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i),message: "Error: Invalid email format." }
+
 
   # declare an enum attribute where the values map to integers in the database, but can be queried by name
   	enum role: [ :donor, :admin ]
