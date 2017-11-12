@@ -34,6 +34,15 @@ gem 'gmaps4rails'
 # use will_paginate for pagination
 gem 'will_paginate', '~> 3.1.0'
 
+# Active Job's default behavior is to execute jobs via the :async adapter.
+# So, you can use deliver_later now to send emails asynchronously.
+# Active Job's default adapter runs jobs with an in-process thread pool.
+# It's well-suited for the development/test environments, since it doesn't require any external infrastructure,
+# but it's a poor fit for production since it drops pending jobs on restart.
+# If you need a persistent backend,
+# you will need to use an Active Job adapter that has a persistent backend (Sidekiq, Resque, etc).
+gem 'sidekiq'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use postgresql as the database for Active Record
@@ -58,6 +67,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -53,7 +53,7 @@ drift.load('7yynvidxishw');
 </head>
 <body>
 <!-- <div class="header"> -->
-<nav class="navbar navbar-expand-lg navbar-light transparent fixed-top">
+<nav class="navbar navbar-expand-lg navbar-light">
   <!-- logo -->
   <nav class="navbar navbar-light">
       <a class="navbar-brand pl-5" href="/">
@@ -63,11 +63,8 @@ drift.load('7yynvidxishw');
 
   <% if signed_in? %>
     <% if current_user.admin? %>
-      <div class="collapse navbar-collapse col-md-4 ml-auto" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <!-- <li class="nav-item active" id="sign-up">
-            <a class="nav-link" href="/">About Us</a>
-          </li> -->
+      <div class="collapse navbar-collapse ml-5" id="navbarSupportedContent">
+        <ul class="navbar-nav col-md-12 d-flex justify-content-end">
           <li class="nav-item active" id="sign-in">
             <a class="nav-link" href="<%= new_event_path %>">Create Event</a>
           </li>
@@ -83,11 +80,17 @@ drift.load('7yynvidxishw');
           <li class="nav-item active" id="sign-in">
             <a class="nav-link" href="<%= send_sms_path %>">SOS</a>
           </li>
+          <li class="nav-item active" id="sign-in">
+            <%= link_to "Sign Out", sign_out_path, :method => :delete, class: 'nav-link' %>
+          </li>
+          <!-- <ul class="nav navbar-nav navbar-right">
+          <li><%#= link_to "Sign Out", sign_out_path, :method => :delete %></li> -->
+        </ul>
         </ul>
       </div>
     <% elsif current_user.donor? %>
-        <div class="collapse navbar-collapse col-md-4 ml-auto" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+        <div class="collapse navbar-collapse ml-5" id="navbarSupportedContent">
+      <ul class="navbar-nav col-md-12 d-flex justify-content-end">
         <li class="nav-item active" id="sign-up">
           <a class="nav-link" href="<%= events_path %>">&hearts; Donate Now</a>
         </li>
@@ -100,19 +103,18 @@ drift.load('7yynvidxishw');
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%= link_to "About Us", "/about", class: 'dropdown-item' %>
-            <%= link_to "Did you know?", "/", class: 'dropdown-item' %>
             <%= link_to "FAQs", "/FAQs", class: 'dropdown-item' %>
           </div>
         </li>
+        <li class="nav-item active" id="sign-in">
+          <%= link_to "Sign Out", sign_out_path, :method => :delete, class: 'nav-link' %>
+        </li>
       </ul>
     </div>
-    <% end %>
-        <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "Sign Out", sign_out_path, :method => :delete %></li>
-        </ul>
+    <% end %>       
   <% else %>
-    <div class="collapse navbar-collapse col-md-4 ml-auto" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+    <div class="collapse navbar-collapse ml-5" id="navbarSupportedContent">
+      <ul class="navbar-nav col-md-12 d-flex justify-content-end">
         <!-- <li class="nav-item active" id="sign-up">
           <a class="nav-link" href="/">About Us</a>
         </li> -->
@@ -129,7 +131,6 @@ drift.load('7yynvidxishw');
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%= link_to "Blood Drives", events_path, class: 'dropdown-item' %>
             <%= link_to "About Us", "/about", class: 'dropdown-item' %>
-            <%= link_to "Did you know?", "/", class: 'dropdown-item' %>
             <%= link_to "FAQs", "/FAQs", class: 'dropdown-item' %>
           </div>
         </li>
