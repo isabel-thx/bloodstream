@@ -5,6 +5,11 @@ class AttendeesController < ApplicationController
 
 	end
 
+	def new
+		@attendee = Attendee.create(attendee_params)
+		redirect_to "/"
+	end
+
 	def create
 		@attendee = Attendee.find_by(user_id: params[:attendee][:user_id], event_id: params[:attendee][:event_id])
 	    if @attendee.code == nil
@@ -23,10 +28,6 @@ class AttendeesController < ApplicationController
 			flash[:notice] = "Code already exist."
 		end
 		redirect_to event_path(@attendee.event_id)
-	end
-
-	def make
-
 	end
 	
 	def check
@@ -48,13 +49,13 @@ class AttendeesController < ApplicationController
 		ENV['TWILIO_ACC_SID'], ENV['TWILIO_AUTH_TOKEN']
 		)
 		@user.each do |user|
-		@client.api.account.messages.create(
-		  from: ENV['TWILIO_PHONE_NUMBER'],
-		  to: "+6" + user.phone_number,
-		  body: 'Good day! Blood Type X needed urgently. Please contact us if you can help.
-BloodStream Team.
-Live Longer.Together.'
-		)
+			@client.api.account.messages.create(
+			  from: ENV['TWILIO_PHONE_NUMBER'],
+			  to: "+6" + user.phone_number,
+			  body: 'Good day! Blood Type X needed urgently. Please contact us if you can help.
+					BloodStream Team.
+					Live Longer.Together.'
+			)
 		end
 		redirect_to root_path
 		flash[:notice] = 'SOS message sent.'

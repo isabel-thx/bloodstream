@@ -29,9 +29,16 @@
         <td><%= a.phone_number %></td>
         <td><%= a.email %></td>
         <td><%= a.points %></td>
-       
-    <% end %>
-    <% end %>
+        <td>
+          <%= form_for @code, :url => new_attendee_path, :html => {:method => :post} do |c| %>
+              <%= c.hidden_field :user_id, value: a.id %>
+              <%= c.hidden_field :event_id, value: @event.id %>
+              <%= submit_tag "Add Donor as Attendee" %>
+        </td>
+          <% end %>
+        <% end %>
+      <% end %>
+
     </tr>
   </tbody>
 </table
