@@ -18,6 +18,7 @@
   <tbody>
 
     <% @donors.each do |a| %>
+
     	<% if a.id != @attendees.user_id %>
    
       <tr>
@@ -35,6 +36,7 @@
               <%= c.hidden_field :event_id, value: @event.id %>
               <%= submit_tag "Add Donor as Attendee" %>
         </td>
+
           <% end %>
         <% end %>
       <% end %>
