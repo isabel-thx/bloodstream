@@ -58,10 +58,12 @@ body {
 	font-weight: bold;
 }
 
-.learn-more-button {
+.learn-more-button a:link {
 	margin-left: 90px;
 	margin-top: 30px;
 	/*text-transform: uppercase;*/
+	text-decoration: none;
+	color: black;
 }
 
 .sign-up {
@@ -83,7 +85,6 @@ body {
 	padding-left: 90px;
 	padding-right: 90px;
 	padding-top: 20px;
-	/*padding-bottom: 20px;*/
 	margin-bottom: 20px;
 	text-align: justify;
 }
@@ -137,13 +138,142 @@ body {
 }
 
 .card {
-    float: left;
-    margin-right: 10px;
-    display: inline;
+  float: left;
+  margin-right: 10px;
+  display: inline;
 }
 
 .title {
 	text-transform: uppercase;
 	letter-spacing: 5px;
 	font-size: 1.7rem;
+}
+
+.threecol a:link {
+	text-align: center;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.threecol h3 {
+	font-family: 'Volkhov', serif;
+}
+
+.threecol p {
+	text-transform: uppercase;
+	font-size: 15px;
+	font-family: 'Barlow', sans-serif;
+	text-align: center;
+	color: #FFFFFF;
+	letter-spacing: 2px;
+}
+
+#threecol-one {
+	background-color: #CB4742;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+#threecol-two {
+	background-color: #E60000;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+#threecol-three {
+	background-color: #AB0000;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+#blog {
+	margin-top: 60px;
+	margin-bottom: 60px;
+}
+
+#blog h1 {
+	font-family: 'Volkhov', serif;
+	font-weight: 900;
+	font-size: 200%;
+	text-align: center;
+}
+
+.blogs {
+	background-color: #f2f2f2;
+	border-radius: 10px;
+	margin-left: 20px;
+	margin-right: 20px;
+	text-align: center;
+
+}
+
+.blogs p {
+	text-transform: uppercase;
+	font-size: 15px;
+	font-family: 'Barlow', sans-serif;
+}
+
+#blog a:link {
+	text-decoration: none;
+	color: black;
+}
+
+.read-more {
+	text-align: center;
+	font-family: 'Barlow', sans-serif;
+	text-transform: uppercase;
+	color: #111111;
+	text-decoration: none;
+}
+
+#join {
+	background-color: #CB4742;
+}
+
+.join a:link {
+	text-align: center;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.join h1 {
+	font-family: 'Volkhov', serif;
+}
+
+.join p {
+	font-family: 'Barlow', serif;
+	text-transform: uppercase;
+	font-size: 15px;
+	text-align: center;
+	color: #FFFFFF;
+	letter-spacing: 2px;
+}
+
+.footer h5 {
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-weight: 900;
+}
+
+.footer p a:link {
+	font-size: 15px;
+	text-decoration: none;
+	color: black;
+}
+
+.footer p a:visited {
+	color: black;
+}
+
+#us {
+	background-color: #FB7C85;
+}
+
+.us p {
+	text-align: center;
+	color: #FFFFFF;
+	font-size: 11px;
+	font-family: 'Barlow', serif; 
+	text-transform: uppercase;
+	letter-spacing: 2px;
 }
