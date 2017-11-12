@@ -86,26 +86,26 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
 
 <% if current_user.admin? %>
 
-<h2>Attendees</h2>
+  <h2>Attendees</h2>
 
-<%= form_tag(event_path, :method => "get", id: "search-form") do %>
-<div class="col-lg-6">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Find donor" name="email" <% params[:email] %>>
-      <span class="input-group-btn">
-        <button class="btn btn-secondary" type="submit">Go!</button>
-      </span>
+  <%= form_tag(event_path, :method => "get", id: "search-form") do %>
+  <div class="col-lg-6">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Find donor" name="email" <% params[:email] %>>
+        <span class="input-group-btn">
+          <button class="btn btn-secondary" type="submit">Go!</button>
+        </span>
+      </div>
     </div>
   </div>
-</div>
-<br>
-<% end %>
+  <br>
+  <% end %>
 
-<% if @donors.present? %>
-  <%= render partial: 'attendees/find' %>
-<% else %>
-  <%= render partial: '/attendees/event' %>
-<% end %>
+  <% if @donors.present? %>
+    <%= render partial: 'attendees/find' %>
+  <% else %>
+    <%= render partial: '/attendees/event' %>
+  <% end %>
 
 <% end %>
         
