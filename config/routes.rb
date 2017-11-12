@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/FAQs' => "faq#show", as: "FAQ"
   get '/about' => "about#show", as: "about"
   post '/attendees/new' => "attendees#new", as: "new_attendee"
+  post '/applications/new' => "applications#new", as: "new_application"
 
 
   resources :events

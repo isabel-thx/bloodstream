@@ -1,16 +1,26 @@
 class AttendeesController < ApplicationController
 	
-
 	def index
 
 	end
 
 	def new
-		# if @attendee.event_id
-			@attendee = Attendee.create(attendee_params)
-			redirect_to event_path(@event.id)
-		# end
+		@attendee = Attendee.new(attendee_params)
+		@existing = Attendee.find_by(event_id: params[:attendee][:event_id])
+			if @existing != nil
+				if @existing.user_id != @attendee.user_id
+					@attendee.save
+					redirect_to event_path(@attendee.event_id)
+				else
+					flash[:notice] = "User already registered in this event"
+					redirect_to event_path(@existing.event_id)
+				end
+			else
+				@attendee.save
+				redirect_to event_path(@attendee.event_id)
+			end
 	end
+
 
 	def create
 		@attendee = Attendee.find_by(user_id: params[:attendee][:user_id], event_id: params[:attendee][:event_id])
@@ -31,6 +41,7 @@ class AttendeesController < ApplicationController
 		end
 		redirect_to event_path(@attendee.event_id)
 	end
+
 	
 	def check
 		@attendee = Attendee.find_by(user_id: current_user.id)
@@ -45,6 +56,7 @@ class AttendeesController < ApplicationController
 			redirect_to current_user
 	end
 
+
 	def send_sms
 		@user = User.all
 		@client = Twilio::REST::Client.new(
@@ -55,8 +67,8 @@ class AttendeesController < ApplicationController
 			  from: ENV['TWILIO_PHONE_NUMBER'],
 			  to: "+6" + user.phone_number,
 			  body: 'Good day! Blood Type X needed urgently. Please contact us if you can help.
-					BloodStream Team.
-					Live Longer.Together.'
+			  BloodStream Team.
+			  Live Longer.Together.'
 			)
 		end
 		redirect_to root_path
