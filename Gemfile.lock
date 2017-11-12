@@ -206,13 +206,13 @@ GEM
     selenium-webdriver (3.7.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
-    social-share-button (1.0.0)
-      coffee-rails
     sidekiq (5.0.5)
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
       rack-protection (>= 1.5.0)
       redis (>= 3.3.4, < 5)
+    social-share-button (1.0.0)
+      coffee-rails
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -276,11 +276,8 @@ DEPENDENCIES
   rails (~> 5.1.4)
   sass-rails (~> 5.0)
   selenium-webdriver
-<<<<<<< HEAD
-  social-share-button
-=======
   sidekiq
->>>>>>> master
+  social-share-button
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
