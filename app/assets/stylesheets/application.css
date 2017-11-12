@@ -248,3 +248,32 @@ body {
 	color: #FFFFFF;
 	letter-spacing: 2px;
 }
+
+.footer h5 {
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-weight: 900;
+}
+
+.footer p a:link {
+	font-size: 15px;
+	text-decoration: none;
+	color: black;
+}
+
+.footer p a:visited {
+	color: black;
+}
+
+#us {
+	background-color: #FB7C85;
+}
+
+.us p {
+	text-align: center;
+	color: #FFFFFF;
+	font-size: 11px;
+	font-family: 'Barlow', serif; 
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
