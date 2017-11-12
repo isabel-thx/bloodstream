@@ -24,16 +24,16 @@
 
 <p>
   <strong>Date:</strong>
-  <% if @event.end_date.nil? %>
-    <%= @event.start_date.strftime('%A, %d %B %Y') %>
+  <% if @event.start_date == @event.end_date %>
+    <%= @event.start_date.strftime('%A, %d %B %Y') %> (1 day)
   <% else %>
-    <%= @event.start_date.strftime('%A, %d %B %Y') %> - <%= @event.end_date.strftime('%A, %d %B %Y') %>
+    <%= @event.start_date.strftime('%A, %d %B %Y') %> - <%= @event.end_date.strftime('%A, %d %B %Y') %> (<%= (@event.start_date..@event.end_date).to_a.length %> days)
   <% end %>
 </p>
 
 <p>
   <strong>Time:</strong>
-  <%= @event.start_time.strftime('%H:%M') %>am - <%= @event.end_time.strftime('%H:%M') %>pm
+  <%= @event.start_time.strftime('%I:%M %p') %>am - <%= @event.end_time.strftime('%I:%M') %>pm
 </p>
 
 <p>
@@ -45,7 +45,7 @@
   <% if current_user.admin? %>
     <%= link_to 'Edit', edit_event_path(@event) %> |
     <%= link_to 'Back', events_path %> |
-    <%= link_to 'Delete', events_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'Delete', event_path, method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
 <% end %>
 
@@ -86,26 +86,26 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
 
 <% if current_user.admin? %>
 
-<h2>Attendees</h2>
+  <h2>Attendees</h2>
 
-<%= form_tag(event_path, :method => "get", id: "search-form") do %>
-<div class="col-lg-6">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Find donor" name="email" <% params[:email] %>>
-      <span class="input-group-btn">
-        <button class="btn btn-secondary" type="submit">Go!</button>
-      </span>
+  <%= form_tag(event_path, :method => "get", id: "search-form") do %>
+  <div class="col-lg-6">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Find donor" name="email" <% params[:email] %>>
+        <span class="input-group-btn">
+          <button class="btn btn-secondary" type="submit">Go!</button>
+        </span>
+      </div>
     </div>
   </div>
-</div>
-<br>
-<% end %>
+  <br>
+  <% end %>
 
-<% if @donors.present? %>
-  <%= render partial: 'attendees/find' %>
-<% else %>
-  <%= render partial: '/attendees/event' %>
-<% end %>
+  <% if @donors.present? %>
+    <%= render partial: 'attendees/find' %>
+  <% else %>
+    <%= render partial: '/attendees/event' %>
+  <% end %>
 
 <% end %>
         
