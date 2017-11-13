@@ -43,12 +43,15 @@ class AttendeesController < ApplicationController
 		if @attendee.code != nil
 			current_user.points += 10
 			current_user.save
-			flash[:notice] = "Code applied."
+			text = "Code applied."
 			@attendee.update(code: nil)
 		else
-			flash[:notice] = "Code not found."
+			text = "Code not found."
 		end
-			redirect_to current_user
+		respond_to do |format|
+			format.js
+			format.html { redirect_to current_user, notice: text }
+		end
 	end
 
 
