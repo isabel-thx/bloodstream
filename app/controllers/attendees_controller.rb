@@ -6,19 +6,14 @@ class AttendeesController < ApplicationController
 
 	def new
 		@attendee = Attendee.new(attendee_params)
-		@existing = Attendee.find_by(event_id: params[:attendee][:event_id])
-			if @existing != nil
-				if @existing.user_id != @attendee.user_id
-					@attendee.save
-					redirect_to event_path(@attendee.event_id)
-				else
-					flash[:notice] = "User already registered in this event"
-					redirect_to event_path(@existing.event_id)
-				end
-			else
-				@attendee.save
-				redirect_to event_path(@attendee.event_id)
-			end
+		@existing = Attendee.find_by(attendee_params)
+		if @existing == nil || @existing.user_id != @attendee.user_id
+			@attendee.save
+			flash[:notice] = "New donor added."
+		elsif @existing != nil && @existing.user_id == @attendee.user_id
+			flash[:notice] = "This donor is already registered in this event."					
+		end		
+		redirect_to event_path(@attendee.event_id)
 	end
 
 
@@ -39,7 +34,7 @@ class AttendeesController < ApplicationController
 		else
 			flash[:notice] = "Code already exist."
 		end
-		redirect_to event_path(@attendee.event_id)
+			redirect_to event_path(@attendee.event_id)
 	end
 
 	
