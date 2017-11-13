@@ -304,3 +304,7 @@ body {
 	margin-right: 15px;
 	padding: 8px;
 }
+
+.row {
+	margin-right: 0px;
+}
