@@ -299,3 +299,14 @@ body {
 .row {
 	margin-right: 0px;
 }
+
+.facebook_logo {
+  max-width: 18px;
+  max-height: 18px;
+
+}
+
+.social-share-button {
+  padding-top: 11px;
+  padding-left: 4px;
+}

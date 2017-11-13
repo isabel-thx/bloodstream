@@ -12,7 +12,19 @@
   <%= link_to "Edit profile", edit_user_path %> |
   <%= link_to "Reset password", edit_user_password_path(current_user.id) %>
 <% end %>
-<%= social_share_button_tag("My Site") %>
+<br>
+
+<table>
+<tr>
+<td><a target="popup" href='https://www.facebook.com/sharer.php?u=www.bloodstream.herokuapp.com' onclick="window.open('https://www.facebook.com/sharer.php?u=www.bloodstream.herokuapp.com','name','width=750,height=350')"> <%= image_tag('facebook_logo.png', class: "facebook_logo")%> </a></td>
+<td>
+<%= social_share_button_tag('', :url => "http://www.bloodstream.herokuapp.com") %></td>
+</tr>
+</table>
+
+<!-- <a href="https://www.facebook.com/sharer/sharer.php?u=example.org" target="_blank">
+  Share on Facebook
+</a> -->
 <br><br>
 <div id="profile_info">
 <p><strong>Name:</strong> <%= @user.first_name + ' ' + @user.last_name%> </p>
