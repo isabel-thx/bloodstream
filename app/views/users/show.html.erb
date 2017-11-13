@@ -296,7 +296,12 @@ $("#btnSubmit").click(function() {
 <div id="blood-point">
   <strong>Reward Points:</strong> <span id="pointpoint"><%= @user.points %></span>
 </div>
-<br><br>
+<br>
+ <%= form_tag(check_path, :method => "post", remote: true) do %>
+      <%= text_field_tag :code , '', placeholder: "Your code here" %>
+      <%= submit_tag "Get Points!", id: "btnSubmit" %>
+  <% end %>
+<br>
 <div id="blood-type">
   <p>Blood Type:</p>
   <h1><%= @user.blood_type.upcase %></h1>
@@ -333,7 +338,3 @@ $("#btnSubmit").click(function() {
   <%= will_paginate @attended_list %>
 
 
-  <%= form_tag(check_path, :method => "post", remote: true) do %>
-      <%= text_field_tag :code , '', placeholder: "Your code here" %>
-      <%= submit_tag "Submit", id: "btnSubmit" %>
-  <% end %>
