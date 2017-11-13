@@ -111,7 +111,7 @@ drift.load('7yynvidxishw');
         </li>
       </ul>
     </div>
-    <% end %>       
+    <% end %>
   <% else %>
     <div class="collapse navbar-collapse ml-5" id="navbarSupportedContent">
       <ul class="navbar-nav col-md-12 d-flex justify-content-end">
@@ -141,11 +141,54 @@ drift.load('7yynvidxishw');
 </div>
 
 <div id="flash">
-    <% flash.each do |key, value| -%>
-      <div id="alert alert-<%= key %>"><%= value %></div>
+  <% flash.each do |key, value| -%>
+  <div id="alert alert-<%= key %>"><%= value %></div>
     <% end %>
   </div>
-  <%= yield %>
+</div>
+
+<%= yield %>
+
+<hr>
+<div class="container pt-4 pb-4">
+  <div class="row">
+    <div class="footer col-6 pl-3 pr-3">
+      <h5>Dreamteam</h5>
+      <p><a href="https://www.google.com/maps/place/NEXT+Academy+%7C+The+Best+Coding+School/@3.133845,101.62998,15z/data=!4m2!3m1!1s0x0:0x1f08990385cee5b8?sa=X&ved=0ahUKEwijzaOd2LbXAhUGsI8KHXnVC0oQ_BIIfTAN">AG-7, Glomac Damansara, Jalan Damansara <br>Tmn Tun Dr Ismail, 60000</a><br>
+      <a href="tel:0392128158">03-9212 8158</a></p>
+      <table>
+        <tr>
+          <td><a target="popup" href='https://www.facebook.com/sharer.php?u=www.bloodstream.herokuapp.com' onclick="window.open('https://www.facebook.com/sharer.php?u=www.bloodstream.herokuapp.com','name','width=750,height=350')"> <%= image_tag('facebook_logo.png', class: "facebook_logo")%> </a></td>
+          <td><%= social_share_button_tag('', :url => "http://www.bloodstream.herokuapp.com") %></td>
+        </tr>
+      </table>
+    </div>
+    <div class="footer col-sm pl-3 pr-3">
+      <h5>Resources</h5>
+      <p><a href="#">Statistics</a><br>
+      <a href="#">Latest Update</a><br>
+      <a href="#">Lorem Ipsum</a></p>
+    </div>
+    <div class="footer col-sm pl-3 pr-3">
+      <h5>Connect</h5>
+      <p><a href="#">Events</a><br>
+      <a href="#">Blogs</a><br>
+      <a href="#">Volunteer</a></p>
+    </div>
+    <div class="footer col-sm pl-3 pr-3">
+      <h5>Get Help</h5>
+      <p><a href="#">Emergency Plan</a><br>
+      <a href="#">Support</a><br>
+      <a href="#">Resources</a><br>
+      <a href="#">Education</a></p>
+    </div>
+  </div>
+</div>
+
+<div id="us">
+  <div class="us pt-3 pb-1">
+    <p>Bloodstream - Web developed & designed by Dreamteam</p>
+  </div>
 </div>
 </body>
 </html>

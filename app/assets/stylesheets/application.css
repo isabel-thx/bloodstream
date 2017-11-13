@@ -1,8 +1,9 @@
  /*
  /*= require flatpickr
  /*= require flatpickr/material_red
+ *= require social-share-button
  */
- 
+
 body {
   font-family: 'Nunito', sans-serif;
   font-size: 20px;
@@ -96,8 +97,9 @@ body {
 	background-image: url(/assets/red-roses2.jpg);
 	color: #fff;
 	padding-top: 40px;
-	padding-bottom: 40px;
+	padding-bottom: 30px;
 	text-align: center;
+	background-attachment: fixed;
 }
 
 #numbers .container .row .col-sm h1 {
@@ -194,7 +196,6 @@ body {
 	padding-top: 60px;
 	padding-bottom: 60px;
 	background-image: url(/assets/blog-background.jpg);
-	/*background-repeat: no-repeat;*/
   background-attachment: fixed;
   background-size: cover;
 }
@@ -213,7 +214,7 @@ body {
 	margin-left: 20px;
 	margin-right: 20px;
 	text-align: center;
-
+	padding-bottom: 50px;
 }
 
 .blogs p {
@@ -292,11 +293,14 @@ body {
 	text-align: center;
 	color: #FFFFFF;
 	font-size: 11px;
-	font-family: 'Barlow', serif; 
+	font-family: 'Barlow', serif;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 }
 
+#event_here {
+	margin-bottom: 1200px;
+}
 .event {
 	background-color: #DC1100;
 	color: white;
@@ -310,6 +314,18 @@ body {
 
 .row {
 	margin-right: 0px;
+}
+
+
+.facebook_logo {
+  max-width: 18px;
+  max-height: 18px;
+
+}
+
+.social-share-button {
+  padding-top: 11px;
+  padding-left: 4px;
 }
 
 .dropdown-item a {
@@ -369,6 +385,6 @@ body {
 	font-size: 3.2rem;
 }
 
-.content {
+.content, .button {
 	padding-top: 10px;
 }
