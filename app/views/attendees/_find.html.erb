@@ -15,10 +15,8 @@
     </tr>
   </thead>
 
-  <tbody>
-    <% if @attendee != nil %>
-        <% @donors.each do |a| %>
-        	<% if a.id != @attendees.user_id  %>
+  <tbody>   
+        <% @donors.each do |a| %>     
           <tr>
             <td><%= a.first_name %></td>
             <td><%= a.last_name %></td>
@@ -33,31 +31,10 @@
                   <%= c.hidden_field :user_id, value: a.id %>
                   <%= c.hidden_field :event_id, value: @event.id %>
                   <%= submit_tag "Add Donor as Attendee" %>
-            </td>
-              <% end %>
+            </td> 
             <% end %>
           <% end %>
-      <% else %>      
-        <% @donors.each do |a| %>
-            <tr>
-              <td><%= a.first_name %></td>
-              <td><%= a.last_name %></td>
-              <td><%= a.date_of_birth %></td>
-              <td><%= a.blood_type %></td>
-              <td><%= a.address %></td>
-              <td><%= a.phone_number %></td>
-              <td><%= a.email %></td>
-              <td><%= a.points %></td>
-              <td>
-                <%= form_for @code, :url => new_attendee_path, :html => {:method => :post} do |c| %>
-                    <%= c.hidden_field :user_id, value: a.id %>
-                    <%= c.hidden_field :event_id, value: @event.id %>
-                    <%= submit_tag "Add Donor as Attendee" %>
-              </td>
-                <% end %>
-              <% end %>
-      <% end %>
     </tr>
   </tbody>
-</table
+</table>
 
