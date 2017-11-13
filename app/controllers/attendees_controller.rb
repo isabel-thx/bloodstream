@@ -48,6 +48,7 @@ class AttendeesController < ApplicationController
 		else
 			text = "Code not found."
 		end
+		
 		respond_to do |format|
 			format.js
 			format.html { redirect_to current_user, notice: text }

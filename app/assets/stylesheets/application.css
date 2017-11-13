@@ -371,3 +371,7 @@ body {
 	font-family: 'Volkhov', serif;
 	font-size: 3.2rem;
 }
+
+.content, .button {
+	padding-top: 10px;
+}
