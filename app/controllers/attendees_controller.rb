@@ -1,5 +1,5 @@
 class AttendeesController < ApplicationController
-	
+
 	def index
 
 	end
@@ -11,8 +11,8 @@ class AttendeesController < ApplicationController
 			@attendee.save
 			flash[:notice] = "New donor added."
 		elsif @existing != nil && @existing.user_id == @attendee.user_id
-			flash[:notice] = "This donor is already registered in this event."					
-		end		
+			flash[:notice] = "This donor is already registered in this event."
+		end
 		redirect_to event_path(@attendee.event_id)
 	end
 
@@ -24,7 +24,7 @@ class AttendeesController < ApplicationController
 		   @client = Twilio::REST::Client.new(
 			ENV['TWILIO_ACC_SID'], ENV['TWILIO_AUTH_TOKEN']
 			)
-			
+
 			@client.api.account.messages.create(
 			  from: ENV['TWILIO_PHONE_NUMBER'],
 			  to: "+6" + @attendee.user.phone_number,
@@ -37,9 +37,9 @@ class AttendeesController < ApplicationController
 			redirect_to event_path(@attendee.event_id)
 	end
 
-	
+
 	def check
-		@attendee = Attendee.find_by(user_id: current_user.id)
+		@attendee = Attendee.find_by(code: params[:code])
 		if @attendee.code != nil
 			current_user.points += 10
 			current_user.save
@@ -48,7 +48,7 @@ class AttendeesController < ApplicationController
 		else
 			text = "Code not found."
 		end
-		
+
 		respond_to do |format|
 			format.js
 			format.html { redirect_to current_user, notice: text }
@@ -75,7 +75,7 @@ class AttendeesController < ApplicationController
 
 	end
 
-	
+
 
 
 	private
