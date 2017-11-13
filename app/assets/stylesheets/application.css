@@ -368,3 +368,7 @@ body {
 	font-family: 'Volkhov', serif;
 	font-size: 3.2rem;
 }
+
+.content {
+	padding-top: 10px;
+}
