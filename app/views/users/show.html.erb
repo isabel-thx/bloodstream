@@ -334,6 +334,8 @@ $("#btnSubmit").click(function() {
 
   <%= form_tag(check_path, :method => "post", remote: true) do %>
       <%= text_field_tag :code , '', placeholder: "Your code here" %>
-      <%= submit_tag"Submit", id: "btnSubmit" %>
+      <%= submit_tag "Submit", id: "btnSubmit" %>
   <% end %>
+
+  
 

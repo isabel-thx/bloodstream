@@ -1,3 +1,152 @@
+<style>
+.container, .band, .eye, .mouth, .blood, .drip, .mouth_2, .shine {
+  position: absolute;
+}
+.band {
+  width: 250px;
+  height: 70px;
+  background-color: #e5c09e;
+  border-radius: 100px;
+  background-image: radial-gradient(#e6d5ab 15%, transparent 16%), radial-gradient(#e6d5ab 15%, transparent 16%);
+  background-size: 10px 10px;
+  background-position: 0 0, 30px 30px;
+}
+.band:before {
+  position: absolute;
+  content: '';
+  left: 75px;
+  top: 10px;
+  width: 100px;
+  height: 50px;
+  background: #e9cbaf;
+  border-radius: 10px;
+  box-shadow: 3px 3px 20px #a78c73;
+}
+.eye {
+  z-index: 999;
+  top: 30px;
+  left: 98px;
+  width: 8px;
+  height: 8px;
+  background: #695848;
+  border-radius: 100%;
+}
+.eye:before, .eye:after {
+  position: absolute;
+  content: '';
+}
+.eye:before {
+  top: 0;
+  left: 45px;
+  width: 8px;
+  height: 8px;
+  background: #695848;
+  border-radius: 100%;
+}
+.mouth {
+  top: 40px;
+  left: 110px;
+  z-index: 999;
+  width: 30px;
+  height: 3px;
+  background: #695848;
+  border-radius: 100%;
+}
+.mouth:before, .mouth:after {
+  position: absolute;
+  content: '';
+}
+.mouth:before {
+  top: 0px;
+  left: 4px;
+  border-top: 5px solid #fdf9f3;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+}
+.mouth:after {
+  top: 0;
+  left: 20px;
+  border-top: 5px solid #fdf9f3;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+}
+.blood {
+  z-index: -1;
+  top: 60px;
+  left: 90px;
+  width: 80px;
+  height: 15px;
+  background: #c33149;
+  border-radius: 0 0 100px 100px;
+}
+.blood:before, .blood:after {
+  position: absolute;
+  content: '';
+}
+.blood:before {
+  top: 0;
+  left: 15px;
+  width: 10px;
+  height: 24px;
+  background: #c33149;
+  border-radius: 0 0 100px 100px;
+  animation: 4s drippin infinite ease;
+}
+.blood:after {
+  top: -10px;
+  left: 26px;
+  width: 13px;
+  height: 50px;
+  background: #c33149;
+  border-radius: 0 0 100px 100px;
+  animation: 4s drippin infinite ease;
+}
+.drip {
+  width: 3px;
+  height: 8px;
+  background: #c33149;
+  top: 42px;
+  left: 112px;
+  border-radius: 0 0 100% 100%;
+}
+.shine {
+  z-index: 1000;
+  top: 14px;
+  left: 17px;
+  width: 2px;
+  height: 7px;
+  background: #e1e1e1;
+  border-radius: 100px;
+  animation: 4s drippin infinite ease;
+}
+.shine:before {
+  position: absolute;
+  content: '';
+  top: 9px;
+  left: 11px;
+  width: 2px;
+  height: 10px;
+  background: #ebebeb;
+  border-radius: 100px;
+}
+@keyframes drippin {
+  100% {
+    transform: translateY(10px);
+  }
+}
+</style>
+
+<div class="container">
+  <div class="band">
+    <div class="eye"></div>
+    <div class="mouth"></div>
+    <div class="blood">
+      <div class="shine"></div>
+    </div>
+    <div class="drip"></div>
+  </div>
+</div>
+
 <h1 class="title" style="margin-left: 100px; margin-top: 150px; font-size: 2rem;">About Bloodstream</h1>
 
 	<h2 class="title" style="margin-left: 200px; margin-top: 80px;">Our Vision</h2>

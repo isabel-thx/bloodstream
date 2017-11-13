@@ -121,18 +121,18 @@ drift.load('7yynvidxishw');
         <li class="nav-item active" id="sign-up">
           <a class="nav-link" href="<%= sign_up_path %>">&hearts; Become a Donor</a>
         </li>
-        <li class="nav-item active" id="sign-in">
-          <a class="nav-link" href="<%= sign_in_path %>">Sign In</a>
-        </li>
         <li class="nav-item active dropdown" id="sign-in">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             More
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to "Blood Drives", events_path, class: 'dropdown-item' %>
-            <%= link_to "About Us", "/about", class: 'dropdown-item' %>
-            <%= link_to "FAQs", "/FAQs", class: 'dropdown-item' %>
+            <%= link_to "Blood Drives", events_path, class: 'dropdown-item justify-content-end' %>
+            <%= link_to "About Us", "/about", class: 'dropdown-item justify-content-end' %>
+            <%= link_to "FAQs", "/FAQs", class: 'dropdown-item justify-content-end' %>
           </div>
+        </li>
+        <li class="nav-item active" id="sign-in">
+          <a class="nav-link" href="<%= sign_in_path %>">Sign In</a>
         </li>
       </ul>
     </div>
