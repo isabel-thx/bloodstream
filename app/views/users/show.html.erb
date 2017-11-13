@@ -1,3 +1,249 @@
+<script>
+  $(document).ready(function() {
+
+    $('.pourTube') //Pour Me Another Drink, Bartender!
+      .delay(0)
+      .animate({
+        height: '150px'
+        }, 0)
+      .delay(15600);
+
+  $('.beer-foam') // Keep that Foam Rollin' Toward the Top! Yahooo!
+      .delay(3400)
+      .animate({
+        bottom: '200px'
+        }, 2500);
+    });
+  
+    $('.pour') //Pour Me Another Drink, Bartender!
+    .delay(0)
+    .animate({
+      height: '150px'
+      }, 1500)
+    .delay(15600);
+  
+$("#btnSubmit").click(function() { 
+  var liquidHeight = $("#liquid").height()
+  if(liquidHeight < 200){
+    $("#liquid")
+        .animate({
+            "height": "+=30px",
+        }, 700);  
+  } else {
+   $("#liquid").height('0px')
+    alert('Thank you')
+  }
+});
+</script>
+
+<style>
+  #containerBlood {
+  height: 370px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: absolute;
+  left: 200px;
+  width: 248px;
+  margin-left:700px;
+}
+
+#containerBlood div { position: absolute; }
+
+.pour {
+  position: absolute;
+  left: 42%;
+  width: 20px;
+  height: 0px;
+  background-color: #e74c3c;
+  border-radius: 10px
+}
+
+.pourTube {
+  position: absolute;
+  left: 42%;
+  width: 20px;
+  height: 0px;
+  background-color: rgba(231, 76, 60, 0.7);
+  border-radius: 10px;
+  border-color: rgba(211, 211, 211, 0.9);
+  border-style: solid;
+  border-bottom: 0px;
+}
+
+#beaker {
+  border: 10px solid #D3D3D3;
+  border-top: 0;
+  border-radius: 0 0 30px 30px;
+  height: 200px;
+  left: 14px;
+  bottom: 0;
+  width: 200px;
+}
+
+#plastic {
+  background-color: rgb(211, 211, 211);
+  background-color: rgba(211, 211, 211, 0.5);
+  bottom: 0;
+  height: 220px;
+  overflow: hidden;
+  width: 100%;
+  z-index: 9;
+}
+
+#beaker:before {
+  border: 10px solid #D3D3D3;
+  border-bottom: 0;
+  border-right: 0;
+  border-radius: 14px 0px 0 0;
+  content: '';
+  height: 30px;
+  position: absolute;
+  top: -30px;
+  width: 90px;
+}
+
+#beaker:after {
+  border: 10px solid #D3D3D3;
+  border-bottom: 0;
+  border-left: 0;
+  border-radius: 0px 14px 0 0;
+  content: '';
+  height: 30px;
+  position: absolute;
+  top: -30px;
+  width: 90px;
+}
+
+#beaker:before { left: -10px; }
+#beaker:after { right: -10px; }
+
+#liquid {
+  background-color: #e74c3c;
+  border: 0px solid #e74c3c;
+  border-radius: 0 0 20px 20px;
+  bottom: 0;
+  overflow: hidden;
+  width: 180px;
+  max-height: 200px
+}
+
+#liquid:after {
+  background-color: rgba(255, 255, 255, 0.25);
+  bottom: -10px;
+  content: '';
+  height: 200px;
+  left: -40px;
+  position: absolute;
+  transform: rotate(30deg);
+  -webkit-transform: rotate(15deg);
+  width: 110px;
+}
+
+#liquid .bubble {
+  -webkit-animation-name: bubble;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  background-color: rgba(255, 255, 255, 0.2);
+  bottom: 0;
+  border-radius: 10px;
+  height: 20px;
+  width: 20px;
+}
+
+@-webkit-keyframes bubble {
+  0% { bottom: 0; }
+
+   50% {
+     background-color: rgba(255, 255, 255, 0.2);
+      bottom: 80px;
+   }
+
+   100% {
+     background-color: rgba(255, 255, 255, 0);
+      bottom: 160px;
+   }
+}
+
+.bubble1 {
+  left: 10px;
+  -webkit-animation-delay: 1000ms;
+  -webkit-animation-duration: 10000ms;
+}
+
+.bubble2 {
+  left: 50px;
+  -webkit-animation-delay: 700ms;
+  -webkit-animation-duration: 11000ms;
+}
+
+.bubble3 {
+  left: 100px;
+  -webkit-animation-delay: 1200ms;
+  -webkit-animation-duration: 13000ms;
+}
+
+.bubble4 {
+  left: 130px;
+  -webkit-animation-delay: 1100ms;
+  -webkit-animation-duration: 7000ms;
+}
+
+.bubble5 {
+  left: 170px;
+  -webkit-animation-delay: 1300ms;
+  -webkit-animation-duration: 8000ms;
+}
+
+
+.drop{
+  position: relative;
+  top: -16px;
+  left: 46%;
+  width: 20px;
+  height: 20px;
+  margin-left: -1px;
+  border-radius: 50%;
+  background: #ad2d2d;
+  z-index: 0;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  border: none;
+  -webkit-border-radius: 80% 0 55% 50% / 55% 0 80% 50%;
+  border-radius: 80% 0 55% 50% / 55% 0 80% 50%;
+  font: normal 100%/normal Arial, Helvetica, sans-serif;
+  color: rgba(0,0,0,1);
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  -webkit-transform: rotateZ(-45deg)   ;
+  transform: rotateZ(-45deg)   ;
+}
+
+.firstDrop{
+  display: block;
+  animation: dropAni 1s 15;
+}
+
+.secondDrop{
+  display: block;
+  animation: dropAni 0.8s 2s 15;
+}
+
+.thirdDrop{
+  display: block;
+  animation: dropAni 0.6s 6s 15;
+}
+
+@keyframes dropAni{
+  0%{
+    top: 0px;
+  }
+  100%{
+    top: 170px;
+  }
+}
+</style>
+
 <% if @user == current_user %>
 
   <h1 style="margin-top: 100px">Your Profile</h1>
@@ -7,6 +253,31 @@
   <h1 style="margin-top: 100px"><%= @user.first_name + " " + @user.last_name %>'s Profile</h1>
   <br>
 <% end %>
+
+<div id="containerBlood">
+      <div class="pour"></div>
+      <div class="pourTube"></div>
+      <div id="beaker">
+        <div class="beer-foam">
+
+        </div>
+        <div id="plastic">
+          
+        </div>  
+        
+          <div class="drop firstDrop"></div>
+          <div class="drop secondDrop"></div>
+        <div class="drop thirdDrop"></div>
+
+        <div id="liquid" style="height: <%=(@height*3).to_s + "px"%>;">
+          <div class="bubble bubble1"></div>
+          <div class="bubble bubble2"></div>
+          <div class="bubble bubble3"></div>
+          <div class="bubble bubble4"></div>
+          <div class="bubble bubble5"></div>
+        </div>
+      </div>
+    </div>
 
 <% if @user.id == current_user.id %>
   <%= link_to "Edit profile", edit_user_path %> |
@@ -22,7 +293,7 @@
 </div>
 
 <div id="blood-point">
-  <strong>Reward Points:</strong> <%= @user.points %>
+  <strong>Reward Points:</strong> <span id="pointpoint"><%= @user.points %></span>
 </div>
 <br><br>
 <div id="blood-type">
@@ -61,8 +332,8 @@
   <%= will_paginate @attended_list %>
 
 
-  <%= form_tag(check_path, :method => "post") do %>
+  <%= form_tag(check_path, :method => "post", remote: true) do %>
       <%= text_field_tag :code , '', placeholder: "Your code here" %>
-      <%= submit_tag"Submit" %>
+      <%= submit_tag"Submit", id: "btnSubmit" %>
   <% end %>
 
