@@ -137,20 +137,10 @@ body {
 	font-size: 15px;
 }
 
-.media-bodys {
-/*	margin-left:-20px;
- margin-right:-20px;*/
-}
-
 .media-bodys p {
 	font-size: 12px;
 	margin-top: 0;
 	margin-bottom: 5px;
-}
-
-.media {
-	 /*margin-left:-20px;*/
- /*margin-right:-20px;*/
 }
 
 .card {
