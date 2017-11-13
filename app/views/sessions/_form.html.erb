@@ -1,26 +1,26 @@
 
-  <%= form_for :session, url: session_path do |form| %>
-  <div class="text-field">
-    <%= form.label :email %>
-    <%= form.text_field :email, type: 'email' %>
+  <%= form_for :session, url: session_path, :html => {:class => "form-horizontal center"} do |form| %>
+  <div class="form-group">
+    <%= form.label :email, class: "col-md-4 control-label"%>
+     <div class="col-md-4">
+    <%= form.text_field :email, :required => 'required', class: "form-control" %>
   </div>
+</div>
 
   <div class="password-field">
-    <%= form.label :password %>
-    <%= form.password_field :password %>
+    <%= form.label :password, class: "col-md-4 control-label" %>
+     <div class="col-md-4">
+    <%= form.password_field :password, :required => 'required', class: "form-control" %>
   </div>
-  <br>
+</div>
+  
   <div class="submit-field">
-    <%= form.submit %>
-  </div>
-
-  <%= link_to t(".forgot_password"), new_password_path %>
-  <br><br>
+    <%= form.submit "Submit", class: "btn btn-link btn-lg" %>
+  </div>Or
+    
   <%= link_to "Sign in with Facebook", "/auth/facebook" %>
+   <br>
+  <%= link_to t(".forgot_password"), new_password_path %>
 
-  <div class="other-links">
-    <% if Clearance.configuration.allow_sign_up? %>
-      <%= link_to t(".sign_up"), sign_up_path %>
-    <% end %>
-  </div>
   <% end %>
+
