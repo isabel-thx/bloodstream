@@ -133,13 +133,14 @@ body {
 	font-size: 220%;
 }
 
-.media-body {
+.media-bodys {
 	font-size: 15px;
 }
 
-.media-body p {
-	font-size: 10px;
+.media-bodys p {
+	font-size: 12px;
 	margin-top: 0;
+	margin-bottom: 5px;
 }
 
 .card {
@@ -180,13 +181,13 @@ body {
 }
 
 #threecol-two {
-	background-color: #E60000;
+	background-color: #AB0000;
 	padding-top: 15px;
 	padding-bottom: 15px;
 }
 
 #threecol-three {
-	background-color: #AB0000;
+	background-color: #CB4742;
 	padding-top: 15px;
 	padding-bottom: 15px;
 }
@@ -232,7 +233,7 @@ body {
 }
 
 #join {
-	background-color: #CB4742;
+	background-color: #AB0000;
 }
 
 .join a:link {
@@ -271,7 +272,7 @@ body {
 }
 
 #us {
-	background-color: #FB7C85;
+	background-color: #CB4742;
 }
 
 .us p {
@@ -283,3 +284,17 @@ body {
 	letter-spacing: 2px;
 }
 
+.event {
+	background-color: #DC1100;
+	color: white;
+	font-size: 15px;
+	text-align: center;
+	border-radius: 5px;
+	margin-left: 60px;
+	margin-right: 15px;
+	padding: 8px;
+}
+
+.row {
+	margin-right: 0px;
+}
