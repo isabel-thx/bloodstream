@@ -20,11 +20,195 @@ $(document).ready(function(){
 		list-style: circle;
 		display: none;
 	}
+
+	html, body {
+  /* display: flex; */
+  padding-top: 20px;
+  padding-left: 20px;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: #fff;
+}
+
+.character {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 260px;
+  height: 370px;
+  animation: wiggle 2s both ease-in-out infinite;
+}
+.character > .handle {
+  width: 100px;
+  height: 40px;
+  background: #efefef;
+  border-radius: 20px 20px 0px 0px;
+}
+.character > .handle:before {
+  content: '';
+  position: absolute;
+  margin-top: 15px;
+  margin-left: 25px;
+  background: #fff;
+  width: 50px;
+  height: 15px;
+  border-radius: 13px;
+}
+.character > .handle > .round-corner {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: #efefef;
+  overflow: hidden;
+}
+.character > .handle > .round-corner:before {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  margin: -10px;
+  background: #fff;
+  border-radius: 50%;
+}
+.character > .handle > .round-corner.left {
+  margin-top: 20px;
+  margin-left: -20px;
+}
+.character > .handle > .round-corner.right {
+  margin-top: 20px;
+  margin-left: 80px;
+}
+.character > .handle > .round-corner.right:before {
+  margin-left: 20px;
+}
+.character > .body {
+  position: absolute;
+  margin-top: 40px;
+  width: 260px;
+  height: 330px;
+  background: #efefef;
+  border-radius: 50px;
+}
+.character > .body > .blood {
+  position: absolute;
+  width: 220px;
+  height: 290px;
+  margin: 20px;
+  background: #ed563d;
+  border-radius: 50px;
+}
+.character > .body > .blood > .shade {
+  position: absolute;
+  width: 60px;
+  height: 280px;
+  background: #ffaea3;
+  border-radius: 50px 0 0 50px;
+  left: 20px;
+}
+.character > .body > .blood > .shade:before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 280px;
+  border-radius: 50px;
+  background: #ed563d;
+  left: 15px;
+  top: 10px;
+}
+.character > .body > .blood > .shade:after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #ffaea3;
+  border-radius: 50%;
+  left: 53px;
+}
+.character > .body > .label {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 170px;
+  height: 120px;
+  background: white;
+  border-radius: 0 10px 10px 0;
+  top: 140px;
+  left: 20px;
+}
+.character > .body > .label > .line {
+  width: 120px;
+  height: 3px;
+  background: #a6adb7;
+  margin-top: 20px;
+  margin-left: 15px;
+}
+.character > .body > .label > .line.short {
+  width: 80px;
+}
+.character > .body > .face {
+  position: absolute;
+  top: 70px;
+  left: 95px;
+  width: 70px;
+  height: 40px;
+}
+.character > .body > .face > .eye {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #474749;
+  animation: blink 2s both infinite;
+}
+.character > .body > .face > .eye.right {
+  right: 0px;
+}
+.character > .body > .face .smile {
+  position: absolute;
+  width: 35px;
+  height: 15px;
+  overflow: hidden;
+  left: 20px;
+  top: 20px;
+}
+.character > .body > .face .smile:before {
+  content: '';
+  position: absolute;
+  left: 0px;
+  top: -20px;
+  width: 20px;
+  height: 24px;
+  border: 5px solid #474749;
+  border-radius: 50%;
+}
+@keyframes wiggle {
+  25% {
+    transform: rotate(4deg);
+  }
+  75% {
+    transform: rotate(-4deg);
+  }
+}
+@keyframes blink {
+  60% {
+    transform: scaleY(1);
+  }
+  70% {
+    transform: scaleY(0.1);
+  }
+  80% {
+    transform: scaleY(1);
+  }
+}
+
 </style>
+
+<h1 style="text-align: center">FAQs</h1>
 
 <body>
 
-<h3 style="margin-top: 150px;"><button class="button">Who is eligible for blood donation?</button>
+<h3><button class="button">Who is eligible for blood donation?</button>
 
 <li class="content">This is a paragraph with little content.</li>
 <li class="content">This is another small paragraph.</li>
@@ -55,3 +239,26 @@ $(document).ready(function(){
 <li class="content">This is another small paragraph.</li>
 
 </body>
+
+<div class="character">
+    <div class="handle">
+        <div class="round-corner left"></div>
+        <div class="round-corner right"></div>
+    </div>
+    <div class="body">
+        <div class="blood">
+            <div class="shade"></div>
+        </div>
+        <div class="label">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line short"></div>
+        </div>
+        <div class="face">
+            <div class="eye left"></div>
+            <div class="eye right"></div>
+            <div class="smile"></div>
+        </div>
+    </div>
+</div>
