@@ -346,4 +346,29 @@ body {
 	padding-bottom: 30px;
 }
 
+.faq_page {
+	background-image: url(/assets/faq.jpg);
+	padding: 100px;
+	padding-top: 180px;
+	padding-bottom: 0px;
+	background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: right 0px bottom 60px;
+  background-size: cover;
+}
 
+.faq_page_background {
+	background-color: white;
+	text-align: center;
+	padding-bottom: 20px;
+	padding-top: 40px;
+}
+
+.faq_page_background h1 {
+	font-family: 'Volkhov', serif;
+	font-size: 3.2rem;
+}
+
+.content {
+	padding-top: 10px;
+}
