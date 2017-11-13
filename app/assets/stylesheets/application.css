@@ -96,8 +96,9 @@ body {
 	background-image: url(/assets/red-roses2.jpg);
 	color: #fff;
 	padding-top: 40px;
-	padding-bottom: 40px;
+	padding-bottom: 30px;
 	text-align: center;
+	background-attachment: fixed;
 }
 
 #numbers .container .row .col-sm h1 {
@@ -194,7 +195,6 @@ body {
 	padding-top: 60px;
 	padding-bottom: 60px;
 	background-image: url(/assets/blog-background.jpg);
-	/*background-repeat: no-repeat;*/
   background-attachment: fixed;
   background-size: cover;
 }
@@ -213,7 +213,7 @@ body {
 	margin-left: 20px;
 	margin-right: 20px;
 	text-align: center;
-
+	padding-bottom: 50px;
 }
 
 .blogs p {
@@ -297,6 +297,9 @@ body {
 	letter-spacing: 2px;
 }
 
+#event_here {
+	margin-bottom: 1200px;
+}
 .event {
 	background-color: #DC1100;
 	color: white;
