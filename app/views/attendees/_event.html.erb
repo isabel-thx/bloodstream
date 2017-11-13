@@ -17,6 +17,8 @@
 
   <tbody>
 
+    <%# if @attendees != nil %>
+
     <% @attendees.each do |a| %>
 
       <tr>
@@ -37,6 +39,12 @@
         </td>
     
     <% end %>
+
+      <%# else %>
+
+      <!-- User is not found. -->
+
+    <%# end %>
     </tr>
   </tbody>
 </table>

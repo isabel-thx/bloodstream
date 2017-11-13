@@ -12,7 +12,6 @@ class EventsController < ApplicationController
   def show
     if params[:email]
       @donors = User.search(email: params[:email])
-      @attendees = Attendee.find_by(event_id: params[:id])
       @code = Attendee.new
       # @event = Event.find(params[:id])
     else
