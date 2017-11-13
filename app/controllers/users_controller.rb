@@ -3,6 +3,19 @@ class UsersController < Clearance::UsersController
 	before_action :allowed?, only: [:verify]
 	before_action :set_user, only: [:show, :edit, :update, :verify, :upgrade, :downgrade]
 
+
+  def create
+    @user = user_from_params
+
+    if @user.save
+      WelcomeJob.perform_later(@user.email)
+      sign_in @user
+      redirect_back_or url_after_create
+    else
+      render template: "users/new"
+    end
+  end
+
 	def user_from_params
   	first_name = user_params.delete(:first_name)
   	last_name = user_params.delete(:last_name)
@@ -34,7 +47,7 @@ class UsersController < Clearance::UsersController
 
 	def show
 		@user = User.find(params[:id])
-
+    @height = @user.points
     # automatically renders template: "users/show" (controller/action)
     # if params[:user_id]
 

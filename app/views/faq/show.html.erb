@@ -1,7 +1,7 @@
 <script>
 $(document).ready(function(){
     $("button").click(function(){
-        $(this).nextUntil(".button").toggle(300);
+        $(".content").toggle(300);
     });
 });
 </script>
@@ -10,7 +10,7 @@ $(document).ready(function(){
 	.button {
 		background-color: white;
 		border: none;
-		margin-left: 82px;
+		/*margin-left: 82px;*/
 		font-size: 25px
 	}
 
@@ -20,38 +20,264 @@ $(document).ready(function(){
 		list-style: circle;
 		display: none;
 	}
+
+.character {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 260px;
+  height: 370px;
+  animation: wiggle 2s both ease-in-out infinite;
+}
+.character > .handle {
+  width: 100px;
+  height: 40px;
+  background: #efefef;
+  border-radius: 20px 20px 0px 0px;
+}
+.character > .handle:before {
+  content: '';
+  position: absolute;
+  margin-top: 15px;
+  margin-left: 25px;
+  background: #fff;
+  width: 50px;
+  height: 15px;
+  border-radius: 13px;
+}
+.character > .handle > .round-corner {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: #efefef;
+  overflow: hidden;
+}
+.character > .handle > .round-corner:before {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  margin: -10px;
+  background: #fff;
+  border-radius: 50%;
+}
+.character > .handle > .round-corner.left {
+  margin-top: 20px;
+  margin-left: -20px;
+}
+.character > .handle > .round-corner.right {
+  margin-top: 20px;
+  margin-left: 80px;
+}
+.character > .handle > .round-corner.right:before {
+  margin-left: 20px;
+}
+.character > .body {
+  position: absolute;
+  margin-top: 40px;
+  width: 260px;
+  height: 330px;
+  background: #efefef;
+  border-radius: 50px;
+}
+.character > .body > .blood {
+  position: absolute;
+  width: 220px;
+  height: 290px;
+  margin: 20px;
+  background: #ed563d;
+  border-radius: 50px;
+}
+.character > .body > .blood > .shade {
+  position: absolute;
+  width: 60px;
+  height: 280px;
+  background: #ffaea3;
+  border-radius: 50px 0 0 50px;
+  left: 20px;
+}
+.character > .body > .blood > .shade:before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 280px;
+  border-radius: 50px;
+  background: #ed563d;
+  left: 15px;
+  top: 10px;
+}
+.character > .body > .blood > .shade:after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #ffaea3;
+  border-radius: 50%;
+  left: 53px;
+}
+.character > .body > .label {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 170px;
+  height: 120px;
+  background: white;
+  border-radius: 0 10px 10px 0;
+  top: 140px;
+  left: 20px;
+}
+.character > .body > .label > .line {
+  width: 120px;
+  height: 3px;
+  background: #a6adb7;
+  margin-top: 20px;
+  margin-left: 15px;
+}
+.character > .body > .label > .line.short {
+  width: 80px;
+}
+.character > .body > .face {
+  position: absolute;
+  top: 70px;
+  left: 95px;
+  width: 70px;
+  height: 40px;
+}
+.character > .body > .face > .eye {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #474749;
+  animation: blink 2s both infinite;
+}
+.character > .body > .face > .eye.right {
+  right: 0px;
+}
+.character > .body > .face .smile {
+  position: absolute;
+  width: 35px;
+  height: 15px;
+  overflow: hidden;
+  left: 20px;
+  top: 20px;
+}
+.character > .body > .face .smile:before {
+  content: '';
+  position: absolute;
+  left: 0px;
+  top: -20px;
+  width: 20px;
+  height: 24px;
+  border: 5px solid #474749;
+  border-radius: 50%;
+}
+@keyframes wiggle {
+  25% {
+    transform: rotate(4deg);
+  }
+  75% {
+    transform: rotate(-4deg);
+  }
+}
+@keyframes blink {
+  60% {
+    transform: scaleY(1);
+  }
+  70% {
+    transform: scaleY(0.1);
+  }
+  80% {
+    transform: scaleY(1);
+  }
+}
+
 </style>
+
+<div class="faq_page">
+  <div class="faq_page_background">
+    <h1>FAQs</h1>
+  </div>
+</div>
 
 <body>
 
-<h3 style="margin-top: 150px;"><button class="button">Who is eligible for blood donation?</button>
+<div class="faq_page_index" style="margin-left: 180px; margin-top: 40px; margin-bottom: 60px;">
 
-<li class="content">This is a paragraph with little content.</li>
-<li class="content">This is another small paragraph.</li>
+<div class="row">
+    <div class="col">
+      <!-- First column -->
+      <h3><button class="button">Who is eligible for blood donation?</button>
 
-<h3><button class="button">Who is not eligible for blood donation?</button>
+      <li class="content">Within the age of 18 to 60 years old</li>
+      <li class="content">Body weight of at least 45 kg</li>
+      <li class="content">In good physical and mental health</li>
+      <li class="content">Not on long-term medications</li>
+      <li class="content">Has not been intoxicated by alcohol within 24 hours prior</li>
+      <li class="content">Should not be fasting</li>
 
-<li class="content">This is a paragraph with little content.</li>
-<li class="content">This is another small paragraph.</li>
+      <h3><button class="button">What is the most common blood type?</button>
 
-<h3><button class="button">What is the most common blood type?</button>
+      <li class="content">O- is the universal blood donor</li>
+      <li class="content">AB is the universal blood recipient</li>      
+      <li class="content">O and A blood groups are the highest in demand</li>
 
-<li class="content">This is a paragraph with little content.</li>
-<li class="content">This is another small paragraph.</li>
+      <h3><button class="button">Where can I go to donate blood?</button>
 
-<h3><button class="button">Where and when can I donate blood?</button>
+      <li class="content">National Blood Centre (NPD) in Kuala Lumpur</li>
+      <li class="content"><a href="http://www.midvalley.com.my/tenant/PusatDarahNegaraDonationSuite/6fd52f06-cd8c-4870-8938-249b213d52ad/SHOP" target="_blank">NPD Donation Suite</a> in Midvalley Megamall</li>
+      <li class="content">Check the <a href="http://pdn.gov.my/pdn/index.php?option=com_jevents&amp;v" target="_blank">National Blood Bank's event calendar</a></li>
+      <li class="content">Check with the <a href="https://www.facebook.com/kementeriankesihatanmalaysia/?fref=ts" target="_blank">Ministry of Health</a></li>
+      <li class="content">Or the <a href="https://www.facebook.com/SedarahMalaysia" target="_blank">Malaysia Blood Donors Society</a></li>
+      <li class="content">Or the <a href="https://www.facebook.com/MalaysianRC/?fref=ts" target="_blank">Malaysian Red Crescent Society</a></li>     
 
-<li class="content">This is a paragraph with little content.</li>
-<li class="content">This is another small paragraph.</li>
 
-<h3><button class="button">What documents are required when going to donate?</button>
+      <h3><button class="button">What documents can I present?</button>
 
-<li class="content">This is a paragraph with little content.</li>
-<li class="content">This is another small paragraph.</li>
+      <li class="content">MyKad/Armforce Number/Police number</li>
+      <li class="content">Driving license or Passport</li>
+      <li class="content">Working pass with identity card number and photograph</li>
+      <li class="content">Work permit with passport number and photograph</li>
+      <li class="content">Student pass with IC number and photograph</li>
+      <li class="content">Student pass with passport number and photograph</li>
+      <li class="content">Blood Donor's book (PDN 2) for repeat donors</li>
+      
 
-<h3><button class="button">Tips for a better experience</button>
+      <h3><button class="button">Tips for a better experience</button>
 
-<li class="content">This is a paragraph with little content.</li>
-<li class="content">This is another small paragraph.</li>
+      <li class="content">Get a good night's sleep</li>
+      <li class="content">Have a good breakfast or lunch</li>
+      <li class="content">Drink extra water and fluids</li>
+      <li class="content">Avoid fatty foods such as hamburgers, fries, or ice cream</li>
+
+    </div>
+    <div class="col">
+      <!-- Second column -->
+      <div class="character pt-5" style="padding-left: 260px;">
+          <div class="handle">
+              <div class="round-corner left"></div>
+              <div class="round-corner right"></div>
+          </div>
+          <div class="body">
+              <div class="blood">
+                  <div class="shade"></div>
+              </div>
+              <div class="label">
+                  <div class="line"></div>
+                  <div class="line"></div>
+                  <div class="line"></div>
+                  <div class="line short"></div>
+              </div>
+              <div class="face">
+                  <div class="eye left"></div>
+                  <div class="eye right"></div>
+                  <div class="smile"></div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
+</div>

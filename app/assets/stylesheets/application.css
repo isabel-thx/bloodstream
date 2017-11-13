@@ -11,9 +11,7 @@ body {
 
 .navbar {
 	font-size: 14px;
-	/*background-color: rgba(0,0,0,0.5);*/
 	background: transparent;
-	/*opacity: 0.5;*/
 	padding: 2px;
 }
 
@@ -28,7 +26,6 @@ body {
 	border: 2px solid black;
 	border-radius: 50px;
 	margin-left: 5px;
-	/*background-color: white;*/
 }
 
 .header {
@@ -36,6 +33,7 @@ body {
 	height: 100%;
 	background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   background-size: cover;
   text-align: center;
 	padding: 200px;
@@ -194,8 +192,12 @@ body {
 }
 
 #blog {
-	margin-top: 60px;
-	margin-bottom: 60px;
+	padding-top: 60px;
+	padding-bottom: 60px;
+	background-image: url(/assets/blog-background.jpg);
+	/*background-repeat: no-repeat;*/
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 #blog h1 {
@@ -203,6 +205,7 @@ body {
 	font-weight: 900;
 	font-size: 200%;
 	text-align: center;
+	color: #f2f2f2;
 }
 
 .blogs {
@@ -225,11 +228,21 @@ body {
 	color: black;
 }
 
+#blog .read-more a:link {
+	text-decoration: none;
+	color: #f2f2f2;
+}
+
 .read-more {
 	text-align: center;
 	font-family: 'Barlow', sans-serif;
-	text-transform: uppercase;
+	/*text-transform: uppercase;*/
 	color: #111111;
+	text-decoration: none;
+}
+
+.read-more a:link {
+	color: #f2f2f2;
 	text-decoration: none;
 }
 
@@ -300,6 +313,7 @@ body {
 	margin-right: 0px;
 }
 
+
 .facebook_logo {
   max-width: 18px;
   max-height: 18px;
@@ -309,4 +323,65 @@ body {
 .social-share-button {
   padding-top: 11px;
   padding-left: 4px;
+}
+
+.dropdown-item a {
+	margin-right: 0px;
+	padding-right: 0px;
+}
+
+.event_page {
+	background-image: url(/assets/calendar.jpg);
+	padding: 100px;
+	padding-top: 180px;
+	padding-bottom: 0px;
+	background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: right 0px bottom 60px;
+  background-size: cover;
+}
+
+.event_page_background {
+	background-color: white;
+	text-align: center;
+	padding-bottom: 20px;
+	padding-top: 40px;
+}
+
+.event_page_background h1 {
+	font-family: 'Volkhov', serif;
+	font-size: 3.2rem;
+}
+
+.class_index {
+	text-align: center;
+	font-size: 15px;
+	padding-bottom: 30px;
+}
+
+.faq_page {
+	background-image: url(/assets/faq.jpg);
+	padding: 100px;
+	padding-top: 180px;
+	padding-bottom: 0px;
+	background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: right 0px bottom 60px;
+  background-size: cover;
+}
+
+.faq_page_background {
+	background-color: white;
+	text-align: center;
+	padding-bottom: 20px;
+	padding-top: 40px;
+}
+
+.faq_page_background h1 {
+	font-family: 'Volkhov', serif;
+	font-size: 3.2rem;
+}
+
+.content, .button {
+	padding-top: 10px;
 }

@@ -1,0 +1,14 @@
+console.log("enter");
+if ($('#liquid').height() < 200){
+
+  $("#liquid")
+        .animate({
+        }, 700);  
+
+$("#pointpoint").html("<%= current_user.points %>");
+        // <strong class="__web-inspector-hide-shortcut__">Reward Points:</strong> 3
+
+		// $("#liquid").height('<%= current_user.points * 3 %>px')
+} else {
+	$("#liquid").height('0px')
+}
