@@ -319,7 +319,7 @@ body {
 
 .event_page {
 	background-image: url(/assets/calendar.jpg);
-	padding: 150px;
+	padding: 100px;
 	padding-top: 180px;
 	padding-bottom: 0px;
 	background-repeat: no-repeat;
@@ -331,7 +331,17 @@ body {
 .event_page_background {
 	background-color: white;
 	text-align: center;
-	padding-bottom: 60px;
+	padding-bottom: 20px;
 	padding-top: 40px;
+}
+
+.event_page_background h1 {
 	font-family: 'Volkhov', serif;
+	font-size: 3.2rem;
+}
+
+.class_index {
+	text-align: center;
+	font-size: 15px;
+	padding-bottom: 30px;
 }
