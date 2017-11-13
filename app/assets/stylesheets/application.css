@@ -283,3 +283,7 @@ body {
 	letter-spacing: 2px;
 }
 
+.navbar navbar-expand-lg navbar-light {
+	background: transparent;
+}
+
