@@ -1,8 +1,9 @@
  /*
  /*= require flatpickr
  /*= require flatpickr/material_red
+ *= require social-share-button
  */
- 
+
 body {
   font-family: 'Nunito', sans-serif;
   font-size: 20px;
@@ -292,7 +293,7 @@ body {
 	text-align: center;
 	color: #FFFFFF;
 	font-size: 11px;
-	font-family: 'Barlow', serif; 
+	font-family: 'Barlow', serif;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 }
@@ -313,6 +314,18 @@ body {
 
 .row {
 	margin-right: 0px;
+}
+
+
+.facebook_logo {
+  max-width: 18px;
+  max-height: 18px;
+
+}
+
+.social-share-button {
+  padding-top: 11px;
+  padding-left: 4px;
 }
 
 .dropdown-item a {

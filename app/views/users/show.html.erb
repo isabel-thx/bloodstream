@@ -14,21 +14,21 @@
         bottom: '200px'
         }, 2500);
     });
-  
+
     $('.pour') //Pour Me Another Drink, Bartender!
     .delay(0)
     .animate({
       height: '150px'
       }, 1500)
     .delay(15600);
-  
-$("#btnSubmit").click(function() { 
+
+$("#btnSubmit").click(function() {
   var liquidHeight = $("#liquid").height()
   if(liquidHeight < 200){
     $("#liquid")
         .animate({
             "height": "+=30px",
-        }, 700);  
+        }, 700);
   } else {
    $("#liquid").height('0px')
     alert('Thank you')
@@ -262,9 +262,9 @@ $("#btnSubmit").click(function() {
 
         </div>
         <div id="plastic">
-          
-        </div>  
-        
+
+        </div>
+
           <div class="drop firstDrop"></div>
           <div class="drop secondDrop"></div>
         <div class="drop thirdDrop"></div>
@@ -283,6 +283,7 @@ $("#btnSubmit").click(function() {
   <%= link_to "Edit profile", edit_user_path %> |
   <%= link_to "Reset password", edit_user_password_path(current_user.id) %>
 <% end %>
+
 <br><br>
 <div id="profile_info">
 <p><strong>Name:</strong> <%= @user.first_name + ' ' + @user.last_name%> </p>
@@ -336,8 +337,4 @@ $("#btnSubmit").click(function() {
   <br>
   <%= will_paginate @attended_list %>
 
-
- 
-
-  
 
