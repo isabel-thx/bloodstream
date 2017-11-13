@@ -4,11 +4,11 @@
   </div>
 </div>
 
-<div class="event_header" style="margin-left: 150px; margin-top: 40px; text-align: center;">
+<div class="event_header justify-content-center" style="margin-left: 160px; margin-top: 40px;">
   <% @events.each do |event| %>
-    <div class="class_index card mt-2 mb-4 ml-2 mr-2" style="width: 20rem; height: 32rem;">
+    <div class="class_index card mt-2 mb-4 ml-3 mr-3 justify-content-center" style="width: 20rem; height: 32rem;">
       <div class="class_index card-img-top mt-2 mb-4">
-        <img style="height: 15rem; width: 18.8rem;" src="<%= event.photos[0] %>" alt="Event picture">
+        <img style="height: 14rem; width: 18.8rem;" src="<%= event.photos[0] %>" alt="Event picture">
         <div class="card-block" style="height: 200px; padding-top: 10px; padding-left: 10px;" >
         <h3 class="card-title"><%= event.title.truncate_words(8) %></h3>
         <p class="card-text">@ <%= event.venue %></p>
@@ -17,12 +17,13 @@
             <%= event.start_date.strftime('%a, %d %b %Y') %>
           <% else %>
             <%= event.start_date.strftime('%a, %d %b %Y') %> - <%= event.end_date.strftime('%a, %d %b %Y') %>
-          <% end %> <br> <%= event.start_time.strftime('%I:%M %p') %> - <%= event.end_time.strftime('%I:%M %p') %></p>
+          <% end %> <br> <%= event.start_time.strftime('%I:%M %p') %> - <%= event.end_time.strftime('%I:%M %p') %></p><br><br>
         <a href="/events/<%= event.id %>" class="btn btn-primary" role="button">More Details</a>
         </div>
       </div>
     </div>
   <% end %>
+</div>
 </div>
 
 
