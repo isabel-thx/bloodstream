@@ -53,92 +53,6 @@ drift.load('7yynvidxishw');
 </head>
 <body>
 <!-- <div class="header"> -->
-<nav class="navbar navbar-expand-lg navbar-light">
-  <!-- logo -->
-  <nav class="navbar navbar-light">
-      <a class="navbar-brand pl-5" href="/">
-        <%= image_tag 'favicon1.png', alt: 'Bloodstream logo', height: 50, width: 50 %>
-      </a>
-    </nav>
-
-  <% if signed_in? %>
-    <% if current_user.admin? %>
-      <div class="collapse navbar-collapse ml-5" id="navbarSupportedContent">
-        <ul class="navbar-nav col-md-12 d-flex justify-content-end">
-          <li class="nav-item active" id="sign-in">
-            <a class="nav-link" href="<%= new_event_path %>">Create Event</a>
-          </li>
-          <li class="nav-item active dropdown" id="sign-in">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Admin Tools
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= link_to "Donor List", users_path, class: 'dropdown-item' %>
-              <%= link_to "All Events", events_path, class: 'dropdown-item' %>
-            </div>
-          </li>
-          <li class="nav-item active" id="sign-in">
-            <a class="nav-link" href="<%= send_sms_path %>">SOS</a>
-          </li>
-          <li class="nav-item active" id="sign-in">
-            <%= link_to "Sign Out", sign_out_path, :method => :delete, class: 'nav-link' %>
-          </li>
-          <!-- <ul class="nav navbar-nav navbar-right">
-          <li><%#= link_to "Sign Out", sign_out_path, :method => :delete %></li> -->
-        </ul>
-        </ul>
-      </div>
-    <% elsif current_user.donor? %>
-        <div class="collapse navbar-collapse ml-5" id="navbarSupportedContent">
-      <ul class="navbar-nav col-md-12 d-flex justify-content-end">
-        <li class="nav-item active" id="sign-up">
-          <a class="nav-link" href="<%= events_path %>">&hearts; Donate Now</a>
-        </li>
-        <li class="nav-item active" id="sign-in">
-          <a class="nav-link" href="<%= user_path(current_user) %>">My Profile</a>
-        </li>
-        <li class="nav-item active dropdown" id="sign-in">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            More
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to "About Us", "/about", class: 'dropdown-item' %>
-            <%= link_to "FAQs", "/FAQs", class: 'dropdown-item' %>
-          </div>
-        </li>
-        <li class="nav-item active" id="sign-in">
-          <%= link_to "Sign Out", sign_out_path, :method => :delete, class: 'nav-link' %>
-        </li>
-      </ul>
-    </div>
-    <% end %>
-  <% else %>
-    <div class="collapse navbar-collapse ml-5" id="navbarSupportedContent">
-      <ul class="navbar-nav col-md-12 d-flex justify-content-end">
-        <!-- <li class="nav-item active" id="sign-up">
-          <a class="nav-link" href="/">About Us</a>
-        </li> -->
-        <li class="nav-item active" id="sign-up">
-          <a class="nav-link" href="<%= sign_up_path %>">&hearts; Become a Donor</a>
-        </li>
-        <li class="nav-item active dropdown" id="sign-in">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            More
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to "Blood Drives", events_path, class: 'dropdown-item justify-content-end' %>
-            <%= link_to "About Us", "/about", class: 'dropdown-item justify-content-end' %>
-            <%= link_to "FAQs", "/FAQs", class: 'dropdown-item justify-content-end' %>
-          </div>
-        </li>
-        <li class="nav-item active" id="sign-in">
-          <a class="nav-link" href="<%= sign_in_path %>">Sign In</a>
-        </li>
-      </ul>
-    </div>
-<% end %>
-</nav>
-</div>
 
 <div id="flash">
   <% flash.each do |key, value| -%>
@@ -146,6 +60,12 @@ drift.load('7yynvidxishw');
     <% end %>
   </div>
 </div>
+
+<% if content_for?(:navbar) %>
+  <%= yield :navbar %>
+<% else %>
+  <%= render partial: 'layouts/navbar' %>
+<% end %>
 
 <%= yield %>
 
