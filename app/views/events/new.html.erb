@@ -1,11 +1,13 @@
 <% if signed_in? %>
 <% if current_user.admin? %>
 
-<h1 style="margin-top: 100px">New Event</h1>
+<h1 style="margin-top: 80px; margin-left: 120px;">New Event</h1>
 
 <%= render 'form', event: @event %>
 
-<%= link_to 'Back', events_path %>
-
+<div style="margin-top: 20px; margin-left: 120px;">
+	<%= link_to 'Back', events_path %>
+</div>
+<br>
 <% end %>
 <% end %>

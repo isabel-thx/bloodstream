@@ -9,17 +9,16 @@
       <%= form.label "Password", class: "col-md-4 control-label" %>
       <div class="col-md-4">
       <%= form.password_field :password, :required => 'required', class: "form-control"%>
-      *at least 7 characters
+      <small id="passwordHelpInline" class="text-muted">* at least 7 characters</small>
     </div>
   </div>
 
 
 
     <div class="submit-field">
-      <%= form.submit "Submit", class: "btn btn-link btn-lg" %>
+      <%= form.submit "Submit", id: "submit-button" %>
 </div>
-<br>Or<br>
-   <%= link_to "Sign up with Facebook", "/auth/facebook" %>
+<br>Or <%= link_to "sign up with Facebook", "/auth/facebook" %>
 
   </div>
   <% end %>
