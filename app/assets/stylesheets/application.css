@@ -1,8 +1,9 @@
  /*
  /*= require flatpickr
  /*= require flatpickr/material_red
+ *= require social-share-button
  */
- 
+
 body {
   font-family: 'Nunito', sans-serif;
   font-size: 20px;
@@ -300,7 +301,7 @@ hr {
 	text-align: center;
 	color: #FFFFFF;
 	font-size: 11px;
-	font-family: 'Barlow', serif; 
+	font-family: 'Barlow', serif;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 }
@@ -321,6 +322,18 @@ hr {
 
 .row {
 	margin-right: 0px;
+}
+
+
+.facebook_logo {
+  max-width: 18px;
+  max-height: 18px;
+
+}
+
+.social-share-button {
+  padding-top: 11px;
+  padding-left: 4px;
 }
 
 .dropdown-item a {
@@ -404,3 +417,39 @@ hr {
 	margin-top: -100px;
 	margin-bottom: 100px;
 }
+
+.btn-link{
+	text-decoration: none;
+}
+
+.btn-link:hover {
+    color: grey;
+}
+
+.xx{
+	margin: 0 25%;
+}
+
+.profile_page {
+	background-image: url(/assets/profile.jpg);
+	padding: 100px;
+	padding-top: 180px;
+	padding-bottom: 0px;
+	background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: right 0px bottom 60px;
+  background-size: cover;
+}
+
+.profile_page_background {
+	background-color: white;
+	text-align: center;
+	padding-bottom: 20px;
+	padding-top: 40px;
+}
+
+.profile_page_background h1 {
+	font-family: 'Volkhov', serif;
+	font-size: 3.2rem;
+}
+

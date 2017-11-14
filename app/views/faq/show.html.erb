@@ -1,7 +1,7 @@
 <script>
-$(document).ready(function(){
+$(document).ready(function () {
     $("button").click(function(){
-        $(".content").toggle(300);
+        $(this).nextUntil('.button').toggle(300);
     });
 });
 </script>

@@ -13,9 +13,8 @@
 //= require rails-ujs
 //= require jquery3
 //= require turbolinks
+//= require social-share-button
 //= require underscore
 //= require gmaps/google
 //= require_tree .
 //= require flatpickr
-
-
