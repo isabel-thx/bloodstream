@@ -18,3 +18,35 @@
 //= require gmaps/google
 //= require_tree .
 //= require flatpickr
+
+
+$(document).on('turbolinks:load',function(){
+      console.log("starting")
+      handler = Gmaps.build('Google');
+      console.log("google built");
+      console.log("<%= @event.longitude %>");
+      console.log("<%= @event.latitude %>");
+      handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+        uluru = {"lat": <%= @event.latitude %>, "lng": <%= @event.longitude %>};
+        markers = handler.addMarkers([
+          {
+            "picture": {
+              "url": "http://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-32.png",
+              "width":  32,
+              "height": 32
+            },
+            "infowindow": "Maps"
+          }
+        ]);
+        var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 16,
+                center: uluru
+              });
+        var marker = new google.maps.Marker({
+                position: uluru,
+                map: map
+              });
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+      });
+    });
