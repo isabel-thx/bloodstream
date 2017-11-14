@@ -65,8 +65,8 @@ class AttendeesController < ApplicationController
 			@client.api.account.messages.create(
 			  from: ENV['TWILIO_PHONE_NUMBER'],
 			  to: "+6" + user.phone_number,
-			  body: 'Good day! Blood Type X needed urgently at X Hospital. Please contact us if you can help. 
-BloodStream Team.
+			  body: 'Good day! Blood donations needed urgently at X Hospital. Please contact us if you can help. 
+Bloodstream Team.
 Live Longer.Together.'
 			)
 		end
