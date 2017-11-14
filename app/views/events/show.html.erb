@@ -91,6 +91,8 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
 </script>
 <br><br>
 
+<% if signed_in? %>
+
 <% if current_user.admin? %>
 
   <h2>Attendees</h2>
@@ -113,6 +115,8 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
   <% else %>
     <%= render partial: '/attendees/event' %>
   <% end %>
+
+<% end %>
 
 <% end %>
         

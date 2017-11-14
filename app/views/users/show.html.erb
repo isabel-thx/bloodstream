@@ -234,6 +234,11 @@ $("#btnSubmit").click(function() {
   animation: dropAni 0.6s 6s 15;
 }
 
+h2 {
+  font-family: 'Volkhov', serif;
+
+}
+
 @keyframes dropAni{
   0%{
     top: 0px;
@@ -244,15 +249,29 @@ $("#btnSubmit").click(function() {
 }
 </style>
 
-<% if @user == current_user %>
 
-  <h1 style="margin-top: 100px">Your Profile</h1>
+
+<% if @user == current_user %>
+<div id="profile_here">
+<div class="profile_page">
+  <div class="profile_page_background">
+    <h1>My Profile</h1>
+  </div>
+</div>
   <br>
 <% else %>
   <br>
-  <h1 style="margin-top: 100px"><%= @user.first_name + " " + @user.last_name %>'s Profile</h1>
+  <div id="profile_here">
+<div class="profile_page">
+  <div class="profile_page_background">
+    <h1><%= @user.first_name + " " + @user.last_name %>'s Profile</h1>
+  </div>
+</div>
+  
   <br>
 <% end %>
+
+<div class="profile_page_index" style="margin-left: 180px; margin-right: 180px; margin-top: 40px; margin-bottom: 60px;">
 
 <div id="containerBlood">
       <div class="pour"></div>
@@ -279,19 +298,15 @@ $("#btnSubmit").click(function() {
       </div>
     </div>
 
-<% if @user.id == current_user.id %>
-  <%= link_to "Edit profile", edit_user_path %> |
-  <%= link_to "Reset password", edit_user_password_path(current_user.id) %>
-<% end %>
+
 
 <br><br>
-<div id="profile_info">
+<div id="profile_info" style="margin-left: 80px;">
 <p><strong>Name:</strong> <%= @user.first_name + ' ' + @user.last_name%> </p>
 <p><strong>Email:</strong> <%= @user.email %> </p>
 <p><strong>Mobile:</strong> <%= @user.phone_number %></p>
 <p><strong>Date of Birth:</strong> <%= @user.date_of_birth %></p>
 <p><strong>State:</strong> <%= @user.state %></p>
-</div>
 
 <div id="blood-point">
   <strong>Reward Points:</strong> <span id="pointpoint"><%= @user.points %></span>
@@ -306,13 +321,19 @@ $("#btnSubmit").click(function() {
   <p>Blood Type:</p>
   <h1><%= @user.blood_type.upcase %></h1>
 </div>
-<br><br>
+<br>
+<% if @user.id == current_user.id %>
+  <%= link_to "Edit profile", edit_user_path %> |
+  <%= link_to "Reset password", edit_user_password_path(current_user.id) %>
+<% end %>
+</div>
 
-<h2>Donation History</h2>
+<br><br><br>
+<h2 class="profile_page_background">Donation History</h2>
 <table class="table">
   <thead>
     <tr>
-      <th>Photo</th>
+      <th>Event</th>
       <th>Organizer</th>
       <th>Venue</th>
       <th colspan="3"></th>
@@ -324,17 +345,20 @@ $("#btnSubmit").click(function() {
       <% @event = Event.where(id: x.event_id) %>
       <% @event.each do |y| %>
         <tr>
-          <td><img style="height: 4rem; width: 5rem;" src="<%= y.photos.first %>" alt="..."></td>
+          <!-- <td><img style="height: 4rem; width: 5rem;" src="<%#= y.photos.first %>" alt="..."></td> -->
+          <td><%= y.title %></td>
           <td><%= y.organizer %></td>
           <td><%= y.venue %></td>
-          <td><%= link_to "show", event_path(y.id) %> </td>
+          <td><%= link_to "More Details", event_path(y.id) %> </td>
         </tr>
       <% end %>
     <% end %>
   </tbody>
 
 </table>
-  <br>
+  <br><br><br>
   <%= will_paginate @attended_list %>
+
+</div>
 
 
