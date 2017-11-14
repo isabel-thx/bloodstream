@@ -1,7 +1,12 @@
-<div class="header">
-  <h1>Bloodstream</h1>
-  <h4>Live longer. Together.</h4>
-</div>
+<%= content_for :navbar do %>
+  <div class="header">
+    <%= render partial: 'layouts/navbar' %>
+    <div class='header-content'>  
+      <h1>Bloodstream</h1>
+      <h4>Live longer. Together.</h4>
+    </div>
+  </div>
+<% end %>
 
 <div class="our_mission mt-5 mb-5 ml-5 pl-4 mr-5 pr-4">
 	<h1>Our Mission</h1>
