@@ -1,21 +1,28 @@
 <div id="clearance" class="sign-up">
-  <h2><%= t(".title") %></h2>
+  <h2 class="xx"><%= t(".title") %></h2><br>
 
-  <%= form_for @user do |form| %>
+<div class="container">
+  <%= form_for @user, :html => {:class => "form-horizontal center"}  do |form| %>
     <%= render partial: '/users/form', object: form %>
 
-    <div class="password-field">
-      <%= form.label :password %>
-      <%= form.password_field :password %>
+    <div class="form-group">
+      <%= form.label "Password", class: "col-md-4 control-label" %>
+      <div class="col-md-4">
+      <%= form.password_field :password, :required => 'required', class: "form-control"%>
       *at least 7 characters
     </div>
 
-    <div class="submit-field">
-      <%= form.submit %>
-    </div>
 
-    <div class="other-links">
-      <%= link_to t(".sign_in"), sign_in_path %>
-    </div>
+
+    <div class="submit-field">
+      <%= form.submit "Submit", class: "btn btn-link btn-lg" %>
+
+<br>Or<br>
+   <%= link_to "Sign up with Facebook", "/auth/facebook" %>
+
+  </div>
   <% end %>
-</div>
+
+
+<br><br><br>
+
