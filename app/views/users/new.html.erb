@@ -11,15 +11,18 @@
       <%= form.password_field :password, :required => 'required', class: "form-control"%>
       *at least 7 characters
     </div>
-  </div>
+
 
 
     <div class="submit-field">
       <%= form.submit "Submit", class: "btn btn-link btn-lg" %>
-    </div>
 
-  
+<br>Or<br>
+   <%= link_to "Sign up with Facebook", "/auth/facebook" %>
+
+  </div>
   <% end %>
-</div>
-</div>
+
+
+<br><br><br>
 
