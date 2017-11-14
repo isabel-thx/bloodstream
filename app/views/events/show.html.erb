@@ -25,15 +25,23 @@
     </div>
 
     </div>
+
+    <div id="long" style="display:none;"><%=@event.longitude%></div>
+    <div id="lat" style="display:none;"><%=@event.latitude%></div>
+
     <script type="text/javascript">
     $(document).on('turbolinks:load',function(){
       console.log("starting")
       handler = Gmaps.build('Google');
       console.log("google built");
-      console.log("<%= @event.longitude %>");
-      console.log("<%= @event.latitude %>");
+     
+     var long = $("#long").html();
+     var lat = $("#lat").html();
+     var long = parseFloat(long);
+      var lat = parseFloat(lat);
+debugger;
       handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-        uluru = {"lat": <%= @event.latitude %>, "lng": <%= @event.longitude %>};
+        uluru = {"lat": lat, "lng": long};
         markers = handler.addMarkers([
           {
             "picture": {
