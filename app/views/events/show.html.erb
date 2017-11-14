@@ -39,7 +39,7 @@
      var lat = $("#lat").html();
      var long = parseFloat(long);
       var lat = parseFloat(lat);
-debugger;
+
       handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
         uluru = {"lat": lat, "lng": long};
         markers = handler.addMarkers([
