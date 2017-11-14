@@ -11,54 +11,76 @@
     </div>
   <% end %>
 
+  <div class="xx">
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :event_title %>
+    <br>
+    <%= form.label :title, class: "col-md-4 control-label" %>
+    <div class="col-md-4">
+      <%= form.text_field :title, id: :event_title, class: "form-control" %>
+    </div>
   </div>
-
+  <br>
   <div class="field">
-    <%= form.label :organizer %>
-    <%= form.text_field :organizer, id: :event_organizer %>
+    <%= form.label :organizer, class: "col-md-4 control-label" %>
+    <div class="col-md-4">
+      <%= form.text_field :organizer, id: :event_organizer, class: "form-control" %>
+    </div>
   </div>
-
+  <br>
   <div class="field">
-    <%= form.label :venue %>
-    <%= form.text_field :venue, id: :event_venue %>
+    <%= form.label :venue, class: "col-md-4 control-label" %>
+    <div class="col-md-4">
+      <%= form.text_field :venue, id: :event_venue, class: "form-control" %>
+    </div>
   </div>
-
+  <br>
   <div class="field">
-    <%= form.label :start_date %>
-    <%= form.text_field :start_date, id: "flatpickr-start-input" %>
-    <script>$('#flatpickr-start-input').flatpickr();</script>
+    <%= form.label :start_date, class: "col-md-4 control-label" %>
+    <div class="col-md-4">
+      <%= form.text_field :start_date, id: "flatpickr-start-input", class: "form-control" %>
+      <script>$('#flatpickr-start-input').flatpickr();</script>
+    </div>
   </div> 
-
+  <br>
   <div class="field">
-    <%= form.label :end_date %>
-    <%= form.text_field :end_date, id: "flatpickr-end-input" %>
-    <script>$('#flatpickr-end-input').flatpickr();</script>
+    <%= form.label :end_date, class: "col-md-4 control-label" %>
+    <div class="col-md-4">
+      <%= form.text_field :end_date, id: "flatpickr-end-input", class: "form-control" %>
+      <script>$('#flatpickr-end-input').flatpickr();</script>
+    </div>
   </div>
-
+  <br>
   <div class="field">
-    <%= form.label :start_time %>
-    <%= form.time_select :start_time, id: :event_start_time %>
+    <%= form.label :start_time, class: "col-md-4 control-label" %>
+    <div class="col-md-4">
+      <%= form.time_select :start_time, id: :event_start_time, class: "form-control" %>
+    </div>
   </div>
-
+  <br>
   <div class="field">
-    <%= form.label :end_time %>
-    <%= form.time_select :end_time, id: :event_end_time %>
+    <%= form.label :end_time, class: "col-md-4 control-label" %>
+    <div class="col-md-4">
+     <%= form.time_select :end_time, id: :event_end_time, class: "form-control" %>
+   </div>
   </div>
-
+  <br>
   <div class="field">
-    <%= form.label :photos %>
-    <%= form.file_field :photos, multiple: true, id: :event_photos %>
+    <%= form.label :photos, class: "col-md-4 control-label" %>
+    <div class="col-md-4">
+      <%= form.file_field :photos, multiple: true, id: :event_photos, class: "form-control" %>
+    </div>
   </div>
-
+  <br>
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :event_description %>
+    <%= form.label :description, class: "col-md-4 control-label" %>
+    <div class="col-md-4">
+      <%= form.text_area :description, id: :event_description, class: "form-control", rows:"3" %>
+    </div>
   </div>
-
+  <br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Submit", id: "submit-button"%>
   </div>
 <% end %>
+</div>
+

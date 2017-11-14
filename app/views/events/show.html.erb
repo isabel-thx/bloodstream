@@ -4,12 +4,6 @@
 <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
 <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script>
 
-<!-- <div class="event_page_content">
-  <div class="event_page_background">
-    <h1>Events</h1>
-  </div>
-</div> -->
-
 <div id="event_here">
 <%= content_for :navbar do %>
   <div class="event_page">
@@ -26,7 +20,7 @@
 <% end %>
 
 <br>
-<div style='width: 800px; margin-left: 220px; margin-top: 10px; margin-bottom:20px;'>
+<div style='width: 800px; margin-left: 180px; margin-top: 10px; margin-bottom:20px;'>
       <div id="map" style='width: 1000px; height: 400px;'></div>
     </div>
 
@@ -46,7 +40,7 @@
         }
       ]);
       var map = new google.maps.Map(document.getElementById('map'), {
-              zoom: 14,
+              zoom: 16,
               center: uluru
             });
       var marker = new google.maps.Marker({

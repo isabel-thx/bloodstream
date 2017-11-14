@@ -375,7 +375,7 @@ hr {
 }
 
 .faq_page {
-	background-image: url(/assets/faq.jpg);
+	background-image: url(/assets/calendar.jpg);
 	background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: right 0px bottom 60px;
@@ -427,7 +427,7 @@ hr {
 }
 
 .xx{
-	margin: 0 25%;
+	margin-left: 120px;
 }
 
 .profile_page {
@@ -440,15 +440,6 @@ hr {
   background-position: right 0px bottom 60px;
   background-size: cover;
 }
-
-/*.event_page {
-	background-image: url(/assets/calendar.jpg);
-	background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: right 0px bottom 60px;
-  background-size: cover;
-}
-*/
 
 .profile_page_content {
 	padding: 100px;
@@ -475,3 +466,10 @@ hr {
 	font-size: 3.2rem;
 }
 
+
+#submit-button {
+	padding: 3px 20px;
+	border: 2px solid black;
+	border-radius: 50px;
+	background-color: white;
+}
