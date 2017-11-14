@@ -388,3 +388,15 @@ body {
 .content, .button {
 	padding-top: 10px;
 }
+
+.btn-link{
+	text-decoration: none;
+}
+
+.btn-link:hover {
+    color: grey;
+}
+
+.xx{
+	margin: 0 25%;
+}
