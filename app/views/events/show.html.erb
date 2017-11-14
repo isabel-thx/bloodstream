@@ -26,30 +26,33 @@
 
     </div>
     <script type="text/javascript">
-    handler = Gmaps.build('Google');
-    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-      uluru = {"lat": <%= @event.latitude %>, "lng": <%= @event.longitude %>};
-      markers = handler.addMarkers([
-        {
-          "picture": {
-            "url": "http://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-32.png",
-            "width":  32,
-            "height": 32
-          },
-          "infowindow": "Maps"
-        }
-      ]);
-      var map = new google.maps.Map(document.getElementById('map'), {
-              zoom: 16,
-              center: uluru
-            });
-      var marker = new google.maps.Marker({
-              position: uluru,
-              map: map
-            });
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
+    $(document).on('turbolinks:load',function(){
+      handler = Gmaps.build('Google');
+      handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+        uluru = {"lat": <%= @event.latitude %>, "lng": <%= @event.longitude %>};
+        markers = handler.addMarkers([
+          {
+            "picture": {
+              "url": "http://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-32.png",
+              "width":  32,
+              "height": 32
+            },
+            "infowindow": "Maps"
+          }
+        ]);
+        var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 16,
+                center: uluru
+              });
+        var marker = new google.maps.Marker({
+                position: uluru,
+                map: map
+              });
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+      });
     });
+    
     </script>
 
 <div style="margin-left: 160px; margin-right: 160px; margin-top: 40px; margin-bottom:40px;">
