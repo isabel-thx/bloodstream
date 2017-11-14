@@ -11,16 +11,17 @@
     <%= form.label :password, class: "col-md-4 control-label" %>
      <div class="col-md-4">
     <%= form.password_field :password, :required => 'required', class: "form-control" %>
+      <%= link_to t(".forgot_password"), new_password_path %>
   </div>
 </div>
   
   <div class="submit-field">
     <%= form.submit "Submit", class: "btn btn-link btn-lg" %>
-  </div>Or
+  <br>Or<br>
     
-  <%= link_to "Sign in with Facebook", "/auth/facebook" %>
-   <br>
-  <%= link_to t(".forgot_password"), new_password_path %>
+<%= link_to "Sign in with Facebook", "/auth/facebook" %>
+   <br><br><br>
+
 
   <% end %>
 </div>
