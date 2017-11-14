@@ -4,102 +4,105 @@
 <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
 <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script>
 
-<div class="event_page">
+<!-- <div class="event_page_content">
   <div class="event_page_background">
     <h1>Events</h1>
   </div>
-</div>
+</div> -->
 
-<div>
-<% if @event.photos.length > 0 %>
-<p>
-  <%= image_tag @event.photos.first %>
-</p>
+<div id="event_here">
+<%= content_for :navbar do %>
+  <div class="event_page">
+    <%= render partial: 'layouts/navbar' %>
+    <div class="event_page_content">
+      <div class="event_page_background">
+        <h1>Events</h1>
+      </div>
+    </div>
+  </div>
 <% end %>
 
-<h1 style="margin-left: 100px; margin-top: 150px;" strong><%= @event.title %></h1 strong>
+<br><br><br>
+<div style='width: 800px; margin-left: 160px; margin-top: 10px; margin-bottom:20px;'>
+      <div id="map" style='width: 1000px; height: 400px;'></div>
+    </div>
 
-<p>
-  <strong>Organizer:</strong>
-  <%= @event.organizer %>
-</p>
+    </div>
+    <script type="text/javascript">
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      uluru = {"lat": <%= @event.latitude %>, "lng": <%= @event.longitude %>};
+      markers = handler.addMarkers([
+        {
+          "picture": {
+            "url": "http://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-32.png",
+            "width":  32,
+            "height": 32
+          },
+          "infowindow": "Maps"
+        }
+      ]);
+      var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 14,
+              center: uluru
+            });
+      var marker = new google.maps.Marker({
+              position: uluru,
+              map: map
+            });
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+    });
+    </script>
 
-<p>
-  <strong>Venue:</strong>
-  <%= @event.venue %>
-</p>
+<div style="margin-left: 160px; margin-right: 160px; margin-top: 40px; margin-bottom:40px;">
+  <h3><%= @event.title %></h3>
 
-<p>
-  <strong>Date:</strong>
-  <% if @event.start_date == @event.end_date %>
-    <%= @event.start_date.strftime('%A, %d %B %Y') %> (1 day)
-  <% else %>
-    <%= @event.start_date.strftime('%A, %d %B %Y') %> - <%= @event.end_date.strftime('%A, %d %B %Y') %> (<%= (@event.start_date..@event.end_date).to_a.length %> days)
+  <p>
+    by <%= @event.organizer %>
+    <br>
+
+    <br>
+    <strong>Venue:</strong>
+    <%= @event.venue %>
+    <br>
+ 
+    <strong>Date:</strong>
+    <% if @event.start_date == @event.end_date %>
+      <%= @event.start_date.strftime('%a, %d %b %Y') %> (1 day)
+    <% else %>
+      <%= @event.start_date.strftime('%a, %d %b %Y') %> - <%= @event.end_date.strftime('%a, %d %b %Y') %> (<%= (@event.start_date..@event.end_date).to_a.length %> days)
+    <% end %>
+    <br>
+  
+    <strong>Time:</strong>
+    <%= @event.start_time.strftime('%I:%M %p') %> - <%= @event.end_time.strftime('%I:%M %p') %>
+    <br>
+
+    <br>
+    <%= @event.description %>
+  </p>
+
+  <% if signed_in? %>
+    <% if current_user.admin? %>
+      <%= link_to 'Edit', edit_event_path(@event) %> |
+      <%= link_to 'Back', events_path %> |
+      <%= link_to 'Delete', event_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
   <% end %>
-</p>
-
-<p>
-  <strong>Time:</strong>
-  <%= @event.start_time.strftime('%I:%M %p') %>am - <%= @event.end_time.strftime('%I:%M') %>pm
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
-
-<% if signed_in? %>
-  <% if current_user.admin? %>
-    <%= link_to 'Edit', edit_event_path(@event) %> |
-    <%= link_to 'Back', events_path %> |
-    <%= link_to 'Delete', event_path, method: :delete, data: { confirm: 'Are you sure?' } %>
-  <% end %>
-<% end %>
-
-<!-- Google Maps API -->
-<br><br>
-<div style='width: 800px;'>
-  <div id="map" style='width: 800px; height: 400px;'></div>
-</div>
 
 </div>
-<script type="text/javascript">
-handler = Gmaps.build('Google');
-handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-  uluru = {"lat": <%= @event.latitude %>, "lng": <%= @event.longitude %>};
-  markers = handler.addMarkers([
-    {
-      "picture": {
-        "url": "http://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-32.png",
-        "width":  32,
-        "height": 32
-      },
-      "infowindow": "Maps"
-    }
-  ]);
-  var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 18,
-          center: uluru
-        });
-  var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-  handler.bounds.extendWith(markers);
-  handler.fitMapToBounds();
-});
-</script>
-<br><br>
 
 <% if current_user.admin? %>
 
-  <h2>Attendees</h2>
+<div style="margin-left: 160px; margin-right: 160px; margin-top: 40px; margin-bottom:40px;">
+  <h4>Attendees</h4>
 
   <%= form_tag(event_path, :method => "get", id: "search-form") do %>
   <div class="col-lg-6">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Find donor" name="email" <% params[:email] %>>
-        <span class="input-group-btn">
+        <input type="text" class="form-control justify-content-center" placeholder="Find donor" name="email" <% params[:email] %>>
+        <span class="input-group-btn justify-content-center">
           <button class="btn btn-secondary" type="submit">Go!</button>
         </span>
       </div>
@@ -108,12 +111,13 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
   <br>
   <% end %>
 
+  <div class="attendees_table">
   <% if @donors.present? %>
     <%= render partial: 'attendees/find' %>
   <% else %>
     <%= render partial: '/attendees/event' %>
   <% end %>
-
+  </div>
 <% end %>
         
 

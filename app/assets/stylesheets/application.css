@@ -10,7 +10,7 @@ body {
 
 .navbar {
 	font-size: 14px;
-	background: transparent;
+	/*background: transparent;*/
 	padding: 2px;
 }
 
@@ -30,13 +30,16 @@ body {
 .header {
 	background-image: url(/assets/front2.jpg);
 	height: 100%;
-	background-position: center;
+	/*background-position: center;*/
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   text-align: center;
+}
+
+.header-content {	
 	padding: 200px;
-	padding-top: 400px;
+	/*padding-top: 400px;*/
 	font-family: 'Montserrat', sans-serif;
 	color: #fff;
 }
@@ -268,6 +271,11 @@ body {
 	letter-spacing: 2px;
 }
 
+hr {
+	margin: 0;
+	padding: 0;
+}
+
 .footer h5 {
 	text-transform: uppercase;
 	letter-spacing: 2px;
@@ -298,7 +306,7 @@ body {
 }
 
 #event_here {
-	margin-bottom: 1200px;
+	margin-bottom: 80px;
 }
 .event {
 	background-color: #DC1100;
@@ -322,13 +330,17 @@ body {
 
 .event_page {
 	background-image: url(/assets/calendar.jpg);
-	padding: 100px;
-	padding-top: 180px;
-	padding-bottom: 0px;
 	background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: right 0px bottom 60px;
   background-size: cover;
+}
+
+.event_page_content {
+	padding: 100px;
+	padding-top: 180px;
+	padding-bottom: 0px;
+
 }
 
 .event_page_background {
@@ -351,13 +363,16 @@ body {
 
 .faq_page {
 	background-image: url(/assets/faq.jpg);
-	padding: 100px;
-	padding-top: 180px;
-	padding-bottom: 0px;
 	background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: right 0px bottom 60px;
   background-size: cover;
+}
+
+.faq_page_content {
+  padding: 100px;
+	padding-top: 180px;
+	padding-bottom: 0px;
 }
 
 .faq_page_background {
@@ -374,4 +389,18 @@ body {
 
 .content, .button {
 	padding-top: 10px;
+}
+
+.event_show {
+	padding: 100px;
+	padding-top: 50px;
+}
+
+.event_show h1 {
+	text-align: center;
+}
+
+.attendees_table {
+	margin-top: -100px;
+	margin-bottom: 100px;
 }

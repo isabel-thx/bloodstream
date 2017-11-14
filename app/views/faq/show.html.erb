@@ -193,12 +193,16 @@ $(document).ready(function(){
 }
 
 </style>
-
-<div class="faq_page">
-  <div class="faq_page_background">
-    <h1>FAQs</h1>
+<%= content_for :navbar do %>
+  <div class="faq_page">
+    <%= render partial: 'layouts/navbar' %>
+    <div class='faq_page_content'>
+      <div class="faq_page_background">
+        <h1>FAQs</h1>
+      </div>
+    </div>
   </div>
-</div>
+<% end %>
 
 <body>
 
