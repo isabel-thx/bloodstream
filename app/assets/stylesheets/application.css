@@ -432,8 +432,8 @@ hr {
 
 .profile_page {
 	background-image: url(/assets/profile.jpg);
-	padding: 100px;
-	padding-top: 180px;
+	/*padding: 100px;*/
+	/*padding-top: 180px;*/
 	padding-bottom: 0px;
 	background-repeat: no-repeat;
   background-attachment: fixed;

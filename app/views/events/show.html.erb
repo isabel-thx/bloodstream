@@ -16,14 +16,17 @@
     <%= render partial: 'layouts/navbar' %>
     <div class="event_page_content">
       <div class="event_page_background">
-        <h1>Events</h1>
+        <h1><%= @event.title %></h1>
+          <p>
+      by <%= @event.organizer %>
+    <br>
       </div>
     </div>
   </div>
 <% end %>
 
-<br><br><br>
-<div style='width: 800px; margin-left: 160px; margin-top: 10px; margin-bottom:20px;'>
+<br>
+<div style='width: 800px; margin-left: 220px; margin-top: 10px; margin-bottom:20px;'>
       <div id="map" style='width: 1000px; height: 400px;'></div>
     </div>
 
@@ -56,13 +59,7 @@
     </script>
 
 <div style="margin-left: 160px; margin-right: 160px; margin-top: 40px; margin-bottom:40px;">
-  <h3><%= @event.title %></h3>
 
-  <p>
-    by <%= @event.organizer %>
-    <br>
-
-    <br>
     <strong>Venue:</strong>
     <%= @event.venue %>
     <br>
@@ -88,13 +85,12 @@
       <%= link_to 'Edit', edit_event_path(@event) %> |
       <%= link_to 'Back', events_path %> |
       <%= link_to 'Delete', event_path, method: :delete, data: { confirm: 'Are you sure?' } %>
-    <% end %>
-  <% end %>
+    
 
 </div>
+<br><br>
 
 
-<% if current_user.admin? %>
 
 <div style="margin-left: 160px; margin-right: 160px; margin-top: 40px; margin-bottom:40px;">
   <h4>Attendees</h4>
@@ -110,7 +106,7 @@
     </div>
   </div>
   <br>
-  <% end %>
+
 
   <div class="attendees_table">
   <% if @donors.present? %>
@@ -120,8 +116,11 @@
   <% end %>
   </div>
 <% end %>
-
 <% end %>
+<% end %>
+
+<br><br>
+
         
 
 
