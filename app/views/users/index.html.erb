@@ -25,24 +25,19 @@
 
     
       <tr>
-        <!-- <td><%#= listing.id %></td> -->
         <td><%= user.first_name %> <%= user.last_name %></td>
         <td><%= user.date_of_birth %></td>
         <td><%= user.blood_type %></td>
         <td><%= user.address %></td>
         <td><%= user.phone_number %></td>
         <td><%= user.email %></td>
-        <!-- <td><%#= user.amenities %></td> -->
         <td><%= user.points %></td>
         
         
         <% if signed_in? %>
 
-          <%# if current_user.admin? %>
-           <!--  <td><%#= link_to 'Reservations', user_reservations_path(user) %></td> -->
-          <%# end %>
-
           <td><%= link_to 'Show Profile', user %></td>
+
           <% if current_user.admin? && user.verified == true %>
             <td>Verified Donor<td>
           <% else %>
@@ -51,14 +46,13 @@
 
           <% if user.role == "donor" %>
             <td><%= link_to "Make Admin", upgrade_path(user), method: :post %></td>
-          <% end %>
-
-          <% if user.role == "admin" %>
+          <% else %>
             <td><%= link_to "Remove Admin", downgrade_path(user), method: :post %></td>
           <% end %>
 
-          
+        <% end %>
 
+          
           <%# if current_user.admin? %>
 						<!-- <td><%#= form_for @rewardcodes do |r| %>
 							<%#= r.label :user_id %>
@@ -71,13 +65,11 @@
             <!-- <td><%#= link_to 'Edit', edit_user_path(user) %></td>
             <td><%#= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <%# end %> -->
-            
-        <% end %>
       
-      </tr>
-    <% end %>
+        </tr>
+      <% end %>
   </tbody>
-</table>
+  </table>
 <% end %>
 <% end %>
 
