@@ -21,15 +21,27 @@
 
 <br>
 <div style='width: 800px; margin-left: 180px; margin-top: 10px; margin-bottom:20px;'>
-      <div id="map" style='width: 1000px; height: 400px;' class="justify-content-center"></div>
+    <div id="map" class="justify-content-center" style='width: 1000px; height: 400px;'></div>
     </div>
 
     </div>
+
+    <div id="long" style="display:none;"><%=@event.longitude%></div>
+    <div id="lat" style="display:none;"><%=@event.latitude%></div>
+
     <script type="text/javascript">
     $(document).on('turbolinks:load',function(){
+      console.log("starting")
       handler = Gmaps.build('Google');
+      console.log("google built");
+     
+     var long = $("#long").html();
+     var lat = $("#lat").html();
+     var long = parseFloat(long);
+      var lat = parseFloat(lat);
+
       handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-        uluru = {"lat": <%= @event.latitude %>, "lng": <%= @event.longitude %>};
+        uluru = {"lat": lat, "lng": long};
         markers = handler.addMarkers([
           {
             "picture": {

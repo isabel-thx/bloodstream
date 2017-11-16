@@ -43,6 +43,7 @@ gem 'will_paginate', '~> 3.1.0'
 # you will need to use an Active Job adapter that has a persistent backend (Sidekiq, Resque, etc).
 gem 'sidekiq'
 
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use postgresql as the database for Active Record

@@ -12,6 +12,11 @@ Rails.application.routes.draw do
   post '/attendees/new' => "attendees#new", as: "new_attendee"
   post '/applications/new' => "applications#new", as: "new_application"
 
+  # upgrade user role
+  post '/users/:id/upgrade' => "users#upgrade", as: "upgrade"
+
+  # downgrade user role
+  post '/users/:id/downgrade' => "users#downgrade", as: "downgrade"
 
   resources :events
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
